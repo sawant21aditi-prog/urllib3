@@ -1,19 +1,83 @@
 {
-  "style_suffix": "photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio",
-  "note": "Order = playback order (beat ids). Beat 12 reuses beat 1's image so the loop is seamless. Avoid depicting real, identifiable people.",
-  "shots": [
-    {"beat": 1,  "file": "01.png", "prompt": "Extreme macro close-up of an index finger pressing a worn brass elevator door-close button engraved with two inward-pointing triangles, brushed steel elevator panel, warm key light on the button, the background falling off into dark bokeh"},
-    {"beat": 13, "file": "13.png", "prompt": "Silhouette of a firefighter in full turnout gear and helmet standing at the end of a dark corridor, backlit by a single hard spotlight, light haze and smoke, face completely in shadow, mysterious"},
-    {"beat": 2,  "file": "02.png", "prompt": "Impatient office worker in a blazer standing inside a modern elevator, looking at a wristwatch with an annoyed expression, elevator doors still open, cool fluorescent light"},
-    {"beat": 3,  "file": "03.png", "prompt": "Vintage 1990 paper wall calendar pinned to a wooden office wall, slightly curled pages, warm nostalgic 1990s film photograph look"},
-    {"beat": 4,  "file": "04.png", "prompt": "Close-up of a fountain pen signing an official government document with an embossed gold seal on a polished wooden desk, warm historic light, 1990s"},
-    {"beat": 5,  "file": "05.png", "prompt": "Symmetrical front view of brushed steel elevator doors held fully open, bright clean empty elevator interior, polished marble lobby floor"},
-    {"beat": 6,  "file": "06.png", "prompt": "Smiling confident young woman using a modern wheelchair rolling into a bright elevator, warm natural light, candid documentary photo"},
-    {"beat": 7,  "file": "07.png", "prompt": "Macro photo of the back of an elevator button panel opened up, exposed wiring and a small circuit board, one red wire visibly disconnected, beam of a technician's flashlight"},
-    {"beat": 8,  "file": "08.png", "prompt": "Close-up of a hand jabbing an elevator button repeatedly, slight motion blur on the finger, frustrated energy, steel panel"},
-    {"beat": 9,  "file": "09.png", "prompt": "A single glossy pill capsule half yellow half white standing on a dark reflective surface, macro product photography, dramatic rim light"},
-    {"beat": 10, "file": "10.png", "prompt": "Dark empty elevator lobby at night, a single narrow beam of light falling on an elevator call panel that has a small keyhole, moody, dust in the light"},
-    {"beat": 11, "file": "11.png", "prompt": "Close-up of a firefighter's gloved hand turning a brass key in a red fire-service elevator keyswitch panel, dramatic light, reflective stripe on the sleeve"},
-    {"beat": 12, "file": "01.png", "prompt": "REUSE 01.png"}
-  ]
+ "style_suffix": "Vox-style editorial mixed-media collage: real photographs cut out with thick white paper borders and soft drop shadows, layered on a {bg} textured paper background, halftone dot patterns, torn paper edges, washi tape strips, one or two bold flat geometric shapes in bright contrasting colors, magazine print texture, photorealistic photo elements, dramatic studio lighting, high contrast, vivid detail, main subject in the middle third, empty space in the top quarter, no text, no letters, no numbers, no watermark, no logos, 9:16 vertical aspect ratio",
+ "note": "Vox photo-collage. Order = playback order. Beat 12 reuses 01.png for the seamless loop. No identifiable real people.",
+ "shots": [
+  {
+   "beat": 1,
+   "file": "01.png",
+   "bg": "sky blue",
+   "prompt": "a large photo cutout of an index finger pressing a worn brass elevator door-close button with two inward-pointing triangles, a bright yellow circle behind the button, small red zigzag shapes suggesting alarm"
+  },
+  {
+   "beat": 13,
+   "file": "13.png",
+   "bg": "hot pink",
+   "prompt": "a black-and-white photo cutout of a firefighter in full helmet and turnout gear seen as a dark silhouette, inside a torn paper spotlight cone, a big yellow paper question-mark shape beside him"
+  },
+  {
+   "beat": 2,
+   "file": "02.png",
+   "bg": "mint green",
+   "prompt": "a photo cutout of an impatient office worker in a blazer checking a wristwatch, next to a photo cutout of closed steel elevator doors, a cutout of a vintage stopwatch pinned with tape"
+  },
+  {
+   "beat": 3,
+   "file": "03.png",
+   "bg": "lavender",
+   "prompt": "a vintage 1990 paper calendar page photo cutout with a hand-drawn red circle, beside an old 1990s film photo of the US Capitol dome with a white border, a yellow arrow shape"
+  },
+  {
+   "beat": 4,
+   "file": "04.png",
+   "bg": "coral orange",
+   "prompt": "a photo cutout of an official government document with an embossed gold seal and a fountain pen mid-signature, a blue triangle shape behind it, tape on the corners"
+  },
+  {
+   "beat": 5,
+   "file": "05.png",
+   "bg": "aqua",
+   "prompt": "a photo cutout of brushed steel elevator doors held fully open with a bright interior, a pink paper timer-arc shape drawn between the doors, a small stopwatch cutout"
+  },
+  {
+   "beat": 6,
+   "file": "06.png",
+   "bg": "lime green",
+   "prompt": "a photo cutout of a smiling confident young woman using a modern wheelchair rolling forward, a big yellow circle behind her, small confetti paper shapes"
+  },
+  {
+   "beat": 7,
+   "file": "07.png",
+   "bg": "periwinkle blue",
+   "prompt": "a photo cutout of the back of an elevator button panel with exposed wiring and a circuit board, one red wire unplugged and dangling, a white blueprint-grid paper layer behind it"
+  },
+  {
+   "beat": 8,
+   "file": "08.png",
+   "bg": "peach",
+   "prompt": "a photo cutout of a hand jabbing an elevator button repeatedly with motion blur, comic-style paper motion lines around it, a blue starburst shape"
+  },
+  {
+   "beat": 9,
+   "file": "09.png",
+   "bg": "teal",
+   "prompt": "a large glossy pill capsule photo cutout, half yellow half white, with the elevator door-close triangles symbol printed on it, a pharmacy label paper scrap taped beside it"
+  },
+  {
+   "beat": 10,
+   "file": "10.png",
+   "bg": "charcoal black",
+   "prompt": "a photo cutout of an elevator call panel with a small keyhole, lit by a torn yellow paper spotlight cone, everything else dark, a few dust specks"
+  },
+  {
+   "beat": 11,
+   "file": "11.png",
+   "bg": "sky blue",
+   "prompt": "a photo cutout of a firefighter's gloved hand turning a brass key in a red fire-service elevator keyswitch, a bright orange circle behind it, tape strips"
+  },
+  {
+   "beat": 12,
+   "file": "01.png",
+   "prompt": "REUSE 01.png"
+  }
+ ]
 }

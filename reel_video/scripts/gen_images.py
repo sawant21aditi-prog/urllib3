@@ -89,7 +89,7 @@ def main():
         if os.path.exists(dst) and not force:
             print("skip", shot["file"])
             continue
-        prompt = f'{shot["prompt"]}, {spec["style_suffix"]}'
+        prompt = f'{shot["prompt"]}, {spec["style_suffix"].format(bg=shot.get("bg", "colorful"))}'
         raw = dst + ".raw"
         open(raw, "wb").write(generate(model, prompt))
         # normalize to exactly 1080x1920 (cover-crop) for the composition

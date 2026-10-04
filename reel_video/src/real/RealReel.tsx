@@ -97,8 +97,8 @@ const CineGrade: React.FC = () => {
     <AbsoluteFill style={{ pointerEvents: "none" }}>
       <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(20,60,80,0.18), transparent 40%, rgba(255,150,60,0.10))", mixBlendMode: "soft-light" }} />
       {/* darken top + bottom so white headline/subtitles always read over any photo */}
-      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 58%, rgba(0,0,0,0.55) 100%)" }} />
-      <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.45) 100%)" }} />
+      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0) 26%, rgba(0,0,0,0) 62%, rgba(0,0,0,0.30) 100%)" }} />
+      <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.25) 100%)" }} />
       <AbsoluteFill
         style={{
           backgroundImage: noise,
