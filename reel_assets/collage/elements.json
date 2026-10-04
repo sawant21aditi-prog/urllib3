@@ -114,6 +114,42 @@
    "file": "snail.png",
    "tone": "color",
    "prompt": "a small garden snail with a spiral shell, side view, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_lobby",
+   "file": "bg_lobby.png",
+   "tone": "bg",
+   "prompt": "a black and white photograph of an empty office-building elevator lobby wall with marble panels, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_teal",
+   "file": "bg_teal.png",
+   "tone": "bg",
+   "prompt": "a teal green chalkboard surface with faint chalk dust and smudges, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_blueprint",
+   "file": "bg_blueprint.png",
+   "tone": "bg",
+   "prompt": "a vintage blueprint paper with a faint white grid and fold creases, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_dark",
+   "file": "bg_dark.png",
+   "tone": "bg",
+   "prompt": "a dark charcoal concrete wall with one soft spotlight pool in the middle, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_mint_tiles",
+   "file": "bg_mint_tiles.png",
+   "tone": "bg",
+   "prompt": "pale mint green square bathroom tiles with grout lines, straight on, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_newsprint",
+   "file": "bg_newsprint.png",
+   "tone": "bg",
+   "prompt": "an old yellowed newspaper page texture, blurred unreadable print, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
   }
  ]
 }

@@ -18,3 +18,9 @@ line 16: keyhole_panel
 line 17: glove_key
 line 18: keyswitch
 line 19: snail
+line 20: bg_lobby
+line 21: bg_teal
+line 22: bg_blueprint
+line 23: bg_dark
+line 24: bg_mint_tiles
+line 25: bg_newsprint
