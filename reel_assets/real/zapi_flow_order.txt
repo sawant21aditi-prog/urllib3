@@ -1,0 +1,13 @@
+ZAPI Flow download order -> rename to
+line 1: 01.png
+line 2: 13.png
+line 3: 02.png
+line 4: 03.png
+line 5: 04.png
+line 6: 05.png
+line 7: 06.png
+line 8: 07.png
+line 9: 08.png
+line 10: 09.png
+line 11: 10.png
+line 12: 11.png
