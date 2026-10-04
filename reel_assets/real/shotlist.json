@@ -1,0 +1,19 @@
+{
+  "style_suffix": "photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio",
+  "note": "Order = playback order (beat ids). Beat 12 reuses beat 1's image so the loop is seamless. Avoid depicting real, identifiable people.",
+  "shots": [
+    {"beat": 1,  "file": "01.png", "prompt": "Extreme macro close-up of an index finger pressing a worn brass elevator door-close button engraved with two inward-pointing triangles, brushed steel elevator panel, warm key light on the button, the background falling off into dark bokeh"},
+    {"beat": 13, "file": "13.png", "prompt": "Silhouette of a firefighter in full turnout gear and helmet standing at the end of a dark corridor, backlit by a single hard spotlight, light haze and smoke, face completely in shadow, mysterious"},
+    {"beat": 2,  "file": "02.png", "prompt": "Impatient office worker in a blazer standing inside a modern elevator, looking at a wristwatch with an annoyed expression, elevator doors still open, cool fluorescent light"},
+    {"beat": 3,  "file": "03.png", "prompt": "Vintage 1990 paper wall calendar pinned to a wooden office wall, slightly curled pages, warm nostalgic 1990s film photograph look"},
+    {"beat": 4,  "file": "04.png", "prompt": "Close-up of a fountain pen signing an official government document with an embossed gold seal on a polished wooden desk, warm historic light, 1990s"},
+    {"beat": 5,  "file": "05.png", "prompt": "Symmetrical front view of brushed steel elevator doors held fully open, bright clean empty elevator interior, polished marble lobby floor"},
+    {"beat": 6,  "file": "06.png", "prompt": "Smiling confident young woman using a modern wheelchair rolling into a bright elevator, warm natural light, candid documentary photo"},
+    {"beat": 7,  "file": "07.png", "prompt": "Macro photo of the back of an elevator button panel opened up, exposed wiring and a small circuit board, one red wire visibly disconnected, beam of a technician's flashlight"},
+    {"beat": 8,  "file": "08.png", "prompt": "Close-up of a hand jabbing an elevator button repeatedly, slight motion blur on the finger, frustrated energy, steel panel"},
+    {"beat": 9,  "file": "09.png", "prompt": "A single glossy pill capsule half yellow half white standing on a dark reflective surface, macro product photography, dramatic rim light"},
+    {"beat": 10, "file": "10.png", "prompt": "Dark empty elevator lobby at night, a single narrow beam of light falling on an elevator call panel that has a small keyhole, moody, dust in the light"},
+    {"beat": 11, "file": "11.png", "prompt": "Close-up of a firefighter's gloved hand turning a brass key in a red fire-service elevator keyswitch panel, dramatic light, reflective stripe on the sleeve"},
+    {"beat": 12, "file": "01.png", "prompt": "REUSE 01.png"}
+  ]
+}
