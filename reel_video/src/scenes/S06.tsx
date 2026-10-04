@@ -1,8 +1,9 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Scene 06 — "for someone using a wheelchair to get inside."
 // Camera tracks a smiling wheelchair user rolling in (parallax wall/floor) → she glides into the open
 // elevator → confetti pop → she waves.
 import React from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, interpolate, useVideoConfig } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { Burst, Cutout, Halftone, SceneExit, Tape, clamp, useSpring } from "../components/lib";

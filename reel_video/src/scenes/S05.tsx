@@ -1,7 +1,8 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Scene 05 — "One rule: elevator doors must stay open long enough"
 // Doors slide open (ding) → RULE stamp slams → yellow timing arc fills like a countdown while 1·2·3 SEC ticks.
 import React from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, interpolate, useVideoConfig } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { Burst, Camera, Cutout, Halftone, SceneExit, Tape, clamp, drawOn, useShake, useSpring } from "../components/lib";

@@ -1,8 +1,9 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Scene 09 — "It's what's known as a placebo button."
 // Giant capsule drops from the top spinning 180° to reveal ▶|◀, paper-thud bounce, tape slaps,
 // Rx PLACEBO label swings in, then the capsule pops open: nothing inside.
 import React from "react";
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, interpolate, spring, useVideoConfig } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { Burst, Cutout, Halftone, SceneExit, Tape, clamp, useShake } from "../components/lib";

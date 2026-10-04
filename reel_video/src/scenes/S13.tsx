@@ -1,7 +1,8 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Hook part 2 (plays 2nd, ~1.3–3.0s): "And only one person can make it work."
 // Open loop for the 3-second rule — a mystery silhouette that only pays off at the firefighter reveal (S11).
 import React from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, interpolate } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { Cutout, Halftone, Tape, Slam, Burst, useShake, useSpring, SceneExit, clamp } from "../components/lib";
@@ -56,7 +57,7 @@ export const S13: React.FC<SceneProps> = ({ durationInFrames }) => {
               >
                 <Firefighter height={620} />
               </div>
-              <Sparkle x={390 + 120} y={470} s={14 * glint} color={c.hero} />
+              <Sparkle x={390 + 120} y={470} s={5 * glint} color={c.hero} />
             </div>
           </Cutout>
         </Slam>

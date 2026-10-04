@@ -12,17 +12,19 @@
    "visual": "a single large brass elevator close-door button with two inward-pointing triangles, cut out as a paper sticker, centered on cream paper, a yellow circle behind it",
    "motion": "punch",
    "retention": "Beat 1 is a strong curiosity-gap line (a familiar object accused of lying) and it lands in 1.29s, so the words pass the 3-second test; the risk is visual: a static button on cream paper looks like a still image in the first frames. Strengthen it by having a cartoon finger already jabbing the button on frame 0 (no fade-in, no blank frame), with a click SFX and 'LYING' stamped in yellow on the punch, plus a quick red glitch/flicker on the button's triangles to signal 'fake'. Keep the caption on screen from frame 0 so muted viewers get the hook too.",
-   "speed": 1.25
+   "speed": 1.15,
+   "design_s": 1.6
   },
   {
    "id": 13,
-   "speed": 1.25,
+   "speed": 1.15,
    "narration": "And only one person can make it work.",
    "caption": "ONE PERSON CAN USE IT",
    "highlight": "ONE",
    "visual": "open-loop tease: dark spotlight, a mystery silhouette with a big yellow question mark, a key glint",
    "motion": "tease",
-   "retention": "3-second rule: completes the hook with an open loop that only pays off at the firefighter reveal near the end."
+   "retention": "3-second rule: completes the hook with an open loop that only pays off at the firefighter reveal near the end.",
+   "design_s": 1.77
   },
   {
    "id": 2,
@@ -30,7 +32,8 @@
    "caption": "DOORS IGNORE YOU",
    "highlight": "IGNORE",
    "visual": "paper cutout of an impatient person in a mustard-yellow hoodie checking a wristwatch, standing in front of closed elevator doors cut from charcoal paper",
-   "motion": "pushin"
+   "motion": "pushin",
+   "design_s": 2.74
   },
   {
    "id": 3,
@@ -39,7 +42,8 @@
    "highlight": "1990",
    "visual": "a vintage 1990 desk calendar page cut out as paper, pinned with washi tape, next to an archival-style photo cutout of the U.S. Capitol dome",
    "motion": "pullout",
-   "retention": "At 4.34s the history pivot is the biggest drop-off risk. Do a fast rewind whip: calendar pages flip backwards in ~0.4s (2026 -> 1990) with a tape-rewind SFX, then the 1990 page slams down and the washi tape snaps on."
+   "retention": "At 4.34s the history pivot is the biggest drop-off risk. Do a fast rewind whip: calendar pages flip backwards in ~0.4s (2026 -> 1990) with a tape-rewind SFX, then the 1990 page slams down and the washi tape snaps on.",
+   "design_s": 3.45
   },
   {
    "id": 4,
@@ -47,7 +51,8 @@
    "caption": "THE ADA",
    "highlight": "ADA",
    "visual": "an old legal document cutout with a large official wax seal and a fountain pen, halftone shadow, a yellow triangle accent",
-   "motion": "pushin"
+   "motion": "pushin",
+   "design_s": 3.55
   },
   {
    "id": 5,
@@ -56,7 +61,8 @@
    "highlight": "SECONDS",
    "visual": "elevator doors cut from charcoal paper held wide open, a measured timing arc drawn in yellow between them like a diagram",
    "motion": "pushin",
-   "retention": "Animate the yellow timing arc as a countdown that fills while a small '3 SEC' counter ticks 1-2-3 between the open doors, giving the eye something to track through the explanation."
+   "retention": "Animate the yellow timing arc as a countdown that fills while a small '3 SEC' counter ticks 1-2-3 between the open doors, giving the eye something to track through the explanation.",
+   "design_s": 3.32
   },
   {
    "id": 6,
@@ -64,7 +70,8 @@
    "caption": "EVERYONE GETS IN",
    "highlight": "EVERYONE",
    "visual": "a smiling woman using a wheelchair as a paper cutout, rolling into an open elevator, confident and empowered, yellow circle accent behind her",
-   "motion": "slide"
+   "motion": "slide",
+   "design_s": 2.57
   },
   {
    "id": 7,
@@ -73,7 +80,8 @@
    "highlight": "OFF",
    "visual": "cutaway diagram of the back of an elevator button panel, paper cutout wires, one wire visibly unplugged and dangling, labeled like a technical blueprint",
    "motion": "pushin",
-   "retention": "At ~19.5s on the word 'off', punch-zoom 115% into the wire as it visibly yanks out of its socket with a spark cutout and a 2-frame white flash; caption 'OFF' shakes once."
+   "retention": "At ~19.5s on the word 'off', punch-zoom 115% into the wire as it visibly yanks out of its socket with a spark cutout and a 2-frame white flash; caption 'OFF' shakes once.",
+   "design_s": 3.82
   },
   {
    "id": 8,
@@ -81,7 +89,8 @@
    "caption": "NOTHING HAPPENS",
    "highlight": "NOTHING",
    "visual": "the same person in the mustard-yellow hoodie jabbing the button with both fingers, comic motion lines cut from paper, frustrated face",
-   "motion": "shake"
+   "motion": "shake",
+   "design_s": 2.24
   },
   {
    "id": 9,
@@ -90,7 +99,8 @@
    "highlight": "PLACEBO",
    "visual": "a giant pill capsule cutout, half yellow half cream, with the close-door triangles symbol printed on it, halftone shadow, pinned with tape",
    "motion": "pullout",
-   "retention": "The placebo pill drops in from top, spins 180 degrees to reveal the close-door triangles printed on it, lands with a paper-thud bounce. Keep it under 0.5s so the beat stays snappy."
+   "retention": "The placebo pill drops in from top, spins 180 degrees to reveal the close-door triangles printed on it, lands with a paper-thud bounce. Keep it under 0.5s so the beat stays snappy.",
+   "design_s": 2.2
   },
   {
    "id": 10,
@@ -99,7 +109,8 @@
    "highlight": "ONE",
    "visual": "a lone elevator button panel cutout on dark charcoal paper with a single yellow spotlight circle on it, mysterious",
    "motion": "pushin",
-   "retention": "Cut to dark charcoal; the spotlight flickers on twice like a faulty bulb, and a large yellow 'WHO?' flashes for ~8 frames before the caption appears, opening a loop that carries viewers into beat 11."
+   "retention": "Cut to dark charcoal; the spotlight flickers on twice like a faulty bulb, and a large yellow 'WHO?' flashes for ~8 frames before the caption appears, opening a loop that carries viewers into beat 11.",
+   "design_s": 2.13
   },
   {
    "id": 11,
@@ -108,7 +119,8 @@
    "highlight": "KEY",
    "visual": "archival-style cutout of a firefighter in helmet and tan turnout coat, beside a large brass key cutout and a red fire-service keyswitch",
    "motion": "slide",
-   "retention": "Show the brass key sliding into the red keyswitch and turning 90 degrees with a mechanical clunk SFX; the close button on the panel lights up yellow at the exact moment of 'works again'."
+   "retention": "Show the brass key sliding into the red keyswitch and turning 90 degrees with a mechanical clunk SFX; the close button on the panel lights up yellow at the exact moment of 'works again'.",
+   "design_s": 3.28
   },
   {
    "id": 12,
@@ -116,7 +128,8 @@
    "caption": "REMEMBER THIS:",
    "highlight": "REMEMBER",
    "visual": "the brass close-door button sticker again on cream paper with the yellow circle, a cartoon hand reaching toward it from the bottom edge",
-   "motion": "pushin"
+   "motion": "pushin",
+   "design_s": 2.37
   }
  ]
 }

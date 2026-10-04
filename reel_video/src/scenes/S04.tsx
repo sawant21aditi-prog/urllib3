@@ -1,7 +1,8 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Scene 04 — "That year, the U.S. passes the Americans with Disabilities Act."
 // Legal document slides up, title wipes + text lines draw on, fountain pen signs, wax seal stamps down with shake + burst.
 import React from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, interpolate, useVideoConfig } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { Burst, Cutout, Halftone, clamp, drawOn, useShake, useSpring } from "../components/lib";

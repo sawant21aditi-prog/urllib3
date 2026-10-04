@@ -1,8 +1,9 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Scene 08 — "It might light up. Nothing happens."
 // Host frantically jabs (stop-motion, click per jab) → button lights up → NOTHING stamp + dead freeze →
 // a tumbleweed rolls past.
 import React from "react";
-import { AbsoluteFill, interpolate, random, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, interpolate, random, spring, useVideoConfig } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { Cutout, Halftone, SceneExit, Tape, clamp, useShake, useSpring } from "../components/lib";

@@ -1,3 +1,4 @@
+import { useStretch } from "../../time";
 // Animator A helpers: SFX shorthand + flat SVG props (calendar, Capitol, legal doc, pen, wax seal, stopwatch).
 import React from "react";
 import { Audio, Sequence, interpolate, staticFile } from "remotion";
@@ -10,7 +11,7 @@ export type SfxName = "whoosh" | "pop" | "click" | "tick" | "bass" | "ding" | "g
 
 /** One-shot SFX at a scene-local frame. */
 export const Sfx: React.FC<{ at: number; name: SfxName; volume?: number }> = ({ at, name, volume = 0.45 }) => (
-  <Sequence from={Math.max(0, at)} durationInFrames={45} name={`sfx-${name}`}>
+  <Sequence from={Math.max(0, Math.round(at * useStretch()))} durationInFrames={45} name={`sfx-${name}`}>
     <Audio src={staticFile(`sfx/${name}.wav`)} volume={volume} />
   </Sequence>
 );

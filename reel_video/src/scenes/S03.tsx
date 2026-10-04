@@ -1,7 +1,8 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Scene 03 — "To understand why, you have to go back to 1990."
 // VHS rewind whip: calendar pages flip back 2026→1990, 1990 slams + tape snaps; Capitol photo slides in; yellow marker circles 1990.
 import React from "react";
-import { AbsoluteFill, interpolate, random, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, interpolate, random, useVideoConfig } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { Burst, Cutout, Halftone, Tape, clamp, drawOn, useShake, useSpring } from "../components/lib";

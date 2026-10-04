@@ -1,8 +1,9 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Scene 10 — "But there's one person it still works for."
 // Dark charcoal field. Faulty spotlight flickers twice, a giant yellow "WHO?" flashes, then the beam
 // settles on a lone button panel (with a keyhole that glints). Slow ominous push-in, dust in the beam.
 import React from "react";
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, interpolate, spring, useVideoConfig } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { CloseButton } from "../components/illustrations";

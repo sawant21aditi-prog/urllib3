@@ -1,8 +1,9 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Scene 07 — "So in many American elevators, the close button is switched off."
 // Button panel slams in → flips in Y to its blueprint back → wiring draws on, current flows →
 // on "off": punch-zoom, the CLOSE wire yanks out of its socket, sparks, flash, LED dies.
 import React from "react";
-import { AbsoluteFill, interpolate, random, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, interpolate, random, useVideoConfig } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { Burst, Cutout, Halftone, SceneExit, Tape, clamp, drawOn, useShake, useSpring } from "../components/lib";

@@ -1,9 +1,10 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Scene 12 — "So next time you're smashing that button, remember."  (LOOPS into S01)
 // Collage recap whip (host / doors / pill fly past in parallax) → yellow circle + close button slam into
 // S01's exact placement → ink "remember" rings → the hand rises, cocks and is mid-jab on the last frame,
 // on the exact trajectory S01 continues from. No fade, no end card.
 import React from "react";
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, interpolate, spring, useVideoConfig } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { CloseButton, ElevatorDoors, Host } from "../components/illustrations";

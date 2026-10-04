@@ -1,7 +1,8 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Scene 02 — "You jab it. The doors take their time anyway."
 // Host jabs the panel button (3 clicks), swings arm to check the watch, a stopwatch spins in, doors creep open 0→15%.
 import React from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, interpolate, useVideoConfig } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { Burst, Cutout, Halftone, Tape, clamp, useShake, useSpring } from "../components/lib";

@@ -1,6 +1,7 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Scene 01 — THE HOOK: a finger already jabbing the close button on frame 0; triangles flicker red on "lying".
 import React from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig, random } from "remotion";
+import { AbsoluteFill, interpolate, useVideoConfig, random } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { Burst, Cutout, Halftone, clamp, useShake } from "../components/lib";

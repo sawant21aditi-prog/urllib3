@@ -1,8 +1,9 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Scene 11 — "Firefighters. Turn their special key, and it works again."
 // Firefighter cutout slams in on a red disc and flashes the key → whip pan to the panel: brass key slides
 // into the red keyswitch, turns 90°, the close button lights up (ding + burst) → pull-out, doors SNAP shut.
 import React from "react";
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, interpolate, spring, useVideoConfig } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { CloseButton, ElevatorDoors } from "../components/illustrations";

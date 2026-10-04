@@ -6,6 +6,7 @@ import { SCENES } from "./scenes";
 import { PaperBg, Grade, Grain, Vignette } from "./components/lib";
 import { Headline, Subtitles, CutFlash } from "./components/overlays";
 import { Beat } from "./types";
+import { SceneTime } from "./time";
 import "./fonts";
 
 export const Reel: React.FC = () => {
@@ -25,7 +26,14 @@ export const Reel: React.FC = () => {
         const dur = i === beats.length - 1 ? durationInFrames - c.from : c.dur;
         return (
           <Sequence key={beat.id} from={c.from} durationInFrames={dur} name={`S${beat.id}`}>
-            <Scene beat={beat} durationInFrames={dur} speechFrames={c.speech} />
+            {/* scenes run on their design clock, stretched to the real voiceover timing */}
+            <SceneTime stretch={dur / Math.round(beat.design_s * fps)}>
+              <Scene
+                beat={beat}
+                durationInFrames={Math.round(beat.design_s * fps)}
+                speechFrames={Math.round((c.speech * beat.design_s * fps) / dur)}
+              />
+            </SceneTime>
             <Headline text={beat.caption} highlight={beat.highlight} durationInFrames={dur} lead={i === 0 ? 8 : 0} />
             <Subtitles text={beat.narration} speechFrames={c.speech} />
             {i > 0 && <CutFlash />}

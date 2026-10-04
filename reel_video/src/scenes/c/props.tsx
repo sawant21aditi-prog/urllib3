@@ -1,6 +1,8 @@
+import { useSceneFrame as useCurrentFrame } from "../../time";
+import { useStretch } from "../../time";
 // Animator C shared props (S09–S12): pill, firefighter, key, keyswitch, label, sfx helper.
 import React from "react";
-import { Audio, Sequence, staticFile, random, useCurrentFrame } from "remotion";
+import { Audio, Sequence, staticFile, random } from "remotion";
 import { theme } from "../../theme";
 
 const c = theme.colors;
@@ -10,7 +12,7 @@ const SKIN = "#E9B98F";
 
 /** One-shot SFX placed at a scene-local frame. */
 export const Sfx: React.FC<{ at: number; name: string; volume?: number }> = ({ at, name, volume = 0.45 }) => (
-  <Sequence from={Math.max(0, at)} durationInFrames={45} layout="none">
+  <Sequence from={Math.max(0, Math.round(at * useStretch()))} durationInFrames={45} layout="none">
     <Audio src={staticFile(`sfx/${name}.wav`)} volume={volume} />
   </Sequence>
 );

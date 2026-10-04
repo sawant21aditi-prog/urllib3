@@ -1,13 +1,7 @@
+import { useSceneFrame as useCurrentFrame } from "../time";
 // Shared motion + collage building blocks. Every scene composes from these.
 import React from "react";
-import {
-  AbsoluteFill,
-  interpolate,
-  spring,
-  useCurrentFrame,
-  useVideoConfig,
-  random,
-} from "remotion";
+import { AbsoluteFill, interpolate, spring, useVideoConfig, random } from "remotion";
 import { theme } from "../theme";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
