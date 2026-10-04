@@ -4,15 +4,21 @@
 A dedicated still from beat 1 (sky-blue scene, yellow brass button). Cover text: **THIS ELEVATOR BUTTON IS OFTEN FAKE**, with FAKE highlighted in hot pink `#FF5C8A` (yellow would compete with the button). Keep the text within y 400–1500 at 1080×1920 so the 3:4 profile-grid crop doesn't cut it.
 
 ## Instagram caption
-Why the elevator close door button often does nothing (US elevators)
-PLACEBO FILES #01. A 1990 law changed the rules, and one special key still makes it work.
+Why the elevator "close door" button often does nothing 🛗
 
-Send this to the friend who spams it every single time.
+In many US elevators, that button is switched off. A 1990 law (the ADA) says the doors have to stay open long enough for wheelchair users to get in, so pressing "close" usually can't speed them up. There's one exception: firefighters have a special key that makes it work again.
 
-Sources: 2010 ADA Standards §407.3.4–407.3.6 (door timing); ASME A17.1 fire-service Phase II operation (more in comments)
+Placebo Files #01 · Follow for #02: the crosswalk button 👀
+
+📤 Send this to the friend who spams it every single time.
+
+Sources: ADA Standards §407.3 · ASME A17.1 firefighters' service (details in comments)
+
+## Alt text
+Animated collage explaining why the elevator close door button often doesn't work, the ADA 1990 rule, and the firefighter key.
 
 ## Hashtags (Instagram allows 5 at most)
-#elevator #placebobutton #howthingswork #didyouknow #placebofiles
+#elevator #didyouknow #howthingswork #placebobutton #placebofiles
 
 ## Pinned comment (post within 60s, then pin)
 Be honest: are you still going to press it? Yes or no?

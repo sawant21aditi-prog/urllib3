@@ -118,6 +118,17 @@ It also writes `reel-<n>/publish.md`:
 - **Cross-post captions** for YouTube Shorts and TikTok.
 
 ## 8. Deliver + log
+**Standing rule from the user:** every Reel is delivered together with its caption and hashtags, pasted inline in the chat message as copy-ready code blocks. Don't only attach `publish.md`. For each Reel, give:
+- **Caption (search-optimised):**
+  - Line 1 is the exact phrase people search for.
+  - 2–3 short sentences that use the key terms naturally (Instagram indexes captions and transcribes the voiceover).
+  - A series line ("Placebo Files #N · Follow for #N+1").
+  - One send-prompt line ("Send this to the friend who…"), because DM shares are the strongest signal for non-follower reach.
+  - Short sources.
+- **Hashtags:** exactly 3–5 (Instagram's cap): 1 broad, 2 discovery, 1–2 niche or series. No competitor handles, no banned or spammy tags.
+- **Pinned comment:** a yes/no question or a debate, plus sources.
+- **Alt text** (Instagram uses it for search), the **cover text**, and the **posting slot**.
+
 - Send both `reel_ig.mp4` files and both `publish.md` files to the user.
 - Append both topics to `reel_assets/topics_used.json`.
 - Commit and push everything except large intermediates (`reel_video/out/` is ignored).
