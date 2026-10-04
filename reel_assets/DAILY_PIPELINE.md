@@ -58,42 +58,53 @@ cd reel_video && python3 scripts/gen_vo.py      # writes public/audio/vo.wav + t
 ```
 Copy `vo.wav` and `timing.json` into the reel folder.
 
-## 4. Image prompts for ZAPI Flow (Vox photo-collage)
-Write `reel-<n>/shotlist.json` and `reel-<n>/zapi_flow_prompts.txt`:
-- one prompt per line, in playback order, last beat excluded (it reuses `01.png`)
-- copy the photo-collage `style_suffix` from `reel_assets/real/shotlist.json`
-- rotate a different background colour per shot
-- no text in images
-- no identifiable real people
+## 4. Element prompts for ZAPI Flow ("living collage" style, the approved look)
+The style follows the user's two reference videos:
+- one full-screen textured background per scene
+- separate real-photo cutout props, each animated on its own
+- 12fps stop-motion steps
+- hand-made effects: sunburst, marker circle, sparks, hand-written marker text
+- element-driven transitions: torn paper, slide-up, zoom
+- quiet white subtitle tags
+
+For each Reel, write `reel-<n>/elements.json` in the same schema as `reel_assets/collage/elements.json`:
+- **Props:** 15–20 single objects, each "isolated on a plain pure white background".
+- **Backgrounds:** 4–6, named `bg_*`, each a "full-frame background texture".
+- Reuse that file's style suffixes word for word.
+- Mix colour and black-and-white photos.
+- Keep shapes and symbols correct, and spell out directions explicitly (e.g. ▶|◀ = door CLOSE, triangles pointing inward).
+
+Then write `reel-<n>/zapi_flow_elements.txt` (one prompt per line, same order).
 
 ## 5. Hand off to the user (images are generated manually)
-Send both `zapi_flow_prompts.txt` files with SendUserFile, each with a one-line note. The note says:
+Send both `zapi_flow_elements.txt` files with SendUserFile, each with a one-line note. The note says:
 - the Reel title
-- the run order
-- that images should be uploaded in download order, without renaming
 - **9:16, best-quality model**
+- that the images should be uploaded as a ZIP in download order
 
-Then **wait for the uploads**. Don't render placeholders as final.
+Then **wait for the uploads**.
 
-## 6. Review images, then render (VoxReel = Vox motion grammar)
-The VoxReel composition implements the researched Vox style:
-- posters on a paper bed
-- graphics animated on twos
-- push-through transitions with blur
-- torn dark-paper tags with a highlighter sweep
-- hand-drawn red callouts
-- giant stamped numbers
-- lens edges
-
-Fill in the `annot` and `big` fields after reviewing the images.
-- Review every uploaded image for realism, the collage look, framing, empty space at the top, and stray text or artefacts. Give a re-roll prompt for any that fail.
-- Map the uploads to `shot` filenames in download order and copy them into `reel_video/public/shots/`. Then:
+## 6. Cut out, direct the scenes, render (CollageReel)
 ```bash
-python3 scripts/sync_shots.py && npx tsc -p .
-npx remotion render src/index.ts VoxReel out/reel.mp4 --codec h264 --crf 17 --concurrency 4 --overwrite --browser-executable=...
+pip install rembg   # model: ~/.u2net/u2net.onnx from https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net.onnx
+cd reel_video
+python3 scripts/process_elements.py <zip-or-folder> ../reel_assets/daily/<date>/reel-<n>/elements.json
+python3 scripts/sync_elements.py
+```
+- Check a cutout contact sheet on a bright pink backdrop. Flat, light objects such as doors or paper sometimes come out see-through. Re-cut those with an edge flood-fill; see the git history for the doors and document fix.
+- Write a `scene` for every beat in `script.json`. Follow `reel_video/src/data/script.json` from Reel #1 as the reference:
+  - `bg`, `transition`, `bold`
+  - `props`: x, y, w in px on 1080×1920, plus `anim`, `at`, `flip`, `z`
+  - `fx`: sunburst, circle, sparks, question, doors, spotlight, write
+- Set each prop's width from its real aspect ratio (`w × h/w`), so nothing runs off-frame.
+- Keep heroes inside y 250–1400. Subtitles sit at about y 1420.
+- The last beat must end on the first beat's exact layout, so the loop is seamless.
+- Render one still per scene, review them, fix, then:
+```bash
+npx tsc -p . && npx remotion render src/index.ts CollageReel out/reel.mp4 --codec h264 --crf 17 --concurrency 4 --overwrite --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell
 ffmpeg -i out/reel.mp4 -c:v libx264 -preset slow -b:v 5000k -maxrate 6000k -bufsize 10000k -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart reel_assets/daily/<date>/reel-<n>/reel_ig.mp4
 ```
-- Extract one frame per second into `reel-<n>/review/` and check a contact sheet yourself.
+- Copy each Reel's `public/elements` into its reel folder so it can be rebuilt later. Elements are overwritten per Reel.
 
 ## 7. Virality Agent: QA gate + publishing pack
 The agent reviews the frames against `reel_formula.json` → `qa_checklist`. It writes `reel-<n>/review.md` with PASS/FAIL per check, a score out of 100 and its fixes. **Fix anything that FAILs and re-render before delivering.**
