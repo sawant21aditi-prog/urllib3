@@ -16,7 +16,13 @@
    "design_s": 1.6,
    "cam": "punch",
    "sfx": "click",
-   "shot": "01.png"
+   "shot": "01.png",
+   "annot": {
+    "x": 0.5,
+    "y": 0.5,
+    "r": 0.3,
+    "at": 0.15
+   }
   },
   {
    "id": 13,
@@ -30,7 +36,13 @@
    "design_s": 1.77,
    "cam": "pushIn",
    "sfx": "bass",
-   "shot": "13.png"
+   "shot": "13.png",
+   "annot": {
+    "x": 0.83,
+    "y": 0.47,
+    "r": 0.12,
+    "at": 0.45
+   }
   },
   {
    "id": 2,
@@ -42,7 +54,14 @@
    "design_s": 2.74,
    "cam": "panLeft",
    "sfx": "tick",
-   "shot": "02.png"
+   "shot": "02.png",
+   "annot": {
+    "x": 0.44,
+    "y": 0.7,
+    "r": 0.1,
+    "at": 0.45,
+    "arrow": true
+   }
   },
   {
    "id": 3,
@@ -55,7 +74,14 @@
    "design_s": 3.45,
    "cam": "pullOut",
    "sfx": "glitch",
-   "shot": "03.png"
+   "shot": "03.png",
+   "big": {
+    "text": "1990",
+    "at": 0.75,
+    "x": 540,
+    "y": 1180,
+    "rot": -5
+   }
   },
   {
    "id": 4,
@@ -67,7 +93,13 @@
    "design_s": 3.55,
    "cam": "pushIn",
    "sfx": "bass",
-   "shot": "04.png"
+   "shot": "04.png",
+   "annot": {
+    "x": 0.65,
+    "y": 0.36,
+    "r": 0.12,
+    "at": 0.55
+   }
   },
   {
    "id": 5,
@@ -80,7 +112,14 @@
    "design_s": 3.32,
    "cam": "pullOut",
    "sfx": "ding",
-   "shot": "05.png"
+   "shot": "05.png",
+   "big": {
+    "text": "3 SEC",
+    "at": 0.5,
+    "x": 540,
+    "y": 1150,
+    "rot": 4
+   }
   },
   {
    "id": 6,
@@ -105,7 +144,14 @@
    "design_s": 3.82,
    "cam": "pushIn",
    "sfx": "glitch",
-   "shot": "07.png"
+   "shot": "07.png",
+   "annot": {
+    "x": 0.56,
+    "y": 0.875,
+    "r": 0.09,
+    "at": 0.8,
+    "arrow": true
+   }
   },
   {
    "id": 8,
@@ -117,7 +163,13 @@
    "design_s": 2.24,
    "cam": "shake",
    "sfx": "click",
-   "shot": "08.png"
+   "shot": "08.png",
+   "annot": {
+    "x": 0.33,
+    "y": 0.52,
+    "r": 0.14,
+    "at": 0.2
+   }
   },
   {
    "id": 9,
@@ -130,7 +182,13 @@
    "design_s": 2.2,
    "cam": "pullOut",
    "sfx": "pop",
-   "shot": "09.png"
+   "shot": "09.png",
+   "annot": {
+    "x": 0.5,
+    "y": 0.62,
+    "r": 0.13,
+    "at": 0.55
+   }
   },
   {
    "id": 10,
@@ -143,7 +201,14 @@
    "design_s": 2.13,
    "cam": "pushIn",
    "sfx": "riser",
-   "shot": "10.png"
+   "shot": "10.png",
+   "annot": {
+    "x": 0.39,
+    "y": 0.59,
+    "r": 0.07,
+    "at": 0.6,
+    "arrow": true
+   }
   },
   {
    "id": 11,
@@ -156,7 +221,13 @@
    "design_s": 3.28,
    "cam": "punch",
    "sfx": "click",
-   "shot": "11.png"
+   "shot": "11.png",
+   "annot": {
+    "x": 0.36,
+    "y": 0.48,
+    "r": 0.11,
+    "at": 0.5
+   }
   },
   {
    "id": 12,
@@ -168,7 +239,13 @@
    "design_s": 2.37,
    "cam": "pushIn",
    "sfx": "riser",
-   "shot": "01.png"
+   "shot": "01.png",
+   "annot": {
+    "x": 0.5,
+    "y": 0.5,
+    "r": 0.3,
+    "at": 0.6
+   }
   }
  ]
 }
