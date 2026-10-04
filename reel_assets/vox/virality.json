@@ -60,7 +60,8 @@
     "beat": 1,
     "title_text": "THIS ELEVATOR BUTTON IS OFTEN FAKE",
     "highlight": "FAKE",
-    "note": "Render a dedicated cover still from beat 1 (sky-blue scene, yellow brass button); keep text centred within y 400-1500 so the 3:4 profile-grid crop never cuts it. 'OFTEN' keeps the claim accurate."
+    "note": "Render a dedicated cover still from beat 1 (sky-blue #8FD3FE scene, yellow brass button); keep text centred within y 400-1500 so the 3:4 profile-grid crop never cuts it. 'OFTEN' keeps the claim accurate.",
+    "highlight_color": "#FF5C8A"
   },
   "ig_caption": "Why the elevator close door button often does nothing (US elevators)\nPLACEBO FILES #01. A 1990 law changed the rules, and one special key still makes it work.\n\nSend this to the friend who spams it every single time.\n\nSources: 2010 ADA Standards §407.3.4–407.3.6 (door timing); ASME A17.1 fire-service Phase II operation (more in comments)",
   "pinned_comment": "Be honest: are you still going to press it? Yes or no?\n\nSources: ADA Standards for Accessible Design §407.3 (doors stay fully open 3s minimum; door-close can't shorten it) | ASME A17.1 Phase II firefighters' service. Some elevators do let the button work after the minimum time, so it's 'often', not 'always'.",

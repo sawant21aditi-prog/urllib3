@@ -1,6 +1,6 @@
 # Quality gate: Reel #1 "The Placebo Button" (PLACEBO FILES #01)
 
-Reviewed 2026-10-04 against `reel_assets/brand/reel_formula.json`.
+Reviewed 2026-10-04 against `reel_assets/brand/reel_formula.json`, on the **final colourful re-render**: frames timestamped 22:08 UTC, after the style change. An earlier cream-only render was also reviewed. Layout, timing and text are identical between the two renders, so every structural finding below applies to the colourful version.
 
 **Inputs:**
 - All 40 review frames, `review/t_00.1.png` to `t_39.1.png` (360×640, one frame per second at t = n + 0.1s)
@@ -9,7 +9,7 @@ Reviewed 2026-10-04 against `reel_assets/brand/reel_formula.json`.
 
 Pixel positions are quoted at 360×640 and scaled ×3 to 1080×1920 where it matters.
 
-**Verdict: SHIP AFTER FIXES 1–2 (and ideally 3–4).** There are no blocker failures. Three checks are partial or failed (subtitle safe zone, loop seam, cover). One fact item needs a wording fix (the "one person" overclaim).
+**Verdict: SHIP AFTER FIXES 1–2 (and ideally 3–4).** There are no blocker failures. Four checks are partial or failed (subtitle safe zone, loop seam, cover, one colour-adjacency slip). One fact item needs a wording fix (the "one person" overclaim).
 
 ---
 
@@ -27,23 +27,24 @@ Pixel positions are quoted at 360×640 and scaled ×3 to 1080×1920 where it mat
 | 7 | **Cover frame** | **PARTIAL** | There is no dedicated cover render. Using t≈1.1 as cover gives a strong image (red triangles, LYING in yellow), but the top headline line starts at y≈255 at 1080p, just inside the 3:4 grid crop (y 240–1680). The planned cover text "THIS ELEVATOR BUTTON IS FAKE" is not baked into any frame. **Fix:** render a still from beat 1 with the cover text centred inside y 400–1500. |
 | 8 | **Pacing** | **PASS (with a sag)** | About 110 words in 39.92s gives about 165 wpm overall and about 188 wpm during speech (35.0s of speech). That is fast but normal for the genre. The sag: **6.7–18.7s (beats 3–5, 12s)** is pure context with no new question. It is the likeliest place for a drop on the retention curve. The counter and rewind devices help, but the script itself should be tighter (fix 3). |
 | 9 | **Share trigger** | **PASS** | The topic is universal ("send to the friend who spams it"), there is a clear villain object, and the facts are surprising. The share prompt is in the caption and the pinned comment, not in the VO. Adding it to the VO would break the loop line, so it stays out. |
+| 9b | **Colour system** (new multi-colour style, QA18) | **PASS (1 minor)** | Scene backgrounds run beat by beat: sky blue (1), hot pink (13), mint (2), lavender (3), coral (4), aqua (5), lime (6), periwinkle (7), peach (8), teal (9), dark charcoal mystery (10), sky blue (11), sky blue (12). Every cut is now also a colour flip, which strengthens check 2. Headline highlights rotate with good contrast: yellow on sky, lavender and periwinkle; pink on mint, aqua and teal; blue on coral and peach; purple on lime; orange on sky. Tape and confetti are multi-colour (green, orange, pink, blue, purple tape; confetti on the button at t=36.1). The yellow brass button is the signature object in beats 1, 2, 7, 8, 10, 11 and 12. The loop beat (12) shares beat 1's sky blue ✓. **Minor:** beats 11 and 12 are both sky blue (`#86CCFF` vs `#8FD3FE`), so the cut at 37.26 has no colour flip. Make beat 11 periwinkle or aqua. **Watch:** the radial vignette brightens the lower third, which is exactly where the white subtitles sit. On lime, peach, aqua and sky the white chunks depend entirely on their thin shadow, so a 6px charcoal stroke is now more important (fix 2). |
 | 10 | **Fact accuracy and hedging** | **PARTIAL (needs one wording fix)** | ✓ The ADA was signed in **July** 1990, and the calendar shows JUL 1990 at t=9–10. ✓ ADA Standards §407.3.6: doors stay fully open for at least 3s in response to a call, and §407.3.4 says door-close activation can't shorten that. ✓ "In **many** American elevators" is hedged. ✓ Fire-service Phase II operation does make the car's door-close button functional (the doors close under constant pressure). ✗ **"Only one person can make it work" / "one person it still works for" overclaims.** Firefighters are a group, and inspectors and technicians (independent or inspection service) can also enable it. In many elevators the button also *does* work once the minimum dwell has passed. ~ "It might light up. Nothing happens." is acceptable because it follows "in many", but "Often, nothing happens" is safer. ~ Strictly, the 3-second rule comes from the ADA accessibility standards issued under the Act (ADAAG, 1991), not the Act's text. "One rule" is acceptable shorthand. |
 
 ---
 
-## Virality score: **77 / 100**
+## Virality score: **79 / 100** (colourful render; the cream render scored 77)
 
 | Component | Weight | Score | Notes |
 |---|---|---|---|
 | Hook and first 3s | 20 | 17 | Motion, claim and accusation all land early, and the red-triangle glitch works. The open loop finishes at 3.3s, slightly late. |
-| Retention structure and interrupts | 20 | 16 | Excellent device density. Loses points for the 12s context sag. |
-| Visual clarity and brand distinctiveness | 15 | 12 | The look is recognisable. Beat 7's circuit diagram reads backwards: DOOR CLOSE is glowing yellow and looks *active*, while DOOR OPEN is dashed and looks *off*, at the exact moment the VO says "switched off". |
-| Text, subtitles and safe zones | 10 | 6 | Subtitles are too low and too wide, and there is a ghosted chunk at t=2.1. |
+| Retention structure and interrupts | 20 | 17 | Excellent device density, and the colour flip on every cut adds a free interrupt. Loses points for the 12s context sag. |
+| Visual clarity and brand distinctiveness | 15 | 13 | The colourful collage is more distinctive and more scroll-stopping than the cream render. Beat 7's circuit diagram reads backwards: DOOR CLOSE is glowing yellow and looks *active*, while DOOR OPEN is dashed and looks *off*, at the exact moment the VO says "switched off". |
+| Text, subtitles and safe zones | 10 | 5 | Subtitles are too low and too wide, there is a ghosted chunk at t=2.1 (worse on hot pink), and contrast is weaker on the bright, vignetted lower third of light backgrounds. |
 | Payoff and loop | 15 | 11 | The payoff is placed and staged well. The loop pops (scale, disc, hand position). |
 | Shareability | 10 | 8 | A strong universal object and a clear "send to" person. |
 | Fact accuracy and trust | 10 | 7 | Hedged mostly well. "One person" is the line a commenter will correct. |
 
-This score is my judgement against the formula, not a prediction of views. A 77 means the Reel is structurally competitive. Topic pull will decide the outcome.
+This score is my judgement against the formula, not a prediction of views. A 79 means the Reel is structurally competitive. Topic pull will decide the outcome.
 
 ---
 
@@ -54,7 +55,7 @@ This score is my judgement against the formula, not a prediction of views. A 77 
 2. **All beats: move and constrain subtitles.**
    - Place the subtitle block's **bottom** at y≈1380 at 1080p, about 460 at the review scale.
    - Set the max width to 840px (x 120–960) and the max line length to 18 characters, so "Americans with Disabilities Act." breaks as "Americans with / Disabilities Act."
-   - Add a 6px charcoal stroke.
+   - Add a 6px charcoal stroke. This is required now that backgrounds are light and colourful: lime, peach, aqua and sky behind white text.
    - Remove the opacity fade-in, so chunks hard-cut or pop in with scale only, never alpha below 1. That fixes the ghosted chunk at t=2.1.
 
    *Why:* most Reels are watched muted at the start. Right now captions collide with Instagram's caption and username overlay and the like/comment column, so muted viewers lose the story.
@@ -83,5 +84,6 @@ This score is my judgement against the formula, not a prediction of views. A 77 
    *Why:* this is the central reveal of the video. It currently shows the opposite of the VO, which costs comprehension and the "aha" moment that triggers sends.
 
 **Also before posting (not ranked):**
-- Render a dedicated cover with "THIS ELEVATOR BUTTON IS OFTEN FAKE", FAKE in yellow, centred in y 400–1500.
+- Render a dedicated cover on beat 1's sky-blue scene with "THIS ELEVATOR BUTTON IS OFTEN FAKE", with FAKE highlighted in hot pink `#FF5C8A` (yellow would compete with the button), centred in y 400–1500.
+- Beat 11: change the background from sky blue to periwinkle or aqua so the cut into beat 12 (sky blue, matching beat 1 for the loop) is a real colour flip.
 - Fix the transient "SECONDS" overflow at about 14.9–15.2s by clamping the headline width to 960px.
