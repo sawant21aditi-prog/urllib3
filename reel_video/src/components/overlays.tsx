@@ -5,11 +5,12 @@ import { theme } from "../theme";
 import { clamp } from "./lib";
 
 /** Vox-style kinetic headline in the top zone: words slam in, highlight word on a yellow pill. */
-export const Headline: React.FC<{ text: string; highlight: string; durationInFrames: number; lead?: number }> = ({
+export const Headline: React.FC<{ text: string; highlight: string; durationInFrames: number; lead?: number; accent?: string }> = ({
   text,
   highlight,
   durationInFrames,
   lead = 0,
+  accent = theme.colors.hero,
 }) => {
   // lead > 0 starts the entrance already in progress (hook text visible on frame 0)
   const frame = useCurrentFrame() + lead;
@@ -55,7 +56,7 @@ export const Headline: React.FC<{ text: string; highlight: string; durationInFra
                   style={{
                     position: "absolute",
                     inset: "8px -4px 4px -4px",
-                    background: theme.colors.hero,
+                    background: accent,
                     transform: `scaleX(${pill}) rotate(-2deg)`,
                     transformOrigin: "left center",
                     zIndex: -1,

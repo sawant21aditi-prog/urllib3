@@ -6,7 +6,7 @@ import { AbsoluteFill, interpolate } from "remotion";
 import { SceneProps } from "../types";
 import { theme } from "../theme";
 import { Cutout, Halftone, Tape, Slam, Burst, useShake, useSpring, SceneExit, clamp } from "../components/lib";
-import { Firefighter, Sparkle, Sfx } from "./c/props";
+import { Firefighter, Sfx } from "./c/props";
 
 const c = theme.colors;
 
@@ -19,7 +19,6 @@ export const S13: React.FC<SceneProps> = ({ durationInFrames }) => {
   const rise = useSpring(3, "smooth");
   const q = useSpring(10, "slam");
   const qBreathe = 1 + Math.sin(frame / 5) * 0.03;
-  const glint = interpolate(frame, [22, 26, 32], [0, 1, 0], clamp);
   const push = interpolate(frame, [0, durationInFrames], [1, 1.06], { ...clamp, easing: theme.ease.inOut });
 
   return (
@@ -57,7 +56,6 @@ export const S13: React.FC<SceneProps> = ({ durationInFrames }) => {
               >
                 <Firefighter height={620} />
               </div>
-              <Sparkle x={390 + 120} y={470} s={5 * glint} color={c.hero} />
             </div>
           </Cutout>
         </Slam>

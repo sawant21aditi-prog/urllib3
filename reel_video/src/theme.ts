@@ -7,13 +7,32 @@ export const theme = {
     paperDark: "#E6DAC4",
     ink: "#1E1D1B", // charcoal
     inkSoft: "#4A4741",
-    hero: "#F5C518", // THE accent — max one hero element per frame
+    hero: "#F5C518", // signature yellow (the button); scenes add colour via theme.pop / sceneColors
     brass: "#C9A646",
     brassDark: "#8C6F22",
     white: "#FFFFFF",
     fire: "#D7392B", // only for the firefighter beat
     tape: "rgba(245, 197, 24, 0.55)",
   },
+  // Vivid multi-colour palette for confetti, tape, accents.
+  pop: ["#FF5C8A", "#3DA5FF", "#2EC4A6", "#FFB020", "#9B6BFF", "#FF7A45", "#7ED957"],
+  // Per-scene background + headline highlight, in playback order (S01, S13, S02 … S12).
+  // Last entry matches the first so the loop stays seamless.
+  sceneColors: [
+    { bg: "#8FD3FE", accent: "#F5C518" }, // S01 sky blue
+    { bg: "#FF8FB8", accent: "#F5C518" }, // S13 hot pink
+    { bg: "#8BE3B5", accent: "#FF5C8A" }, // S02 mint
+    { bg: "#BBA9F7", accent: "#F5C518" }, // S03 lavender
+    { bg: "#FFA184", accent: "#3DA5FF" }, // S04 coral
+    { bg: "#74D9E3", accent: "#FF5C8A" }, // S05 aqua
+    { bg: "#C9EC7E", accent: "#9B6BFF" }, // S06 lime
+    { bg: "#A3B8FF", accent: "#F5C518" }, // S07 periwinkle
+    { bg: "#FFBE85", accent: "#3DA5FF" }, // S08 peach
+    { bg: "#6DD3BF", accent: "#FF5C8A" }, // S09 teal
+    { bg: "#1E1D1B", accent: "#F5C518" }, // S10 dark (scene draws its own field)
+    { bg: "#86CCFF", accent: "#FF7A45" }, // S11 sky
+    { bg: "#8FD3FE", accent: "#F5C518" }, // S12 sky blue = S01 for the loop
+  ],
   fonts: {
     display: "Anton", // condensed editorial headlines
     body: "Montserrat",

@@ -34,7 +34,7 @@ export const PaperBg: React.FC<{ color?: string }> = ({ color = theme.colors.pap
 
 export const Grade: React.FC = () => (
   <AbsoluteFill style={{ pointerEvents: "none" }}>
-    <AbsoluteFill style={{ backgroundColor: theme.colors.hero, mixBlendMode: "soft-light", opacity: 0.1 }} />
+    <AbsoluteFill style={{ backgroundColor: "#ffffff", mixBlendMode: "soft-light", opacity: 0.08 }} />
     <AbsoluteFill
       style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.12), transparent 25%, transparent 75%, rgba(0,0,0,0.18))" }}
     />
@@ -117,7 +117,7 @@ export const Tape: React.FC<{ x: number; y: number; rot?: number; w?: number; co
   y,
   rot = -8,
   w = 170,
-  color = theme.colors.tape,
+  color,
 }) => (
   <div
     style={{
@@ -126,7 +126,7 @@ export const Tape: React.FC<{ x: number; y: number; rot?: number; w?: number; co
       top: y,
       width: w,
       height: 46,
-      background: color,
+      background: color ?? `${theme.pop[Math.abs(Math.round(x * 7 + y * 13)) % theme.pop.length]}B3`,
       transform: `translate(-50%, -50%) rotate(${rot}deg)`,
       clipPath: "polygon(2% 0, 98% 4%, 100% 50%, 97% 100%, 3% 96%, 0 50%)",
       boxShadow: "0 2px 4px rgba(0,0,0,0.08)",
@@ -264,7 +264,7 @@ export const Burst: React.FC<{ x: number; y: number; delay?: number; count?: num
               top: y + Math.sin(a) * r,
               width: s,
               height: s * 0.5,
-              background: i % 3 === 0 ? theme.colors.ink : color,
+              background: i % 3 === 0 ? theme.colors.ink : i % 3 === 1 ? color : theme.pop[i % theme.pop.length],
               transform: `translate(-50%,-50%) rotate(${a + p * 6}rad)`,
               borderRadius: 3,
             }}
