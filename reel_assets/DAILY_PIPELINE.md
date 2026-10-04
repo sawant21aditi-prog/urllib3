@@ -51,12 +51,36 @@ Fields per beat:
 - `big` (giant number/date stamp): `{text, at, x?, y?, rot?}`. Use it for 1–2 beats with a key number or date.
 - `speed` (1.15 on the 2 hook beats)
 
-## 3. Voiceover + timing
+## 3. Voiceover + timing (expressive Gemini voice, verified word for word)
+Write a `direction` (acting note) for every beat in script.json. Examples:
+- hook: urgent and punchy
+- open loop: hushed and mysterious
+- middle: wry and curious
+- payoff: energetic
+- last line: friendly
+
 ```bash
+pip install sherpa-onnx   # offline Whisper for verification; model setup in reel_video/scripts/asr.py
 cp reel_assets/daily/<date>/reel-<n>/script.json reel_video/src/data/script.json
-cd reel_video && python3 scripts/gen_vo.py      # writes public/audio/vo.wav + timing.json
+cd reel_video && GEMINI_API_KEY=$GEMINI_API_KEY python3 scripts/gen_vo_gemini.py --voice Puck --model gemini-3.1-flash-tts-preview
 ```
-Copy `vo.wav` and `timing.json` into the reel folder.
+- It uses ONE Gemini request per Reel; the free tier allows about 10 requests a day per model.
+- Every line is transcribed with offline Whisper and compared with the script. **If any beat scores below 0.8, the take is rejected**, because some TTS models improvise lines. Regenerate, or re-align a saved take for free with `--reuse public/audio/vo_raw_<model>_<voice>.wav`.
+- Never use `gemini-3.8-*-tts`: those models read the instructions aloud and invent lines.
+- Fallback if `GEMINI_API_KEY` is missing or the quota is used up: `python3 scripts/gen_vo.py` (Kokoro, offline, flatter voice). Tell the user which one you used.
+
+**Hook rules** (the user asked for strong hooks):
+- Open with a direct command or a shocking claim about an everyday object, e.g. "Stop pressing this button."
+- Hedge it so it stays true ("probably", "often").
+- The second line opens a loop that is only paid off near the end.
+- The opening scene sets `"punch": true`: it starts on an extreme close-up mid-action and punches out.
+- The last line must lead straight back into the first.
+
+**Animation rules** (the user asked for more animation):
+- The engine already adds a constant camera push, shakes on every hit, pop-ins, idle bobbing, speed lines, dust on landings and impact stars.
+- Direct 2–4 animated props per scene, plus at least one effect.
+- Give at least one prop an entrance at `at > 0.3`, so something new lands mid-line.
+- Props shown on the first frame use `noPop`.
 
 ## 4. Element prompts for ZAPI Flow ("living collage" style, the approved look)
 The style follows the user's two reference videos:
