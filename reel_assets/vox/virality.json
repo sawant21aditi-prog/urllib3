@@ -1,0 +1,78 @@
+{
+  "hook_audit": "Beat 1 is a strong curiosity-gap line (a familiar object accused of lying) and it lands in 1.29s, so the words pass the 3-second test; the risk is visual: a static button on cream paper looks like a still image in the first frames. Strengthen it by having a cartoon finger already jabbing the button on frame 0 (no fade-in, no blank frame), with a click SFX and 'LYING' stamped in yellow on the punch, plus a quick red glitch/flicker on the button's triangles to signal 'fake'. Keep the caption on screen from frame 0 so muted viewers get the hook too.",
+  "narration_edits": [],
+  "caption_edits": [
+    {
+      "id": 2,
+      "caption": "DOORS IGNORE YOU",
+      "highlight": "IGNORE"
+    },
+    {
+      "id": 3,
+      "caption": "BACK TO 1990",
+      "highlight": "1990"
+    },
+    {
+      "id": 5,
+      "caption": "OPEN 3+ SECONDS",
+      "highlight": "SECONDS"
+    },
+    {
+      "id": 12,
+      "caption": "REMEMBER THIS:",
+      "highlight": "REMEMBER"
+    }
+  ],
+  "retention_beats": [
+    {
+      "id": 3,
+      "device": "time-jump whip",
+      "description": "At 4.34s the history pivot is the biggest drop-off risk. Do a fast rewind whip: calendar pages flip backwards in ~0.4s (2026 -> 1990) with a tape-rewind SFX, then the 1990 page slams down and the washi tape snaps on."
+    },
+    {
+      "id": 5,
+      "device": "progress tease / counter",
+      "description": "Animate the yellow timing arc as a countdown that fills while a small '3 SEC' counter ticks 1-2-3 between the open doors, giving the eye something to track through the explanation."
+    },
+    {
+      "id": 7,
+      "device": "zoom punch + pattern interrupt",
+      "description": "At ~19.5s on the word 'off', punch-zoom 115% into the wire as it visibly yanks out of its socket with a spark cutout and a 2-frame white flash; caption 'OFF' shakes once."
+    },
+    {
+      "id": 9,
+      "device": "reveal spin",
+      "description": "The placebo pill drops in from top, spins 180 degrees to reveal the close-door triangles printed on it, lands with a paper-thud bounce. Keep it under 0.5s so the beat stays snappy."
+    },
+    {
+      "id": 10,
+      "device": "question flash",
+      "description": "Cut to dark charcoal; the spotlight flickers on twice like a faulty bulb, and a large yellow 'WHO?' flashes for ~8 frames before the caption appears, opening a loop that carries viewers into beat 11."
+    },
+    {
+      "id": 11,
+      "device": "payoff action",
+      "description": "Show the brass key sliding into the red keyswitch and turning 90 degrees with a mechanical clunk SFX; the close button on the panel lights up yellow at the exact moment of 'works again'."
+    }
+  ],
+  "loop_check": "The line-level loop works: 'remember... This button is lying to you' reads as one sentence. Make it frame-seamless: beat 12 must end on the exact framing of beat 1 (same button size, position, yellow circle), with the cartoon hand's fingertip touching the button on the final frame so beat 1's punch reads as the press. No end card, logo, fade or silence tail (beat 12 has only ~0.08s after speech; keep it), and cut the music bed so its last bar flows back into its first.",
+  "cover_frame": {
+    "beat": 1,
+    "title_text": "THIS ELEVATOR BUTTON IS FAKE"
+  },
+  "ig_caption": "Why the elevator close door button often does nothing (US elevators)\nThe ADA (1990) changed the rules, and firefighters still have the key that makes it work.\nSend this to the friend who spams it every single time.",
+  "pinned_comment": "Be honest: are you still going to press it? Drop a 'yes' or 'no', and tell us if you've ever seen one actually close the doors.",
+  "hashtags": [
+    "#elevator",
+    "#placebobutton",
+    "#thingsexplained",
+    "#ADA",
+    "#didyouknow"
+  ],
+  "post_plan": "Post Tuesday-Thursday around 11am-1pm or 7-9pm in the main US audience's time zone (US-focused topic), and reply to every comment in the first hour to boost early engagement. Because this is a new account, publish it first as a Trial Reel (shown only to non-followers), and test a second version with a different cover/hook text; if it beats the account's benchmark on 3-second hold and sends within 24-72h, let it share to followers automatically and keep the winning hook style.",
+  "series_hooks": [
+    "The crosswalk button that does nothing",
+    "Your office thermostat is probably fake",
+    "Your car's engine roar might be fake"
+  ]
+}
