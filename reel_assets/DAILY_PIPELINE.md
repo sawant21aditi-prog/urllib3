@@ -79,7 +79,7 @@ Then **wait for the uploads**. Don't render placeholders as final.
 ```bash
 python3 scripts/sync_shots.py && npx tsc -p .
 npx remotion render src/index.ts RealReel out/reel.mp4 --codec h264 --crf 17 --concurrency 4 --overwrite --browser-executable=...
-ffmpeg -i out/reel.mp4 -c:v libx264 -crf 20 -preset slow -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart reel_assets/daily/<date>/reel-<n>/reel_ig.mp4
+ffmpeg -i out/reel.mp4 -c:v libx264 -preset slow -b:v 5000k -maxrate 6000k -bufsize 10000k -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart reel_assets/daily/<date>/reel-<n>/reel_ig.mp4
 ```
 - Extract one frame per second into `reel-<n>/review/` and check a contact sheet yourself.
 
