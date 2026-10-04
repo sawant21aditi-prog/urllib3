@@ -47,6 +47,8 @@ Fields per beat:
 - `visual`
 - `shot` (`01.png` … in playback order; the last beat reuses `01.png`), `cam`, `sfx`
 - `design_s` (= duration)
+- `annot` (Vox callout): `{x, y, r, at, arrow?}`. Position and radius are fractions of the poster, and `at` is the fraction of the line's speech. Use it on beats where the narrator names a specific thing in the image. Find x/y after the images arrive, using a gridded contact sheet.
+- `big` (giant number/date stamp): `{text, at, x?, y?, rot?}`. Use it for 1–2 beats with a key number or date.
 - `speed` (1.15 on the 2 hook beats)
 
 ## 3. Voiceover + timing
@@ -73,12 +75,22 @@ Send both `zapi_flow_prompts.txt` files with SendUserFile, each with a one-line 
 
 Then **wait for the uploads**. Don't render placeholders as final.
 
-## 6. Review images, then render
+## 6. Review images, then render (VoxReel = Vox motion grammar)
+The VoxReel composition implements the researched Vox style:
+- posters on a paper bed
+- graphics animated on twos
+- push-through transitions with blur
+- torn dark-paper tags with a highlighter sweep
+- hand-drawn red callouts
+- giant stamped numbers
+- lens edges
+
+Fill in the `annot` and `big` fields after reviewing the images.
 - Review every uploaded image for realism, the collage look, framing, empty space at the top, and stray text or artefacts. Give a re-roll prompt for any that fail.
 - Map the uploads to `shot` filenames in download order and copy them into `reel_video/public/shots/`. Then:
 ```bash
 python3 scripts/sync_shots.py && npx tsc -p .
-npx remotion render src/index.ts RealReel out/reel.mp4 --codec h264 --crf 17 --concurrency 4 --overwrite --browser-executable=...
+npx remotion render src/index.ts VoxReel out/reel.mp4 --codec h264 --crf 17 --concurrency 4 --overwrite --browser-executable=...
 ffmpeg -i out/reel.mp4 -c:v libx264 -preset slow -b:v 5000k -maxrate 6000k -bufsize 10000k -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart reel_assets/daily/<date>/reel-<n>/reel_ig.mp4
 ```
 - Extract one frame per second into `reel-<n>/review/` and check a contact sheet yourself.
