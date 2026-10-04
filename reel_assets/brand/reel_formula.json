@@ -1,0 +1,190 @@
+{
+  "version": "1.0",
+  "updated": "2026-10-04",
+  "page": {
+    "display_name": "The Hidden Why",
+    "handle_candidate": "@thehiddenwhy",
+    "name_field": "The Hidden Why | Explained",
+    "series": [
+      {"name": "PLACEBO FILES", "tag_text": "PLACEBO FILES #{n:02}", "pillar": "placebo_hidden_design", "cadence": "weekly (Tue) + any strong placebo topic"},
+      {"name": "DISASTERS THAT REDESIGNED THE WORLD", "tag_text": "REDESIGNED #{n:02}", "pillar": "disasters_redesign", "cadence": "every ~10 days"}
+    ],
+    "pillars": {
+      "placebo_hidden_design": 0.35,
+      "why_is_it_like_that": 0.30,
+      "disasters_redesign": 0.20,
+      "brain_tricks": 0.15
+    },
+    "max_same_pillar_in_a_row": 2
+  },
+
+  "timing": {
+    "target_length_s": {"min": 32, "ideal": 38, "max": 45},
+    "tiktok_extended_cut_s": {"min": 61, "max": 75, "note": "TikTok Creator Rewards pays only for videos of 60s or more; add 1-2 context beats, keep the same hook"},
+    "fps": 30,
+    "beat_count": {"min": 11, "ideal": 13, "max": 15},
+    "words_per_beat": {"min": 4, "ideal": 7, "max": 11},
+    "tts": {"engine": "kokoro", "speed": 1.15, "target_wpm": 155, "acceptable_wpm": [145, 170]},
+    "beat_gap_after_speech_s": {"default": 0.45, "hook_beats": 0.15, "final_beat": 0.08},
+    "beat_timing_pattern": [
+      {"slot": "hook_claim", "beat_index": 1, "duration_s": [1.2, 1.7], "purpose": "accusation or reversal claim; caption on screen from frame 0"},
+      {"slot": "open_loop", "beat_index": 2, "duration_s": [1.5, 2.2], "purpose": "tease the exception or payoff; must end by 3.5s"},
+      {"slot": "relate", "beat_index": 3, "duration_s": [2.2, 3.2], "purpose": "the viewer's own experience of the thing"},
+      {"slot": "context", "beat_index": [4, 6], "duration_s": [2.5, 4.0], "purpose": "history or mechanism, one idea per beat"},
+      {"slot": "turn", "beat_index": [7, 8], "duration_s": [2.0, 4.0], "purpose": "the reveal of what actually happens"},
+      {"slot": "name_it", "beat_index": 9, "duration_s": [2.0, 2.6], "purpose": "a memorable label (e.g. 'placebo button')"},
+      {"slot": "loop_reopen", "beat_index": 10, "duration_s": [2.0, 2.6], "purpose": "re-raise the open loop just before the payoff"},
+      {"slot": "payoff", "beat_index": 11, "position_pct_of_runtime": [78, 92], "duration_s": [2.8, 3.8], "purpose": "answer the open loop with a visual action"},
+      {"slot": "loop_back", "beat_index": "last", "duration_s": [2.2, 2.8], "purpose": "a line that grammatically flows into beat 1; final frame matches frame 0"}
+    ]
+  },
+
+  "required_devices": [
+    {"id": "frame0_motion", "at_s": 0.0, "rule": "Something is already moving on frame 0 (a finger pressing, a shape mid-pop, the camera mid-push). No fade-in, no black or blank frame, no title card.", "check": "frame t=0 differs visibly from t=0.2; no opacity<0.9 on hero layer at frame 0"},
+    {"id": "claim_by", "at_s": 1.5, "rule": "The spoken claim is complete and the headline caption is fully legible by 1.5s.", "check": "timing.beats[0].speech <= 1.6"},
+    {"id": "open_loop_by", "at_s": 3.0, "rule": "An unanswered question exists by about 3s (who? why? which one?).", "check": "beat with slot open_loop ends <= 3.5s"},
+    {"id": "retention_interrupt", "every_s": 3.0, "tolerance_s": 0.75, "rule": "A visible pattern interrupt at least every 3s: a scene cut, zoom punch, new cutout entering, a colour flip, or a counter. SFX on at least half of them.", "check": "max gap between interrupts <= 3.75s"},
+    {"id": "history_pivot_whip", "rule": "Any jump to the past gets a fast rewind whip of 0.3-0.5s with SFX (the biggest drop-off risk point).", "check": "beat with a year in caption has motion in [whip, rewind, pullout+sfx]"},
+    {"id": "loop_reopen", "position_pct_of_runtime": [70, 82], "rule": "Re-raise the hook question before the payoff ('But there's one person...').", "check": "a beat in this window has motion=tease or caption containing ONE/WHO/EXCEPT/BUT"},
+    {"id": "payoff", "position_pct_of_runtime": [78, 92], "rule": "The payoff lands late, is shown as an action (not just said), and has a distinct SFX.", "check": "payoff beat start/total within range"},
+    {"id": "loop_back", "at_s": "end", "rule": "The last line flows into the first line; the last frame matches frame 0's composition (same object, size, position, background); no end card, logo, fade or silence tail over 0.15s; music bar wraps.", "check": "SSIM(first_frame, last_frame) >= 0.6 on hero region; tail silence <= 0.15s"}
+  ],
+
+  "captions": {
+    "subtitles": {
+      "style": "burned-in, word-by-word or 2-4 word chunks, white with charcoal 6px stroke, active word in #F5C518",
+      "font_px_at_1080w": [56, 72],
+      "max_chars_per_line": 18,
+      "max_lines": 2,
+      "safe_zone_px_1080x1920": {"top_min": 220, "bottom_max_y": 1480, "left_min": 60, "right_max_x": 960},
+      "sync_tolerance_ms": 120,
+      "note": "The bottom ~440px is covered by IG's caption/username UI and the right ~120px by the action buttons; keep all text out of those areas."
+    },
+    "headline": {
+      "position": "top, inside safe zone (y 220-520 at 1080x1920)",
+      "max_words": 4,
+      "case": "UPPER",
+      "highlight": "exactly one word in #F5C518 per headline",
+      "min_on_screen_s": 1.0,
+      "rule": "The headline must not repeat the subtitle verbatim; it is the beat's idea compressed to 4 words or fewer."
+    }
+  },
+
+  "cover": {
+    "source_frame": "beat 1 hero composition (not a mid-transition frame)",
+    "text_max_words": 6,
+    "text_rules": [
+      "Must be a complete claim that makes sense without audio",
+      "Contain the searchable object noun (e.g. ELEVATOR BUTTON)",
+      "One word highlighted yellow",
+      "Text centred within the 1080x1440 (3:4) crop so the profile grid does not cut it",
+      "No question-only covers; a claim beats a question"
+    ],
+    "grid_crop": "3:4 centre crop of the 9:16 frame",
+    "pattern": "THIS [OBJECT] IS [FAKE|LYING|ON PURPOSE]"
+  },
+
+  "ig_caption": {
+    "template": "{seo_question_line}\n{one_sentence_answer_tease}\n\n{share_prompt}\n\nSources: {source_1}; {source_2} (more in comments)\n\n{hashtags}",
+    "rules": [
+      "Line 1 is the plain-language search query (e.g. 'Why the elevator close door button doesn't work') with the object noun in the first 5 words",
+      "Never give away the payoff in the caption; tease it",
+      "share_prompt names a specific person to send it to ('Send this to the friend who...')",
+      "Keep hedges from the script (often, many, some)",
+      "Max ~300 characters before hashtags"
+    ],
+    "hashtag_count": {"min": 3, "max": 5, "hard_limit": 5},
+    "hashtag_mix": ["1 topic-specific (#elevator)", "1 concept (#placebobutton)", "1 niche (#explained or #howthingswork)", "1 broad (#didyouknow)", "optional 1 series (#placebofiles)"]
+  },
+
+  "pinned_comment": {
+    "template": "{binary_question_about_viewer_behaviour}\n\nSources: {source_1} | {source_2}",
+    "rules": [
+      "A question answerable in 1 word (yes/no, a number, a city) to lower comment friction",
+      "Always include at least one source",
+      "Post within 60s of publishing, then pin"
+    ]
+  },
+
+  "topic_scoring": {
+    "criteria": {
+      "relatability": "Has the average viewer personally touched/seen this thing? 5 = daily",
+      "surprise": "Does the answer contradict what most people assume? 5 = flips a belief",
+      "shareability": "Is there an obvious person to send it to (friend who does X, group chat)? 5 = named recipient obvious",
+      "visual_potential": "Can it be shown with paper cutouts and a physical action, not just text? 5 = clear visual payoff",
+      "fact_solidity": "Primary/authoritative source exists and the claim needs at most light hedging. 5 = regulation/official source; 3 = needs strong hedging; <=2 reject"
+    },
+    "scale": [1, 5],
+    "min_total": 20,
+    "min_fact_solidity": 3,
+    "auto_reject_if": [
+      "fact_solidity <= 2",
+      "relies on a single unsourced viral claim",
+      "tragedy within the last 30 days used as a hook",
+      "requires copyrighted audio/footage",
+      "medical or financial advice"
+    ],
+    "checklist": [
+      "Can the hook be said in 8 words or fewer?",
+      "Is there a twist or exception to use as the open loop?",
+      "Is there a physical action for the payoff (key turns, light dims, pane cracks)?",
+      "Who exactly would you DM this to?",
+      "Do two independent sources agree? Note the hedge words required."
+    ]
+  },
+
+  "hook_templates": [
+    {"id": "H1", "pattern": "This {object} is lying to you."},
+    {"id": "H2", "pattern": "Stop {habit}. It does nothing."},
+    {"id": "H3", "pattern": "That {small detail} is there in case {dramatic thing}."},
+    {"id": "H4", "pattern": "{Thing} isn't {assumed}. It's {reversal}."},
+    {"id": "H5", "pattern": "In {year}, {event} quietly changed every {object} you use."},
+    {"id": "H6", "pattern": "You're not imagining it: {complaint} is on purpose."},
+    {"id": "H7", "pattern": "Only {group} knows what this {detail} is for."},
+    {"id": "H8", "pattern": "{Authority} uses {silly thing} to measure {serious thing}."},
+    {"id": "H9", "pattern": "Every {object} you've {used} is {shocking claim}."},
+    {"id": "H10", "pattern": "If {common experience}, blame {unexpected culprit}."}
+  ],
+  "hook_wins": [],
+
+  "posting": {
+    "reels_per_day_month1": 1,
+    "trial_variants_per_week_after_unlock": [1, 2],
+    "default_time_et": {"weekday": "12:00-13:00", "weekend": "10:00"},
+    "test_alt_time_et": "19:00",
+    "cross_post": {"youtube_shorts": true, "tiktok": true, "tiktok_extended_cut": true, "watermark_free_exports_only": true}
+  },
+
+  "kpi_thresholds": {
+    "skip_rate_max_pct": 40,
+    "skip_rate_breakout_pct": 25,
+    "avg_watch_pct_min": 60,
+    "sends_per_reach_min_pct": 1.0,
+    "sends_per_reach_breakout_pct": 3.0,
+    "saves_per_reach_min_pct": 0.5,
+    "follows_per_1k_reach_min": 2,
+    "kill_hook_template_after_n_fails": 3,
+    "double_down_reach_multiple": 3
+  },
+
+  "qa_checklist": [
+    {"id": "QA01", "check": "Frame 0 has visible motion and the hero object; no fade/blank/title card", "severity": "blocker"},
+    {"id": "QA02", "check": "Spoken claim complete <= 1.6s and headline legible from frame 0", "severity": "blocker"},
+    {"id": "QA03", "check": "Open loop (unanswered question) present by <= 3.5s", "severity": "blocker"},
+    {"id": "QA04", "check": "No gap > 3.75s without a pattern interrupt (cut, zoom punch, new element, colour flip, counter)", "severity": "major"},
+    {"id": "QA05", "check": "Headline <= 4 words, one yellow highlight word, inside the top safe zone (y 220-520 @1080x1920)", "severity": "major"},
+    {"id": "QA06", "check": "Subtitles inside safe zone (not below y=1480, not right of x=960), <= 2 lines, <= 18 chars/line, no overlap with headline or hero object's key detail", "severity": "major"},
+    {"id": "QA07", "check": "Subtitle words within 120ms of TTS word timing on 5 random spot-checks", "severity": "major"},
+    {"id": "QA08", "check": "Payoff beat starts at 78-92% of runtime and is shown as an action with SFX", "severity": "major"},
+    {"id": "QA09", "check": "Last line flows into first line; last frame composition matches frame 0; tail silence <= 0.15s; no end card/logo", "severity": "major"},
+    {"id": "QA10", "check": "Cover frame: claim text <= 6 words with object noun, readable in 3:4 grid crop", "severity": "major"},
+    {"id": "QA11", "check": "Total length 32-45s, 11-15 beats, effective WPM 145-170", "severity": "minor"},
+    {"id": "QA12", "check": "Explicit share trigger exists (in script or caption: 'send this to...')", "severity": "major"},
+    {"id": "QA13", "check": "Every factual claim matches the source notes; required hedge words (often/many/some/might) present in narration AND captions; no absolute claim stronger than the source", "severity": "blocker"},
+    {"id": "QA14", "check": "No copyrighted music/footage/logos used as hero; brand names only referenced factually", "severity": "blocker"},
+    {"id": "QA15", "check": "No text/visual glitches: no clipped words, no overlapping captions, no off-palette colours, no empty frames", "severity": "major"},
+    {"id": "QA16", "check": "Caption first line is the SEO question with the object noun; 3-5 hashtags; pinned comment has a 1-word question and >= 1 source", "severity": "minor"},
+    {"id": "QA17", "check": "Audio: VO peaks <= -1 dBTP, music ducked >= 10 dB under VO, SFX present on hook, history pivot and payoff", "severity": "minor"}
+  ],
+  "qa_gate_rule": "Post only if 0 blockers fail and <= 2 majors fail. Otherwise fix and re-render, or skip the day."
+}
