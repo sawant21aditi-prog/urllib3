@@ -1,0 +1,119 @@
+{
+ "style": "single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio",
+ "elements": [
+  {
+   "name": "button",
+   "file": "button.png",
+   "tone": "color",
+   "prompt": "a worn brass elevator DOOR CLOSE button in a small brushed steel plate, the symbol is two solid triangles pointing INWARD toward a vertical line in the middle like \u25b6|\u25c0, seen straight on, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "hand_point",
+   "file": "hand_point.png",
+   "tone": "color",
+   "prompt": "a human hand and forearm with the index finger extended pointing forward, as if about to press a button, seen from the side, shirt cuff visible, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "floor",
+   "file": "floor.png",
+   "tone": "bw",
+   "prompt": "a wide black and white photograph of an empty tiled floor in perspective, square tiles receding to the horizon, filling the whole frame, black and white halftone vintage photograph, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "firefighter",
+   "file": "firefighter.png",
+   "tone": "bw",
+   "prompt": "a firefighter in full turnout gear and helmet standing, full body, face in deep shadow, black and white halftone vintage photograph, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "worker",
+   "file": "worker.png",
+   "tone": "color",
+   "prompt": "an impatient office worker in a blue blazer looking at his wristwatch with an annoyed face, waist up, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "doors",
+   "file": "doors.png",
+   "tone": "color",
+   "prompt": "closed brushed stainless steel elevator doors with frame, seen straight on, symmetrical, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "stopwatch",
+   "file": "stopwatch.png",
+   "tone": "color",
+   "prompt": "a vintage chrome stopwatch, seen straight on, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "calendar",
+   "file": "calendar.png",
+   "tone": "color",
+   "prompt": "a vintage paper wall calendar page for July 1990, slightly curled, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "capitol",
+   "file": "capitol.png",
+   "tone": "bw",
+   "prompt": "the US Capitol building dome, black and white halftone vintage photograph, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "document",
+   "file": "document.png",
+   "tone": "color",
+   "prompt": "an official government document page with an embossed gold seal, blank lines of text, seen straight on, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "pen_hand",
+   "file": "pen_hand.png",
+   "tone": "color",
+   "prompt": "a hand holding a black fountain pen as if signing, seen from the side, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "wheelchair",
+   "file": "wheelchair.png",
+   "tone": "color",
+   "prompt": "a smiling confident young woman using a modern wheelchair, full body, facing slightly to the side, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "circuit",
+   "file": "circuit.png",
+   "tone": "color",
+   "prompt": "the back of an elevator button panel opened up, a green circuit board with colorful wires, seen straight on, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "plug_wire",
+   "file": "plug_wire.png",
+   "tone": "color",
+   "prompt": "a single red electrical wire with a small connector plug at its end, curving, dangling, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "pill",
+   "file": "pill.png",
+   "tone": "color",
+   "prompt": "a single glossy capsule pill, half yellow half white, standing upright, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "keyhole_panel",
+   "file": "keyhole_panel.png",
+   "tone": "color",
+   "prompt": "a stainless steel elevator call panel with two round buttons and a small keyhole, seen straight on, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "glove_key",
+   "file": "glove_key.png",
+   "tone": "color",
+   "prompt": "a firefighter's leather gloved hand holding a brass key, seen from the side, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "keyswitch",
+   "file": "keyswitch.png",
+   "tone": "color",
+   "prompt": "a red metal fire-service elevator keyswitch box with a keyhole in the center, seen straight on, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "snail",
+   "file": "snail.png",
+   "tone": "color",
+   "prompt": "a small garden snail with a spiral shell, side view, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  }
+ ]
+}

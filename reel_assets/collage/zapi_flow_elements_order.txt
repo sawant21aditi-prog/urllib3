@@ -1,0 +1,20 @@
+ZAPI download order -> element
+line 1: button
+line 2: hand_point
+line 3: floor
+line 4: firefighter
+line 5: worker
+line 6: doors
+line 7: stopwatch
+line 8: calendar
+line 9: capitol
+line 10: document
+line 11: pen_hand
+line 12: wheelchair
+line 13: circuit
+line 14: plug_wire
+line 15: pill
+line 16: keyhole_panel
+line 17: glove_key
+line 18: keyswitch
+line 19: snail
