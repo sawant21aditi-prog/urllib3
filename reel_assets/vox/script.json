@@ -11,7 +11,18 @@
    "highlight": "LYING",
    "visual": "a single large brass elevator close-door button with two inward-pointing triangles, cut out as a paper sticker, centered on cream paper, a yellow circle behind it",
    "motion": "punch",
-   "retention": "Beat 1 is a strong curiosity-gap line (a familiar object accused of lying) and it lands in 1.29s, so the words pass the 3-second test; the risk is visual: a static button on cream paper looks like a still image in the first frames. Strengthen it by having a cartoon finger already jabbing the button on frame 0 (no fade-in, no blank frame), with a click SFX and 'LYING' stamped in yellow on the punch, plus a quick red glitch/flicker on the button's triangles to signal 'fake'. Keep the caption on screen from frame 0 so muted viewers get the hook too."
+   "retention": "Beat 1 is a strong curiosity-gap line (a familiar object accused of lying) and it lands in 1.29s, so the words pass the 3-second test; the risk is visual: a static button on cream paper looks like a still image in the first frames. Strengthen it by having a cartoon finger already jabbing the button on frame 0 (no fade-in, no blank frame), with a click SFX and 'LYING' stamped in yellow on the punch, plus a quick red glitch/flicker on the button's triangles to signal 'fake'. Keep the caption on screen from frame 0 so muted viewers get the hook too.",
+   "speed": 1.25
+  },
+  {
+   "id": 13,
+   "speed": 1.25,
+   "narration": "And only one person can make it work.",
+   "caption": "ONE PERSON CAN USE IT",
+   "highlight": "ONE",
+   "visual": "open-loop tease: dark spotlight, a mystery silhouette with a big yellow question mark, a key glint",
+   "motion": "tease",
+   "retention": "3-second rule: completes the hook with an open loop that only pays off at the firefighter reveal near the end."
   },
   {
    "id": 2,

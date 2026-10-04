@@ -10,4 +10,6 @@ import { S09 } from "./S09";
 import { S10 } from "./S10";
 import { S11 } from "./S11";
 import { S12 } from "./S12";
-export const SCENES = [S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11, S12];
+import { S13 } from "./S13";
+// Order matches script.json beats (S13 = hook part 2, plays second).
+export const SCENES = [S01, S13, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11, S12];

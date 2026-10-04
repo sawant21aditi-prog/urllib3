@@ -33,12 +33,17 @@ const Flyby: React.FC<{ start: number; len: number; y: number; scale: number; ro
   children,
 }) => {
   const frame = useCurrentFrame();
-  const t = (frame - start) / len;
-  if (t < -0.05 || t > 1.05) return null;
-  const p = interpolate(frame, [start, start + len], [0, 1], { ...clamp, easing: theme.ease.inOut });
-  const p2 = interpolate(frame + 1, [start, start + len], [0, 1], { ...clamp, easing: theme.ease.inOut });
-  const x = interpolate(p, [0, 1], [-900, 1980]);
-  const vel = Math.abs(p2 - p);
+  if (frame < start - 1 || frame > start + len + 1) return null;
+  // whip in (fast) → drift through centre → whip out (faster)
+  const posAt = (fr: number) => {
+    const inP = interpolate(fr, [start, start + 4], [0, 1], { ...clamp, easing: theme.ease.out });
+    const drift = interpolate(fr, [start + 4, start + len - 3], [0, 1], { ...clamp, easing: theme.ease.inOut });
+    const outP = interpolate(fr, [start + len - 3, start + len], [0, 1], { ...clamp, easing: theme.ease.in });
+    return -760 + inP * (760 + 470) + drift * 140 + outP * 1300;
+  };
+  const x = posAt(frame);
+  const vel = Math.abs(posAt(frame + 1) - x);
+  const p = interpolate(frame, [start, start + len], [0, 1], clamp);
   return (
     <div
       style={{
@@ -46,7 +51,7 @@ const Flyby: React.FC<{ start: number; len: number; y: number; scale: number; ro
         left: 0,
         top: 0,
         transform: `translate(${x}px, ${y}px) translate(-50%, -50%) rotate(${rot + p * 24}deg) scale(${scale})`,
-        filter: `blur(${vel * 40}px)`,
+        filter: `blur(${Math.min(14, vel / 40)}px)`,
       }}
     >
       {children}
@@ -122,17 +127,17 @@ export const S12: React.FC<SceneProps> = ({ durationInFrames }) => {
       <Sfx at={durationInFrames - 27} name="riser" volume={0.45} />
 
       {/* ===== recap whip ===== */}
-      <Flyby start={-2} len={13} y={1080} scale={1} rot={-14}>
+      <Flyby start={-3} len={11} y={1080} scale={1} rot={-14}>
         <Cutout border={9} shadow={18}>
           <Host height={900} mood="annoyed" armAngle={-30} />
         </Cutout>
       </Flyby>
-      <Flyby start={3} len={14} y={860} scale={0.75} rot={8}>
+      <Flyby start={6} len={10} y={860} scale={0.75} rot={8}>
         <Cutout border={8} shadow={16}>
           <ElevatorDoors width={560} height={740} open={0.4} />
         </Cutout>
       </Flyby>
-      <Flyby start={7} len={13} y={1180} scale={0.7} rot={-20}>
+      <Flyby start={13} len={9} y={1180} scale={0.7} rot={-20}>
         <Cutout border={8} shadow={14}>
           <Pill width={620} />
         </Cutout>

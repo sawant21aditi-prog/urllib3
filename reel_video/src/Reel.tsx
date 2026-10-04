@@ -26,7 +26,7 @@ export const Reel: React.FC = () => {
         return (
           <Sequence key={beat.id} from={c.from} durationInFrames={dur} name={`S${beat.id}`}>
             <Scene beat={beat} durationInFrames={dur} speechFrames={c.speech} />
-            <Headline text={beat.caption} highlight={beat.highlight} durationInFrames={dur} />
+            <Headline text={beat.caption} highlight={beat.highlight} durationInFrames={dur} lead={i === 0 ? 8 : 0} />
             <Subtitles text={beat.narration} speechFrames={c.speech} />
             {i > 0 && <CutFlash />}
           </Sequence>

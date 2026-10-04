@@ -5,15 +5,17 @@ import { theme } from "../theme";
 import { clamp } from "./lib";
 
 /** Vox-style kinetic headline in the top zone: words slam in, highlight word on a yellow pill. */
-export const Headline: React.FC<{ text: string; highlight: string; durationInFrames: number }> = ({
+export const Headline: React.FC<{ text: string; highlight: string; durationInFrames: number; lead?: number }> = ({
   text,
   highlight,
   durationInFrames,
+  lead = 0,
 }) => {
-  const frame = useCurrentFrame();
+  // lead > 0 starts the entrance already in progress (hook text visible on frame 0)
+  const frame = useCurrentFrame() + lead;
   const { fps } = useVideoConfig();
   const words = text.split(" ");
-  const exit = interpolate(frame, [durationInFrames - 6, durationInFrames], [0, 1], { ...clamp, easing: theme.ease.in });
+  const exit = interpolate(frame - lead, [durationInFrames - 6, durationInFrames], [0, 1], { ...clamp, easing: theme.ease.in });
   return (
     <AbsoluteFill style={{ alignItems: "center", pointerEvents: "none" }}>
       <div
