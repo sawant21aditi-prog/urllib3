@@ -12,21 +12,19 @@ import { Beat } from "../types";
 import "../fonts";
 
 type Move = "punch" | "pushIn" | "pullOut" | "panLeft" | "panRight" | "shake";
-// Camera move + one SFX hit per beat, keyed by beat id. Moves alternate so consecutive shots never feel the same.
-const DIRECTION: Record<number, { move: Move; sfx?: string; file: string }> = {
-  1: { move: "punch", sfx: "click", file: "01.png" },
-  13: { move: "pushIn", sfx: "bass", file: "13.png" },
-  2: { move: "panLeft", sfx: "tick", file: "02.png" },
-  3: { move: "pullOut", sfx: "glitch", file: "03.png" },
-  4: { move: "pushIn", sfx: "bass", file: "04.png" },
-  5: { move: "pullOut", sfx: "ding", file: "05.png" },
-  6: { move: "panRight", sfx: "pop", file: "06.png" },
-  7: { move: "pushIn", sfx: "glitch", file: "07.png" },
-  8: { move: "shake", sfx: "click", file: "08.png" },
-  9: { move: "pullOut", sfx: "pop", file: "09.png" },
-  10: { move: "pushIn", sfx: "riser", file: "10.png" },
-  11: { move: "punch", sfx: "click", file: "11.png" },
-  12: { move: "pushIn", sfx: "riser", file: "01.png" }, // same image as beat 1 → seamless loop
+const MOVES: Move[] = ["punch", "pushIn", "panLeft", "pullOut", "pushIn", "panRight"];
+
+// Each beat may set shot (image file in public/shots), cam (camera move) and sfx in script.json.
+// Defaults: shot NN.png by playback order, moves cycle so consecutive shots never feel the same,
+// and the LAST beat reuses the first beat's image for a seamless loop.
+const direction = (beat: Beat & { shot?: string; cam?: string; sfx?: string }, i: number, beats: Beat[]) => {
+  const first = beats[0] as Beat & { shot?: string };
+  const isLast = i === beats.length - 1;
+  return {
+    file: beat.shot ?? (isLast ? first.shot ?? "01.png" : `${String(i + 1).padStart(2, "0")}.png`),
+    move: (beat.cam as Move) ?? (i === 0 ? "punch" : MOVES[i % MOVES.length]),
+    sfx: beat.sfx,
+  };
 };
 
 const Shot: React.FC<{ file: string; move: Move; dur: number; isLast: boolean }> = ({ file, move, dur, isLast }) => {
@@ -121,7 +119,7 @@ export const RealReel: React.FC = () => {
       {beats.map((beat, i) => {
         const c = cuts[i];
         const dur = i === beats.length - 1 ? durationInFrames - c.from : c.dur;
-        const d = DIRECTION[beat.id];
+        const d = direction(beat, i, beats);
         return (
           <Sequence key={beat.id} from={c.from} durationInFrames={dur} name={`R${beat.id}`}>
             <Shot file={d.file} move={d.move} dur={dur} isLast={i === beats.length - 1} />
