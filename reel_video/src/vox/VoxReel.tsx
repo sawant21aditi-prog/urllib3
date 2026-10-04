@@ -179,7 +179,7 @@ const PaperTag: React.FC<{
             const hi = highlight && norm(w) === norm(highlight);
             const sweep = hi ? interpolate(frame, [start + 12, start + 20], [0, 1], clamp) : 0;
             return (
-              <span key={i} style={{ position: "relative", fontFamily: theme.fonts.display, fontSize: size, lineHeight: 1.1, color: hi && sweep > 0.5 ? V.ink : V.white, letterSpacing: "0.02em" }}>
+              <span key={i} style={{ position: "relative", fontFamily: theme.fonts.display, fontSize: size, lineHeight: 1.1, color: V.white, letterSpacing: "0.02em" }}>
                 {hi && (
                   <span
                     style={{
@@ -196,6 +196,10 @@ const PaperTag: React.FC<{
                   />
                 )}
                 <span style={{ position: "relative" }}>{w}</span>
+                {/* dark copy of the word wipes in exactly with the marker, so the word never vanishes */}
+                {hi && sweep > 0 && (
+                  <span style={{ position: "absolute", left: 0, top: 0, color: V.ink, clipPath: `inset(0 ${(1 - sweep) * 100}% 0 0)` }}>{w}</span>
+                )}
               </span>
             );
           })}
