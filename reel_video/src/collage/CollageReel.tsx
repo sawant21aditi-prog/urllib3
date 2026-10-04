@@ -35,7 +35,8 @@ type Fx =
   | { type: "question"; x: number; y: number; at: number }
   | { type: "doors"; x: number; y: number; w: number; open: [number, number]; at?: number; until?: number }
   | { type: "spotlight"; x: number; y: number; r: number }
-  | { type: "flicker" };
+  | { type: "flicker" }
+  | { type: "write"; text: string; x: number; y: number; size: number; at: number; color?: string; rot?: number };
 type Scene = { bg: string; props: Prop[]; fx?: Fx[]; transition?: "cut" | "torn" | "slideUp" | "zoom"; bold?: string };
 type CBeat = { id: number; narration: string; scene?: Scene };
 
@@ -174,20 +175,40 @@ const Question: React.FC<{ x: number; y: number; at: number }> = ({ x, y, at }) 
   );
 };
 
-/** Elevator doors element split into two halves that slide apart. */
+/** Elevator doors: the steel frame stays fixed; only the two panels slide apart inside the opening. */
+const DOOR_ASPECT = 1660 / 900;
+const OPEN = { l: 0.135, r: 0.135, t: 0.085, b: 0.02 }; // opening inside the frame, as fractions of the image
 const Doors: React.FC<{ x: number; y: number; w: number; open: [number, number]; at: number; until: number }> = ({ x, y, w, open, at, until }) => {
   const f = step(useCurrentFrame());
   const o = interpolate(f, [at, until], open, { ...clamp, easing: ease.inOut });
-  const half = (side: "L" | "R") => (
-    <div style={{ position: "absolute", inset: 0, clipPath: side === "L" ? "inset(0 50% 0 0)" : "inset(0 0 0 50%)", transform: `translateX(${(side === "L" ? -1 : 1) * o * w * 0.42}px)` }}>
-      {has("doors") ? <Img src={staticFile("elements/doors.png")} style={{ width: "100%", display: "block" }} /> : <div style={{ width: "100%", height: w * 1.3, background: "#9aa", border: "4px solid #333" }} />}
+  const h = w * DOOR_ASPECT;
+  const ow = w * (1 - OPEN.l - OPEN.r);
+  const img = (style: React.CSSProperties) =>
+    has("doors") ? <Img src={staticFile("elements/doors.png")} style={{ position: "absolute", width: w, height: h, ...style }} /> : null;
+  return (
+    <div style={{ position: "absolute", left: x - w / 2, top: y - h / 2, width: w, height: h, zIndex: 1, filter: "drop-shadow(0 18px 18px rgba(0,0,0,0.35))" }}>
+      {img({ left: 0, top: 0 })}
+      <div style={{ position: "absolute", left: w * OPEN.l, top: h * OPEN.t, width: ow, height: h * (1 - OPEN.t - OPEN.b), overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(#fff3cf, #e2cf98)" }} />
+        {(["L", "R"] as const).map((side) => (
+          <div key={side} style={{ position: "absolute", inset: 0, clipPath: side === "L" ? "inset(0 50% 0 0)" : "inset(0 0 0 50%)", transform: `translateX(${(side === "L" ? -1 : 1) * o * ow * 0.5}px)` }}>
+            {img({ left: -w * OPEN.l, top: -h * OPEN.t })}
+          </div>
+        ))}
+      </div>
     </div>
   );
+};
+
+/** Hand-written marker text (e.g. "1990" on the calendar), wiped on in stop-motion steps. */
+const Write: React.FC<{ text: string; x: number; y: number; size: number; at: number; color: string; rot: number }> = ({ text, x, y, size, at, color, rot }) => {
+  const f = step(useCurrentFrame());
+  const p = interpolate(f, [at, at + 8], [0, 1], clamp);
+  if (p <= 0) return null;
   return (
-    <div style={{ position: "absolute", left: x - w / 2, top: y - w * 0.65, width: w, height: w * 1.3, zIndex: 1, filter: "drop-shadow(0 18px 18px rgba(0,0,0,0.35))" }}>
-      <div style={{ position: "absolute", inset: "6% 8%", background: "linear-gradient(#fff6d8, #e8d9a8)" }} />
-      {half("L")}
-      {half("R")}
+    <div style={{ position: "absolute", left: x, top: y, transform: `translate(-50%, -50%) rotate(${rot}deg)`, zIndex: 5,
+      fontFamily: theme.fonts.display, fontSize: size, color, letterSpacing: "0.02em", clipPath: `inset(0 ${(1 - p) * 100}% 0 0)` }}>
+      {text}
     </div>
   );
 };
@@ -283,6 +304,7 @@ export const CollageReel: React.FC = () => {
                 if (fx.type === "circle") return <MarkerCircle key={k} x={fx.x} y={fx.y} r={fx.r} at={at} color={fx.color ?? "#E5352B"} />;
                 if (fx.type === "sparks") return <Sparks key={k} x={fx.x} y={fx.y} at={at} />;
                 if (fx.type === "question") return <Question key={k} x={fx.x} y={fx.y} at={at} />;
+                if (fx.type === "write") return <Write key={k} text={fx.text} x={fx.x} y={fx.y} size={fx.size} at={at} color={fx.color ?? "#E5352B"} rot={fx.rot ?? -6} />;
                 return null;
               })}
             </TransitionIn>
