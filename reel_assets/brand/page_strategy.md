@@ -40,7 +40,7 @@ Shared traits of the top videos (my synthesis of the sources above, with evidenc
 - **Reposts (evidence).** A native Repost button arrived in Aug 2025 ([Buffer](https://buffer.com/resources/repost-on-instagram/)). Reposts by viewers are another distribution path, so we should ask for them in captions occasionally.
 
 ### 1d. The gap we can own
-- **Format gap:** Most "facts" pages use stock footage, AI slop or 3D (Zack D clones). Very few post a **Vox-grade editorial collage daily**, and we can because our marginal cost is $0. The cream, charcoal and yellow look is recognisable in one frame of the feed. That is a brand asset, and Instagram's originality push rewards it.
+- **Format gap:** Most "facts" pages use stock footage, AI slop or 3D (Zack D clones). Very few post a **Vox-grade editorial collage daily**, and we can because our marginal cost is $0. The **colourful paper-collage look** is recognisable in one frame of the feed: every scene has its own vivid background, there is charcoal ink, multi-colour tape and confetti, and the yellow brass button is the signature object. Bright, saturated frames also stand out in a feed full of dark stock footage and talking heads (estimate). That is a brand asset, and Instagram's originality push rewards it.
 - **Topic gap:** We will own **"things that are secretly designed to manipulate or protect you"**: placebo buttons, hidden safety features and design decisions. That is narrower than "random facts", which makes it easier for the algorithm to classify us and for people to follow. It also has a near-unlimited backlog.
 - **Trust gap:** Fact pages are full of myths. A visible **"Sources in comments"** habit plus honest hedges ("often", "in many US elevators") is a differentiator, and it protects the page from "well actually" pile-ons that hurt trust.
 
@@ -78,22 +78,40 @@ The user must check availability on Instagram, TikTok and YouTube themselves. Pr
 
 ---
 
-## 4. Profile picture (exactly one spec, rendered in code)
+## 4. Brand style and profile picture
 
-**Concept: "the paper question mark with a button for a dot."**
+### 4a. Brand style (the visual rules every Reel follows)
+- **Colourful, not single-accent.** Each scene or beat gets its **own background colour**, rotating through: sky blue `#8FD3FE`, hot pink `#FF8FB8`, mint `#8BE3B5`, lavender `#BBA9F7`, coral `#FFA184`, aqua `#74D9E3`, lime `#C9EC7E`, periwinkle `#A3B8FF`, peach `#FFBE85` and teal `#6DD3BF`. One dark charcoal scene (`#1E1D1B`) is allowed for a mystery or open-loop beat. Neighbouring beats must never share a background, so every cut is a colour flip and a free pattern interrupt.
+- **Headline highlights rotate** through yellow `#F5C518`, pink `#FF5C8A`, blue `#3DA5FF`, purple `#9B6BFF` and orange `#FF7A45`. Each headline has one highlighted word. The highlight colour must contrast with that scene's background; for example, never a blue highlight on sky blue or aqua.
+- **Ink stays charcoal** (`#1E1D1B`) for headline text and outlines, and subtitles stay white with a charcoal stroke. This constant is what keeps a colourful frame readable.
+- **Paper texture:** white sticker borders on every cutout, halftone shadows, **multi-colour washi tape and confetti** from the pop palette (`#FF5C8A #3DA5FF #2EC4A6 #FFB020 #9B6BFF #FF7A45 #7ED957`).
+- **Signature object:** the **yellow brass button** (`#F5C518` face, `#C9A646` brass ring) appears in the avatar, the highlight covers and, where it fits, as a small sticker cameo in each Reel. It is the one element that is always yellow.
+- **The loop scene repeats its colour.** The last beat uses the same background as beat 1 (sky blue in Reel #1), so the loop has no colour jump.
+
+### 4b. Profile picture (exactly one spec, rendered in code)
+
+**Concept: "the paper question mark with the yellow button for a dot", on sky blue with confetti.**
 - Canvas 1080×1080 px, exported as PNG. Instagram crops it to a circle that shows at about 110px on the profile and about 32px in the feed.
-- **Background:** solid accent yellow `#F5C518` filling the whole canvas, so the circle crop is a solid yellow disc. Add a subtle halftone of charcoal dots at 6% opacity, 9px pitch, concentrated toward the bottom-right as a "shadow".
-- **Main shape:** one bold **charcoal `#1E1E1E` question mark** (use the reel's heavy display font at about 900 weight). It is about 640px tall and centred optically, with its centre about 20px above the canvas centre. It is rotated −6°, with a **24px white sticker border** around the glyph and a hard drop shadow (charcoal at 25%, offset 10px/12px). That makes it read as a paper cutout.
-- **The dot:** the full stop of the question mark is replaced by a **round elevator-style button**: a cream `#F3EBDD` disc 150px across with a 14px charcoal ring and a small yellow inner glow. It is our signature element, and it ties to Reel #1 and the "hidden mechanism" idea.
-- **Washi tape:** one strip of cream tape, 260×70px at 35% transparency with a torn-edge texture. It sits at −30° across the top-left of the question mark's curve. Keep it inside the inscribed circle, within a radius of about 470px of the centre, so the crop does not clip it.
+- **Background:** solid **sky blue `#8FD3FE`** filling the canvas, which is the beat 1 colour, so the avatar matches our opening frames. Add a soft halftone of charcoal dots at 6% opacity, 9px pitch, toward the bottom-right as a "shadow".
+- **Main shape:** one bold **charcoal `#1E1D1B` question mark** (the reel's heavy display font at about 900 weight). It is about 620px tall and centred optically, with its centre about 20px above the canvas centre. It is rotated −6°, with a **26px white sticker border** and a hard drop shadow (charcoal at 25%, offset 10px/12px).
+- **The dot:** the question mark's full stop is replaced by the **signature yellow brass button**: a 170px disc with a `#F5C518` face, a 16px `#C9A646` brass ring, a thin charcoal outline and the two close-door triangles in charcoal, about 60px wide.
+- **Colour accents, all kept inside a radius of about 460px from the centre so the circle crop doesn't clip them:**
+  - one **hot pink `#FF5C8A` washi tape** strip, 250×66px, at −30° across the top-left of the curve;
+  - one **mint `#2EC4A6`** strip, 160×50px, at +20° at the lower right;
+  - four confetti pieces (purple `#9B6BFF`, orange `#FF7A45`, lime `#7ED957`, pink `#FF5C8A`), each 26–40px with a 4px white border, scattered in the open sky-blue space.
 - **No text and no letters except the glyph.**
-- **Why it reads at 110px:** the avatar is two shapes, one dark and one bright, with about 11:1 contrast between charcoal and yellow. The question mark is a universally recognised silhouette that means "explained". The solid yellow disc stands out against Instagram's white and black UI and matches the yellow accent in every Reel, so viewers connect the avatar to the videos. Fine detail such as tape and halftone only shows at larger sizes, as a reward for people who look closer.
+- **Why it reads at 110px:**
+  - The dominant read is a dark question mark on a bright sky-blue disc, with about 10:1 contrast.
+  - The yellow button dot is the brightest point, so the eye lands on the signature object.
+  - Sky blue is distinct from both Instagram's white and dark UI.
+  - Tape and confetti come through as small flecks of colour that signal "playful and colourful" without cluttering the silhouette, and they show fully at larger sizes.
+- **Optional seasonal swap:** keep the shape and the button and only rotate the background through the scene palette, such as hot pink for a series launch. Never change the question mark or the button.
 
 ---
 
 ## 5. Highlights, pinned posts, pillars and series
 
-**Highlight covers (4):** charcoal glyph on a yellow circle, the same system as the avatar.
+**Highlight covers (4–5):** a charcoal glyph with a white sticker border, each on **its own scene colour**, as a multi-colour row that echoes the Reels. A small yellow-button sticker dot sits on the START HERE cover only. Colours: START HERE on sky blue `#8FD3FE`, PLACEBOS on hot pink `#FF8FB8`, SOURCES on mint `#8BE3B5`, ASK US on lavender `#BBA9F7`, WORK WITH US on peach `#FFBE85`.
 1. **START HERE** (icon: ?): the three best Reels re-shared plus "what this page is".
 2. **PLACEBOS** (icon: a round button): every Reel in the Placebo Files series.
 3. **SOURCES** (icon: a paper clip): story slides with source screenshots or links for each Reel. This is a trust asset.
@@ -110,7 +128,7 @@ The user must check availability on Instagram, TikTok and YouTube themselves. Pr
 3. **Disasters that redesigned the world** (20%): a tragedy or failure that changed a design everyone uses.
 4. **Brain tricks** (15%): pricing, waiting, perception and illusions.
 
-**Named series format: "PLACEBO FILES" (No. 01, 02 and so on).** It runs every Tuesday plus whenever there is a strong placebo topic. A fixed series stamp, "PLACEBO FILES #0X", appears as a yellow tag at the top-left for the first 1.5s and on the cover. The format is: object accused (hook), who built it fake and why, the one exception (open loop), and the payoff. Series numbering drives profile binge-watching and follows ("I want the next one").
+**Named series format: "PLACEBO FILES" (No. 01, 02 and so on).** It runs every Tuesday plus whenever there is a strong placebo topic. A fixed series stamp, "PLACEBO FILES #0X", appears as a tag on a multi-colour washi strip at the top-left (the tag colour rotates with the highlight palette; the yellow button icon is always beside it) for the first 1.5s and on the cover. The format is: object accused (hook), who built it fake and why, the one exception (open loop), and the payoff. Series numbering drives profile binge-watching and follows ("I want the next one").
 
 ---
 

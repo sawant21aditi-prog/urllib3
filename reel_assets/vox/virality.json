@@ -58,21 +58,24 @@
   "loop_check": "The line-level loop works: 'remember... This button is lying to you' reads as one sentence. Make it frame-seamless: beat 12 must end on the exact framing of beat 1 (same button size, position, yellow circle), with the cartoon hand's fingertip touching the button on the final frame so beat 1's punch reads as the press. No end card, logo, fade or silence tail (beat 12 has only ~0.08s after speech; keep it), and cut the music bed so its last bar flows back into its first.",
   "cover_frame": {
     "beat": 1,
-    "title_text": "THIS ELEVATOR BUTTON IS FAKE"
+    "title_text": "THIS ELEVATOR BUTTON IS OFTEN FAKE",
+    "highlight": "FAKE",
+    "note": "Render a dedicated cover still from beat 1 (sky-blue scene, yellow brass button); keep text centred within y 400-1500 so the 3:4 profile-grid crop never cuts it. 'OFTEN' keeps the claim accurate."
   },
-  "ig_caption": "Why the elevator close door button often does nothing (US elevators)\nThe ADA (1990) changed the rules, and firefighters still have the key that makes it work.\nSend this to the friend who spams it every single time.",
-  "pinned_comment": "Be honest: are you still going to press it? Drop a 'yes' or 'no', and tell us if you've ever seen one actually close the doors.",
+  "ig_caption": "Why the elevator close door button often does nothing (US elevators)\nPLACEBO FILES #01. A 1990 law changed the rules, and one special key still makes it work.\n\nSend this to the friend who spams it every single time.\n\nSources: 2010 ADA Standards §407.3.4–407.3.6 (door timing); ASME A17.1 fire-service Phase II operation (more in comments)",
+  "pinned_comment": "Be honest: are you still going to press it? Yes or no?\n\nSources: ADA Standards for Accessible Design §407.3 (doors stay fully open 3s minimum; door-close can't shorten it) | ASME A17.1 Phase II firefighters' service. Some elevators do let the button work after the minimum time, so it's 'often', not 'always'.",
   "hashtags": [
     "#elevator",
     "#placebobutton",
-    "#thingsexplained",
-    "#ADA",
-    "#didyouknow"
+    "#howthingswork",
+    "#didyouknow",
+    "#placebofiles"
   ],
-  "post_plan": "Post Tuesday-Thursday around 11am-1pm or 7-9pm in the main US audience's time zone (US-focused topic), and reply to every comment in the first hour to boost early engagement. Because this is a new account, publish it first as a Trial Reel (shown only to non-followers), and test a second version with a different cover/hook text; if it beats the account's benchmark on 3-second hold and sends within 24-72h, let it share to followers automatically and keep the winning hook style.",
+  "post_plan": "Post Tue-Thu 12:00-13:00 US Eastern (default; test 19:00 ET in weeks 2-3). Instagram caps posts at 5 hashtags, and hashtags help search more than reach, so the first caption line is the SEO question. Trial Reels: a brand-new page may not see the Trial toggle (reports say it may need a public professional account with about 1,000 followers). If it is there, post the main Reel normally and add one Trial variant that changes only the hook or cover; otherwise post normally. First hour: pin the sourced comment within 60s, share to Stories with a yes/no poll, reply to every comment, and send it to 3-5 genuinely interested friends. Cross-post the clean file (no watermark) to YouTube Shorts and TikTok with platform-specific captions.",
   "series_hooks": [
-    "The crosswalk button that does nothing",
-    "Your office thermostat is probably fake",
-    "Your car's engine roar might be fake"
-  ]
+    "PLACEBO FILES #02: This crosswalk button is lying to you too.",
+    "PLACEBO FILES #03: Stop closing your apps. It does nothing.",
+    "PLACEBO FILES #04: Your office thermostat might be fake."
+  ],
+  "review_ref": "reel_assets/vox/review.md (quality gate + top 5 fixes)"
 }
