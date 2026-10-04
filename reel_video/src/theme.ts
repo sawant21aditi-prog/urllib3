@@ -53,6 +53,6 @@ export const theme = {
     headlineTop: 250, // headline block starts here (IG top UI above)
     visualTop: 560,
     visualBottom: 1380,
-    subtitleY: 1450, // subtitle baseline area
+    subtitleY: 1290, // subtitle top; bottom edge ≈1380, clear of IG caption + buttons
   },
 } as const;

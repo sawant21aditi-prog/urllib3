@@ -5,13 +5,15 @@ import { theme } from "../theme";
 import { clamp } from "./lib";
 
 /** Vox-style kinetic headline in the top zone: words slam in, highlight word on a yellow pill. */
-export const Headline: React.FC<{ text: string; highlight: string; durationInFrames: number; lead?: number; accent?: string }> = ({
+export const Headline: React.FC<{ text: string; highlight: string; durationInFrames: number; lead?: number; accent?: string; variant?: "paper" | "photo" }> = ({
   text,
   highlight,
   durationInFrames,
   lead = 0,
   accent = theme.colors.hero,
+  variant = "paper",
 }) => {
+  const photo = variant === "photo";
   // lead > 0 starts the entrance already in progress (hook text visible on frame 0)
   const frame = useCurrentFrame() + lead;
   const { fps } = useVideoConfig();
@@ -45,7 +47,8 @@ export const Headline: React.FC<{ text: string; highlight: string; durationInFra
                 fontSize: words.length > 3 ? 118 : 138,
                 lineHeight: 1.08,
                 letterSpacing: "0.01em",
-                color: theme.colors.ink,
+                color: photo ? theme.colors.white : theme.colors.ink,
+                textShadow: photo && !isHi ? "0 6px 24px rgba(0,0,0,0.6)" : undefined,
                 opacity: interpolate(p, [0, 0.2], [0, 1], clamp),
                 transform: `translateY(${interpolate(p, [0, 1], [70, 0])}px) scale(${interpolate(p, [0, 1], [1.5, 1])}) rotate(${interpolate(p, [0, 1], [i % 2 ? 6 : -6, 0])}deg)`,
                 padding: "0 10px",
@@ -64,7 +67,7 @@ export const Headline: React.FC<{ text: string; highlight: string; durationInFra
                   }}
                 />
               )}
-              <span style={{ WebkitTextStroke: `3px ${theme.colors.white}`, paintOrder: "stroke fill" }}>{w}</span>
+              <span style={{ WebkitTextStroke: photo ? (isHi ? "0px transparent" : `8px ${theme.colors.ink}`) : `3px ${theme.colors.white}`, paintOrder: "stroke fill", color: photo && isHi ? theme.colors.ink : undefined }}>{w}</span>
             </span>
           );
         })}
@@ -102,7 +105,7 @@ export const Subtitles: React.FC<{ text: string; speechFrames: number }> = ({ te
         style={{
           position: "absolute",
           top: theme.zones.subtitleY,
-          width: 940,
+          width: 840,
           textAlign: "center",
           fontFamily: theme.fonts.body,
           fontWeight: 900,
@@ -112,7 +115,6 @@ export const Subtitles: React.FC<{ text: string; speechFrames: number }> = ({ te
           WebkitTextStroke: `10px ${theme.colors.ink}`,
           paintOrder: "stroke fill",
           transform: `scale(${interpolate(p, [0, 1], [0.8, 1])}) translateY(${interpolate(p, [0, 1], [16, 0])}px)`,
-          opacity: interpolate(p, [0, 0.3], [0, 1], clamp),
         }}
       >
         {sp.ch.join(" ")}

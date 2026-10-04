@@ -1,0 +1,39 @@
+THE PLACEBO BUTTON: GOOGLE FLOW PROMPTS (12 images)
+Settings: Image, aspect ratio 9:16 (portrait), best quality model. Make 2-4 variations each and keep the most realistic.
+Save each pick with the filename shown, then upload all 12 to the chat.
+
+[01.png]  (shot 1 of 12)
+Extreme macro close-up of an index finger pressing a worn brass elevator door-close button engraved with two inward-pointing triangles, brushed steel elevator panel, warm key light on the button, the background falling off into dark bokeh, photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio.
+
+[13.png]  (shot 2 of 12)
+Silhouette of a firefighter in full turnout gear and helmet standing at the end of a dark corridor, backlit by a single hard spotlight, light haze and smoke, face completely in shadow, mysterious, photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio.
+
+[02.png]  (shot 3 of 12)
+Impatient office worker in a blazer standing inside a modern elevator, looking at a wristwatch with an annoyed expression, elevator doors still open, cool fluorescent light, photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio.
+
+[03.png]  (shot 4 of 12)
+Vintage 1990 paper wall calendar pinned to a wooden office wall, slightly curled pages, warm nostalgic 1990s film photograph look, photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio.
+
+[04.png]  (shot 5 of 12)
+Close-up of a fountain pen signing an official government document with an embossed gold seal on a polished wooden desk, warm historic light, 1990s, photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio.
+
+[05.png]  (shot 6 of 12)
+Symmetrical front view of brushed steel elevator doors held fully open, bright clean empty elevator interior, polished marble lobby floor, photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio.
+
+[06.png]  (shot 7 of 12)
+Smiling confident young woman using a modern wheelchair rolling into a bright elevator, warm natural light, candid documentary photo, photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio.
+
+[07.png]  (shot 8 of 12)
+Macro photo of the back of an elevator button panel opened up, exposed wiring and a small circuit board, one red wire visibly disconnected, beam of a technician's flashlight, photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio.
+
+[08.png]  (shot 9 of 12)
+Close-up of a hand jabbing an elevator button repeatedly, slight motion blur on the finger, frustrated energy, steel panel, photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio.
+
+[09.png]  (shot 10 of 12)
+A single glossy pill capsule half yellow half white standing on a dark reflective surface, macro product photography, dramatic rim light, photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio.
+
+[10.png]  (shot 11 of 12)
+Dark empty elevator lobby at night, a single narrow beam of light falling on an elevator call panel that has a small keyhole, moody, dust in the light, photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio.
+
+[11.png]  (shot 12 of 12)
+Close-up of a firefighter's gloved hand turning a brass key in a red fire-service elevator keyswitch panel, dramatic light, reflective stripe on the sleeve, photorealistic, cinematic, dramatic studio lighting, high contrast, vivid detail, shallow depth of field, 35mm lens, subtle film grain, subject in the middle third of the frame with clean space at the top, no text, no captions, no watermark, no logos, 9:16 vertical aspect ratio.
