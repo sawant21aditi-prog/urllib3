@@ -22,6 +22,48 @@
     "y": 0.5,
     "r": 0.3,
     "at": 0.15
+   },
+   "scene": {
+    "bg": "bg_mint_tiles",
+    "bold": "lying",
+    "props": [
+     {
+      "el": "button",
+      "x": 540,
+      "y": 820,
+      "w": 520,
+      "z": 2
+     },
+     {
+      "el": "hand_point",
+      "x": 820,
+      "y": 1080,
+      "w": 620,
+      "anim": "press",
+      "at": 0,
+      "target": [
+       560,
+       840
+      ],
+      "z": 3,
+      "noEnter": true
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 540,
+      "y": 820,
+      "r": 380
+     },
+     {
+      "type": "circle",
+      "x": 540,
+      "y": 820,
+      "r": 230,
+      "at": 0.55
+     }
+    ]
    }
   },
   {
@@ -42,6 +84,35 @@
     "y": 0.47,
     "r": 0.12,
     "at": 0.45
+   },
+   "scene": {
+    "bg": "bg_dark",
+    "transition": "torn",
+    "bold": "one person",
+    "props": [
+     {
+      "el": "firefighter",
+      "x": 540,
+      "y": 900,
+      "w": 640,
+      "anim": "silhouette",
+      "at": 0.05
+     }
+    ],
+    "fx": [
+     {
+      "type": "spotlight",
+      "x": 540,
+      "y": 820,
+      "r": 420
+     },
+     {
+      "type": "question",
+      "x": 820,
+      "y": 560,
+      "at": 0.5
+     }
+    ]
    }
   },
   {
@@ -61,6 +132,45 @@
     "r": 0.1,
     "at": 0.45,
     "arrow": true
+   },
+   "scene": {
+    "bg": "bg_lobby",
+    "transition": "torn",
+    "bold": "jab",
+    "props": [
+     {
+      "el": "worker",
+      "x": 300,
+      "y": 1000,
+      "w": 560,
+      "anim": "slideL",
+      "at": 0.05,
+      "z": 3
+     },
+     {
+      "el": "stopwatch",
+      "x": 820,
+      "y": 560,
+      "w": 240,
+      "anim": "drop",
+      "at": 0.45,
+      "z": 4
+     }
+    ],
+    "fx": [
+     {
+      "type": "doors",
+      "x": 620,
+      "y": 820,
+      "w": 560,
+      "open": [
+       0,
+       0.08
+      ],
+      "at": 0.4,
+      "until": 1.0
+     }
+    ]
    }
   },
   {
@@ -81,6 +191,41 @@
     "x": 540,
     "y": 1180,
     "rot": -5
+   },
+   "scene": {
+    "bg": "bg_newsprint",
+    "transition": "slideUp",
+    "bold": "1990",
+    "props": [
+     {
+      "el": "capitol",
+      "x": 700,
+      "y": 680,
+      "w": 520,
+      "anim": "rise",
+      "at": 0.1,
+      "bw": true
+     },
+     {
+      "el": "calendar",
+      "x": 420,
+      "y": 920,
+      "w": 600,
+      "anim": "drop",
+      "at": 0.35,
+      "rot": -5,
+      "z": 3
+     }
+    ],
+    "fx": [
+     {
+      "type": "circle",
+      "x": 420,
+      "y": 920,
+      "r": 200,
+      "at": 0.8
+     }
+    ]
    }
   },
   {
@@ -99,6 +244,40 @@
     "y": 0.36,
     "r": 0.12,
     "at": 0.55
+   },
+   "scene": {
+    "bg": "bg_teal",
+    "transition": "torn",
+    "bold": "Americans with Disabilities Act",
+    "props": [
+     {
+      "el": "document",
+      "x": 540,
+      "y": 800,
+      "w": 680,
+      "anim": "rise",
+      "at": 0
+     },
+     {
+      "el": "pen_hand",
+      "x": 800,
+      "y": 1060,
+      "w": 520,
+      "anim": "slideR",
+      "at": 0.35,
+      "z": 3
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 540,
+      "y": 800,
+      "r": 420,
+      "color": "#F5C518",
+      "at": 0
+     }
+    ]
    }
   },
   {
@@ -119,6 +298,36 @@
     "x": 540,
     "y": 1150,
     "rot": 4
+   },
+   "scene": {
+    "bg": "bg_lobby",
+    "transition": "zoom",
+    "bold": "stay open",
+    "props": [
+     {
+      "el": "stopwatch",
+      "x": 850,
+      "y": 1150,
+      "w": 240,
+      "anim": "stamp",
+      "at": 0.6,
+      "z": 4
+     }
+    ],
+    "fx": [
+     {
+      "type": "doors",
+      "x": 540,
+      "y": 840,
+      "w": 640,
+      "open": [
+       0,
+       1
+      ],
+      "at": 0.1,
+      "until": 0.6
+     }
+    ]
    }
   },
   {
@@ -131,7 +340,35 @@
    "design_s": 2.57,
    "cam": "panRight",
    "sfx": "pop",
-   "shot": "06.png"
+   "shot": "06.png",
+   "scene": {
+    "bg": "bg_lobby",
+    "transition": "cut",
+    "bold": "wheelchair",
+    "props": [
+     {
+      "el": "wheelchair",
+      "x": 540,
+      "y": 1000,
+      "w": 600,
+      "anim": "rollIn",
+      "at": 0.05,
+      "z": 3
+     }
+    ],
+    "fx": [
+     {
+      "type": "doors",
+      "x": 540,
+      "y": 840,
+      "w": 640,
+      "open": [
+       1,
+       1
+      ]
+     }
+    ]
+   }
   },
   {
    "id": 7,
@@ -151,6 +388,36 @@
     "r": 0.09,
     "at": 0.8,
     "arrow": true
+   },
+   "scene": {
+    "bg": "bg_blueprint",
+    "transition": "torn",
+    "bold": "switched off",
+    "props": [
+     {
+      "el": "circuit",
+      "x": 540,
+      "y": 800,
+      "w": 640
+     },
+     {
+      "el": "plug_wire",
+      "x": 560,
+      "y": 1180,
+      "w": 260,
+      "anim": "yank",
+      "at": 0.85,
+      "z": 2
+     }
+    ],
+    "fx": [
+     {
+      "type": "sparks",
+      "x": 560,
+      "y": 1120,
+      "at": 0.85
+     }
+    ]
    }
   },
   {
@@ -169,6 +436,50 @@
     "y": 0.52,
     "r": 0.14,
     "at": 0.2
+   },
+   "scene": {
+    "bg": "bg_mint_tiles",
+    "transition": "slideUp",
+    "bold": "Nothing happens",
+    "props": [
+     {
+      "el": "button",
+      "x": 540,
+      "y": 800,
+      "w": 480,
+      "z": 2
+     },
+     {
+      "el": "hand_point",
+      "x": 800,
+      "y": 1050,
+      "w": 600,
+      "anim": "jab",
+      "at": 0,
+      "target": [
+       560,
+       820
+      ],
+      "z": 3
+     },
+     {
+      "el": "snail",
+      "x": 260,
+      "y": 1260,
+      "w": 200,
+      "anim": "crawl",
+      "z": 4
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 540,
+      "y": 800,
+      "r": 360,
+      "color": "#FF7A45"
+     }
+    ]
    }
   },
   {
@@ -188,6 +499,38 @@
     "y": 0.62,
     "r": 0.13,
     "at": 0.55
+   },
+   "scene": {
+    "bg": "bg_teal",
+    "transition": "torn",
+    "bold": "placebo",
+    "props": [
+     {
+      "el": "pill",
+      "x": 540,
+      "y": 820,
+      "w": 380,
+      "anim": "drop",
+      "at": 0.05,
+      "rot": 10,
+      "z": 2
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 540,
+      "y": 820,
+      "r": 400
+     },
+     {
+      "type": "circle",
+      "x": 540,
+      "y": 820,
+      "r": 260,
+      "at": 0.6
+     }
+    ]
    }
   },
   {
@@ -208,6 +551,37 @@
     "r": 0.07,
     "at": 0.6,
     "arrow": true
+   },
+   "scene": {
+    "bg": "bg_dark",
+    "transition": "cut",
+    "bold": "one person",
+    "props": [
+     {
+      "el": "keyhole_panel",
+      "x": 540,
+      "y": 820,
+      "w": 460,
+      "z": 2
+     },
+     {
+      "el": "glove_key",
+      "x": 980,
+      "y": 1150,
+      "w": 420,
+      "anim": "slideR",
+      "at": 0.7,
+      "z": 3
+     }
+    ],
+    "fx": [
+     {
+      "type": "spotlight",
+      "x": 540,
+      "y": 820,
+      "r": 380
+     }
+    ]
    }
   },
   {
@@ -227,6 +601,54 @@
     "y": 0.48,
     "r": 0.11,
     "at": 0.5
+   },
+   "scene": {
+    "bg": "bg_teal",
+    "transition": "torn",
+    "bold": "Firefighters key",
+    "props": [
+     {
+      "el": "firefighter",
+      "x": 250,
+      "y": 930,
+      "w": 420,
+      "anim": "slideL",
+      "at": 0,
+      "bw": true,
+      "z": 2
+     },
+     {
+      "el": "keyswitch",
+      "x": 690,
+      "y": 800,
+      "w": 440,
+      "z": 2
+     },
+     {
+      "el": "glove_key",
+      "x": 870,
+      "y": 830,
+      "w": 460,
+      "anim": "slideR",
+      "at": 0.25,
+      "z": 3
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 690,
+      "y": 800,
+      "r": 330,
+      "at": 0.6
+     },
+     {
+      "type": "sparks",
+      "x": 690,
+      "y": 800,
+      "at": 0.65
+     }
+    ]
    }
   },
   {
@@ -245,6 +667,41 @@
     "y": 0.5,
     "r": 0.3,
     "at": 0.6
+   },
+   "scene": {
+    "bg": "bg_mint_tiles",
+    "transition": "slideUp",
+    "bold": "button",
+    "props": [
+     {
+      "el": "button",
+      "x": 540,
+      "y": 820,
+      "w": 520,
+      "z": 2
+     },
+     {
+      "el": "hand_point",
+      "x": 820,
+      "y": 1080,
+      "w": 620,
+      "anim": "press",
+      "at": 0.95,
+      "target": [
+       560,
+       840
+      ],
+      "z": 3
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 540,
+      "y": 820,
+      "r": 380
+     }
+    ]
    }
   }
  ]
