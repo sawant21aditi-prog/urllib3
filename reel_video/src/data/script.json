@@ -6,9 +6,9 @@
  "beats": [
   {
    "id": 1,
-   "narration": "This button is lying to you.",
-   "caption": "THIS BUTTON IS LYING",
-   "highlight": "LYING",
+   "narration": "Stop pressing this button. It probably doesn't do anything.",
+   "caption": "STOP PRESSING IT",
+   "highlight": "STOP",
    "visual": "a single large brass elevator close-door button with two inward-pointing triangles, cut out as a paper sticker, centered on cream paper, a yellow circle behind it",
    "motion": "punch",
    "retention": "Beat 1 is a strong curiosity-gap line (a familiar object accused of lying) and it lands in 1.29s, so the words pass the 3-second test; the risk is visual: a static button on cream paper looks like a still image in the first frames. Strengthen it by having a cartoon finger already jabbing the button on frame 0 (no fade-in, no blank frame), with a click SFX and 'LYING' stamped in yellow on the punch, plus a quick red glitch/flicker on the button's triangles to signal 'fake'. Keep the caption on screen from frame 0 so muted viewers get the hook too.",
@@ -25,14 +25,15 @@
    },
    "scene": {
     "bg": "bg_mint_tiles",
-    "bold": "lying",
+    "bold": "Stop",
     "props": [
      {
       "el": "button",
       "x": 540,
       "y": 800,
       "w": 500,
-      "z": 2
+      "z": 2,
+      "noPop": true
      },
      {
       "el": "hand_point",
@@ -55,22 +56,25 @@
       "type": "sunburst",
       "x": 540,
       "y": 800,
-      "r": 420
+      "r": 420,
+      "at": -0.2
      },
      {
-      "type": "circle",
+      "type": "cross",
       "x": 540,
       "y": 800,
-      "r": 220,
-      "at": 0.55
+      "r": 170,
+      "at": 0.62
      }
-    ]
-   }
+    ],
+    "punch": true
+   },
+   "direction": "Urgent and punchy, like you're stopping a friend mid-press. Hit 'Stop' hard. Then a knowing, slightly amused drop on 'It probably doesn't do anything.'"
   },
   {
    "id": 13,
    "speed": 1.15,
-   "narration": "And only one person can make it work.",
+   "narration": "But one person carries a key that brings it back to life.",
    "caption": "ONE PERSON CAN USE IT",
    "highlight": "ONE",
    "visual": "open-loop tease: dark spotlight, a mystery silhouette with a big yellow question mark, a key glint",
@@ -89,7 +93,7 @@
    "scene": {
     "bg": "bg_dark",
     "transition": "torn",
-    "bold": "one person",
+    "bold": "one person key",
     "props": [
      {
       "el": "firefighter",
@@ -114,7 +118,8 @@
       "at": 0.5
      }
     ]
-   }
+   },
+   "direction": "Lower your voice, slower, mysterious and intriguing, like sharing a secret. Lean on 'one person' and 'back to life'."
   },
   {
    "id": 2,
@@ -172,7 +177,8 @@
       "until": 1.0
      }
     ]
-   }
+   },
+   "direction": "Relatable and wry, a little exasperated, like you're describing everyone's daily frustration."
   },
   {
    "id": 3,
@@ -236,7 +242,8 @@
       "at": 0.8
      }
     ]
-   }
+   },
+   "direction": "Shift into storyteller mode: curious, inviting. Slight pause before '1990'."
   },
   {
    "id": 4,
@@ -295,7 +302,8 @@
       "at": 0.8
      }
     ]
-   }
+   },
+   "direction": "Confident and clear, a touch of gravitas on 'Americans with Disabilities Act'."
   },
   {
    "id": 5,
@@ -345,7 +353,8 @@
       "until": 0.6
      }
     ]
-   }
+   },
+   "direction": "Explaining clearly with emphasis on 'must stay open long enough'."
   },
   {
    "id": 6,
@@ -385,7 +394,8 @@
       ]
      }
     ]
-   }
+   },
+   "direction": "Warm and positive, matter-of-fact."
   },
   {
    "id": 7,
@@ -435,7 +445,8 @@
       "at": 0.85
      }
     ]
-   }
+   },
+   "direction": "Building to a reveal, emphasis and a beat of surprise on 'switched off'."
   },
   {
    "id": 8,
@@ -499,7 +510,8 @@
       "color": "#FF7A45"
      }
     ]
-   }
+   },
+   "direction": "Deadpan comedy. 'It might light up.' then a flat, dry 'Nothing happens.'"
   },
   {
    "id": 9,
@@ -550,7 +562,8 @@
       "at": 0.6
      }
     ]
-   }
+   },
+   "direction": "Amused, almost laughing at the irony, stress 'placebo'."
   },
   {
    "id": 10,
@@ -608,7 +621,8 @@
       "at": 0.45
      }
     ]
-   }
+   },
+   "direction": "Hushed, suspenseful, slowing down. Tease it."
   },
   {
    "id": 11,
@@ -675,11 +689,12 @@
       "at": 0.65
      }
     ]
-   }
+   },
+   "direction": "Satisfying payoff, energetic: 'Firefighters!' with pride, then explain the key with excitement."
   },
   {
    "id": 12,
-   "narration": "So next time you're smashing that button, remember.",
+   "narration": "So next time you're smashing that button, remember:",
    "caption": "REMEMBER THIS:",
    "highlight": "REMEMBER",
    "visual": "the brass close-door button sticker again on cream paper with the yellow circle, a cartoon hand reaching toward it from the bottom edge",
@@ -704,7 +719,8 @@
       "x": 540,
       "y": 800,
       "w": 500,
-      "z": 2
+      "z": 2,
+      "noPop": true
      },
      {
       "el": "hand_point",
@@ -726,10 +742,12 @@
       "type": "sunburst",
       "x": 540,
       "y": 800,
-      "r": 420
+      "r": 420,
+      "at": -0.2
      }
     ]
-   }
+   },
+   "direction": "Friendly, direct to camera, with a playful smile, building toward the end."
   }
  ]
 }

@@ -26,7 +26,8 @@ type Prop = {
   anim?: Anim; at?: number; rot?: number; flip?: boolean; z?: number;
   target?: [number, number]; // press/jab: fingertip target (px)
   bw?: boolean; // force black & white
-  noEnter?: boolean; // press/jab hand already in frame (used on beat 1 so the loop from the last beat is seamless)
+  noEnter?: boolean;
+  noPop?: boolean; // already on screen at frame 0 (hook / loop frames) // press/jab hand already in frame (used on beat 1 so the loop from the last beat is seamless)
 };
 type Fx =
   | { type: "sunburst"; x: number; y: number; r: number; color?: string; at?: number }
@@ -36,13 +37,15 @@ type Fx =
   | { type: "doors"; x: number; y: number; w: number; open: [number, number]; at?: number; until?: number }
   | { type: "spotlight"; x: number; y: number; r: number }
   | { type: "flicker" }
+  | { type: "cross"; x: number; y: number; r: number; at: number }
   | { type: "write"; text: string; x: number; y: number; size: number; at: number; color?: string; rot?: number };
-type Scene = { bg: string; props: Prop[]; fx?: Fx[]; transition?: "cut" | "torn" | "slideUp" | "zoom"; bold?: string };
+type Scene = { bg: string; props: Prop[]; fx?: Fx[]; transition?: "cut" | "torn" | "slideUp" | "zoom"; bold?: string; punch?: boolean };
 type CBeat = { id: number; narration: string; scene?: Scene };
 
 /* ---------------- props ---------------- */
-const PropLayer: React.FC<{ p: Prop; speech: number; dur: number }> = ({ p, speech, dur }) => {
+const PropLayer: React.FC<{ p: Prop; speech: number; dur: number; index: number }> = ({ p, speech, dur, index }) => {
   const f = step(useCurrentFrame());
+  const seed = index * 1.7 + p.x / 100;
   const at = Math.round((p.at ?? 0) * speech);
   const t = f - at;
   const inP = interpolate(t, [0, 9], [0, 1], { ...clamp, easing: ease.out });
@@ -83,7 +86,54 @@ const PropLayer: React.FC<{ p: Prop; speech: number; dur: number }> = ({ p, spee
     }
   }
   if (["slideL", "slideR", "drop", "rise", "rollIn", "silhouette"].includes(p.anim ?? "") && t < 0) op = 0;
+  // props without an entrance animation still pop in, staggered, so nothing is ever just "there"
+  if ((!p.anim || p.anim === "static") && !p.noPop) {
+    const pt = f - index * 3;
+    sc *= pt < 0 ? 0 : interpolate(pt, [0, 3, 5, 8], [0.3, 1.14, 0.95, 1], clamp);
+  }
+  // idle life: every prop bobs and sways (stepped), never frozen
+  if (p.anim !== "crawl" && p.anim !== "press" && p.anim !== "jab") {
+    y += Math.sin(f / 9 + seed) * 7;
+    rot += Math.sin(f / 13 + seed) * 1.6;
+  }
+  // speed lines while sliding in
+  const sliding = ["slideL", "slideR", "rollIn"].includes(p.anim ?? "") && inP > 0.02 && inP < 0.92;
+  const fromLeft = p.anim === "slideL" || p.anim === "rollIn";
+  // dust puff when a dropped prop lands
+  const dustT = p.anim === "drop" ? t - 6 : -1;
+  // impact star at the fingertip on every press
+  let impact = 0;
+  if ((p.anim === "press" || p.anim === "jab") && f >= at) {
+    const period = p.anim === "jab" ? 5 : 12;
+    const ph = ((f - at) % period) / period;
+    impact = p.anim === "jab" ? (ph > 0.35 && ph < 0.65 ? 1 : 0) : ph > 0.12 && ph < 0.3 ? 1 : 0;
+  }
+  const [ix, iy] = p.target ?? [p.x, p.y];
   return (
+    <>
+    {sliding && (
+      <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: (p.z ?? 1) - 0.5 }}>
+        {[-0.25, 0, 0.22].map((k, i) => (
+          <line key={i} x1={x + (fromLeft ? -1 : 1) * (p.w * 0.45)} y1={y + k * p.w} x2={x + (fromLeft ? -1 : 1) * (p.w * 0.45 + 260 + i * 60)} y2={y + k * p.w}
+            stroke="rgba(255,255,255,0.85)" strokeWidth={10} strokeLinecap="round" />
+        ))}
+      </svg>
+    )}
+    {dustT >= 0 && dustT < 10 && (
+      <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: (p.z ?? 1) + 0.5 }}>
+        {[-1, -0.5, 0.5, 1].map((k, i) => (
+          <circle key={i} cx={p.x + k * (p.w * 0.35 + dustT * 14)} cy={p.y + p.w * 0.55 - dustT * 3} r={22 + dustT * 4} fill="rgba(240,232,215,0.75)" opacity={1 - dustT / 10} />
+        ))}
+      </svg>
+    )}
+    {impact > 0 && (
+      <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: 6 }}>
+        {Array.from({ length: 8 }).map((_, i) => {
+          const a = (i / 8) * Math.PI * 2;
+          return <line key={i} x1={ix + Math.cos(a) * 70} y1={iy + Math.sin(a) * 70} x2={ix + Math.cos(a) * 130} y2={iy + Math.sin(a) * 130} stroke="#FFD84A" strokeWidth={12} strokeLinecap="round" />;
+        })}
+      </svg>
+    )}
     <div
       style={{
         position: "absolute",
@@ -104,6 +154,7 @@ const PropLayer: React.FC<{ p: Prop; speech: number; dur: number }> = ({ p, spee
         </div>
       )}
     </div>
+    </>
   );
 };
 
@@ -141,6 +192,21 @@ const MarkerCircle: React.FC<{ x: number; y: number; r: number; at: number; colo
   return (
     <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: 5, overflow: "visible" }}>
       <path d={`M${pts.join(" L")}`} fill="none" stroke={color} strokeWidth={12} strokeLinecap="round" strokeDasharray={len} strokeDashoffset={len * (1 - p)} />
+    </svg>
+  );
+};
+
+/** Red marker X scrawled over something ("doesn't do anything"). */
+const Cross: React.FC<{ x: number; y: number; r: number; at: number }> = ({ x, y, r, at }) => {
+  const f = step(useCurrentFrame());
+  const p1 = interpolate(f, [at, at + 4], [0, 1], clamp);
+  const p2 = interpolate(f, [at + 4, at + 8], [0, 1], clamp);
+  if (p1 <= 0) return null;
+  const L = r * 2.9;
+  return (
+    <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: 7 }}>
+      <path d={`M${x - r} ${y - r * 1.05} L${x + r * 1.05} ${y + r}`} stroke="#E5352B" strokeWidth={26} strokeLinecap="round" fill="none" strokeDasharray={L} strokeDashoffset={L * (1 - p1)} />
+      <path d={`M${x + r} ${y - r} L${x - r * 1.02} ${y + r * 1.05}`} stroke="#E5352B" strokeWidth={26} strokeLinecap="round" fill="none" strokeDasharray={L} strokeDashoffset={L * (1 - p2)} />
     </svg>
   );
 };
@@ -245,9 +311,28 @@ const TransitionIn: React.FC<{ kind: Scene["transition"]; children: React.ReactN
   return <AbsoluteFill style={{ transform: `scale(${0.75 + 0.25 * p})`, opacity: p, filter: `blur(${(1 - p) * 12}px)` }}>{children}</AbsoluteFill>;
 };
 
+/** Scene camera: never static. Slow push, a shake on every impact, and a punch-out from a close-up on the hook. */
+const SceneCamera: React.FC<{ dur: number; hits: number[]; punch?: boolean; children: React.ReactNode }> = ({ dur, hits, punch, children }) => {
+  const f = step(useCurrentFrame());
+  let scale = interpolate(f, [0, dur], [1, 1.08], clamp);
+  if (punch) scale *= interpolate(f, [0, 2.5, 7.5], [1.7, 1.25, 1], { ...clamp, easing: ease.out });
+  let sx = 0, sy = 0, r = 0;
+  for (const h of hits) {
+    const t = f - h;
+    if (t >= 0 && t < 8) {
+      const k = 1 - t / 8;
+      sx += (random(`hx${h}${t}`) - 0.5) * 36 * k;
+      sy += (random(`hy${h}${t}`) - 0.5) * 36 * k;
+      r += (random(`hr${h}${t}`) - 0.5) * 2.4 * k;
+    }
+  }
+  return <AbsoluteFill style={{ transform: `translate(${sx}px, ${sy}px) rotate(${r}deg) scale(${scale})` }}>{children}</AbsoluteFill>;
+};
+
 /* ---------------- quiet subtitles ---------------- */
-const Subtitle: React.FC<{ text: string; bold?: string; speech: number }> = ({ text, bold, speech }) => {
+const Subtitle: React.FC<{ text: string; bold?: string; speech: number; dur: number }> = ({ text, bold, speech, dur }) => {
   const f = useCurrentFrame();
+  if (f >= dur) return null; // the next scene's transition overlaps the last frames
   const words = text.split(" ");
   const chunks: string[] = [];
   for (let i = 0; i < words.length; ) {
@@ -289,6 +374,17 @@ export const CollageReel: React.FC = () => {
         return (
           <Sequence key={beat.id} from={c.from} durationInFrames={dur + (i < beats.length - 1 ? 8 : 0)} name={`C${beat.id}`}>
             <TransitionIn kind={i === 0 ? "cut" : sc.transition}>
+              <SceneCamera dur={dur} punch={sc.punch} hits={[
+                ...sc.props.flatMap((p) => {
+                  const at = Math.round((p.at ?? 0) * c.speech);
+                  if (p.anim === "drop") return [at + 6];
+                  if (p.anim === "stamp") return [at];
+                  if (p.anim === "yank") return [at + 3];
+                  if (p.anim === "slideL" || p.anim === "slideR" || p.anim === "rollIn") return [at + 8];
+                  return [];
+                }),
+                ...(sc.fx ?? []).flatMap((fx) => ("at" in fx && fx.at !== undefined && (fx.type === "sparks" || fx.type === "cross" || fx.type === "circle") ? [Math.round(fx.at * c.speech)] : [])),
+              ]}>
               <Background name={sc.bg} />
               {(sc.fx ?? []).map((fx, k) => {
                 const at = "at" in fx && fx.at !== undefined ? Math.round(fx.at * c.speech) : 0;
@@ -298,17 +394,19 @@ export const CollageReel: React.FC = () => {
                 if (fx.type === "doors") return <Doors key={k} x={fx.x} y={fx.y} w={fx.w} open={fx.open} at={at} until={fx.until !== undefined ? Math.round(fx.until * c.speech) : at + 20} />;
                 return null;
               })}
-              {sc.props.map((p, k) => <PropLayer key={k} p={p} speech={c.speech} dur={dur} />)}
+              {sc.props.map((p, k) => <PropLayer key={k} p={p} speech={c.speech} dur={dur} index={k} />)}
               {(sc.fx ?? []).map((fx, k) => {
                 const at = "at" in fx && fx.at !== undefined ? Math.round(fx.at * c.speech) : 0;
                 if (fx.type === "circle") return <MarkerCircle key={k} x={fx.x} y={fx.y} r={fx.r} at={at} color={fx.color ?? "#E5352B"} />;
                 if (fx.type === "sparks") return <Sparks key={k} x={fx.x} y={fx.y} at={at} />;
+                if (fx.type === "cross") return <Cross key={k} x={fx.x} y={fx.y} r={fx.r} at={at} />;
                 if (fx.type === "question") return <Question key={k} x={fx.x} y={fx.y} at={at} />;
                 if (fx.type === "write") return <Write key={k} text={fx.text} x={fx.x} y={fx.y} size={fx.size} at={at} color={fx.color ?? "#E5352B"} rot={fx.rot ?? -6} />;
                 return null;
               })}
+              </SceneCamera>
             </TransitionIn>
-            <Subtitle text={beat.narration} bold={sc.bold} speech={c.speech} />
+            <Subtitle text={beat.narration} bold={sc.bold} speech={c.speech} dur={dur} />
           </Sequence>
         );
       })}
