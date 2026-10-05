@@ -38,8 +38,15 @@ type Fx =
   | { type: "spotlight"; x: number; y: number; r: number }
   | { type: "flicker" }
   | { type: "cross"; x: number; y: number; r: number; at: number }
+  | { type: "birds"; y: number; count?: number; at?: number }
+  | { type: "strip"; y: number; h: number; color?: string; img?: string; rot?: number }
+  | { type: "counter"; x: number; y: number; from: number; to: number; at: number; until: number; label: string; decimals?: number }
   | { type: "write"; text: string; x: number; y: number; size: number; at: number; color?: string; rot?: number };
-type Scene = { bg: string; props: Prop[]; fx?: Fx[]; transition?: "cut" | "torn" | "slideUp" | "zoom"; bold?: string; punch?: boolean };
+type Scene = {
+  bg: string; props: Prop[]; fx?: Fx[]; transition?: "cut" | "torn" | "slideUp" | "zoom"; bold?: string; punch?: boolean;
+  word?: { text: string; y?: number; color?: string; at?: number }; // giant serif word layered BEHIND the props
+  tint?: string; // optional colour field laid over the background texture (multiply)
+};
 type CBeat = { id: number; narration: string; scene?: Scene };
 
 /* ---------------- props ---------------- */
@@ -279,6 +286,72 @@ const Write: React.FC<{ text: string; x: number; y: number; size: number; at: nu
   );
 };
 
+/** Giant high-contrast serif word behind the subject (the reference's "Vox" wordmark layering). */
+const BigWord: React.FC<{ text: string; y: number; color: string; at: number }> = ({ text, y, color, at }) => {
+  const f = step(useCurrentFrame());
+  const t = f - at;
+  if (t < 0) return null;
+  // Playfair 900 capitals are ~0.8em wide: fit the word inside ~960px (camera push adds ~8%)
+  const size = Math.min(400, 960 / Math.max(2.4, text.length * 0.8));
+  const reveal = interpolate(t, [0, 5], [0, 1], clamp);
+  const drift = interpolate(f, [0, 300], [0, -18]);
+  return (
+    <div style={{ position: "absolute", left: 0, right: 0, top: y - size * 0.6, display: "flex", justifyContent: "center", zIndex: 0.5,
+      transform: `translateX(${drift}px) scale(${interpolate(t, [0, 2.5, 5], [1.25, 0.97, 1], clamp)})`,
+      clipPath: `inset(0 ${(1 - reveal) * 100}% 0 0)` }}>
+      <span style={{ fontFamily: "Playfair", fontWeight: 900, fontSize: size, lineHeight: 1, letterSpacing: "-0.03em", color,
+        textShadow: "0 10px 30px rgba(0,0,0,0.35)" }}>{text}</span>
+    </div>
+  );
+};
+
+/** Little flapping birds drifting across (ambient life, like the reference). */
+const Birds: React.FC<{ y: number; count: number; at: number }> = ({ y, count, at }) => {
+  const f = step(useCurrentFrame());
+  if (f < at) return null;
+  return (
+    <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: 4 }}>
+      {Array.from({ length: count }).map((_, i) => {
+        const sp = 7 + random(`bs${i}`) * 5;
+        const x = -80 + ((f - at) * sp + random(`bx${i}`) * 900) % 1240;
+        const yy = y + random(`by${i}`) * 260 + Math.sin((f + i * 7) / 6) * 10;
+        const flap = Math.floor((f + i * 3) / 2.5) % 2 ? 10 : -6;
+        const s = 0.7 + random(`bz${i}`) * 0.7;
+        return <path key={i} d={`M ${x - 22 * s} ${yy + flap * s} Q ${x - 10 * s} ${yy - 6 * s} ${x} ${yy} Q ${x + 10 * s} ${yy - 6 * s} ${x + 22 * s} ${yy + flap * s}`}
+          stroke="#1c1b19" strokeWidth={5 * s} fill="none" strokeLinecap="round" />;
+      })}
+    </svg>
+  );
+};
+
+/** A torn-paper band (sky, newsprint, colour) laid across the scene as a middle layer. */
+const Strip: React.FC<{ y: number; h: number; color?: string; img?: string; rot?: number }> = ({ y, h, color, img, rot }) => {
+  const edge = (top: boolean) => Array.from({ length: 21 }, (_, i) => `${i * 5}% ${top ? (random(`st${y}${i}`) * 6) : 100 - random(`sb${y}${i}`) * 6}%`);
+  const clip = `polygon(${[...edge(true), ...edge(false).reverse()].join(", ")})`;
+  return (
+    <div style={{ position: "absolute", left: -40, right: -40, top: y - h / 2, height: h, transform: `rotate(${rot ?? -3}deg)`, zIndex: 0.3,
+      clipPath: clip, background: color ?? "#7fb8e8", filter: "drop-shadow(0 6px 0 rgba(255,255,255,0.8))" }}>
+      {img && has(img) && <Img src={staticFile(`elements/${img}.png`)} style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.9 }} />}
+    </div>
+  );
+};
+
+/** UI counter overlay that ticks (the reference's view counter) — used for "3.0 SEC". */
+const Counter: React.FC<{ x: number; y: number; from: number; to: number; at: number; until: number; label: string; decimals: number }> = ({ x, y, from, to, at, until, label, decimals }) => {
+  const f = step(useCurrentFrame());
+  if (f < at) return null;
+  const v = interpolate(f, [at, until], [from, to], clamp);
+  const p = interpolate(f, [at, until], [0, 1], clamp);
+  return (
+    <div style={{ position: "absolute", left: x - 300, top: y, width: 600, zIndex: 8, background: "rgba(255,255,255,0.94)", borderRadius: 18, padding: "16px 24px", boxShadow: "0 10px 30px rgba(0,0,0,0.3)" }}>
+      <div style={{ fontFamily: theme.fonts.body, fontWeight: 900, fontSize: 54, color: "#1E2A2C" }}>{v.toFixed(decimals)} <span style={{ fontWeight: 800, fontSize: 40, color: "#5d6b6e" }}>{label}</span></div>
+      <div style={{ height: 12, borderRadius: 6, background: "#dfe5e6", marginTop: 8, overflow: "hidden" }}>
+        <div style={{ width: `${p * 100}%`, height: "100%", background: "#2EC46F" }} />
+      </div>
+    </div>
+  );
+};
+
 /* ---------------- background + transitions ---------------- */
 const Background: React.FC<{ name: string }> = ({ name }) => {
   const f = step(useCurrentFrame());
@@ -329,31 +402,32 @@ const SceneCamera: React.FC<{ dur: number; hits: number[]; punch?: boolean; chil
   return <AbsoluteFill style={{ transform: `translate(${sx}px, ${sy}px) rotate(${r}deg) scale(${scale})` }}>{children}</AbsoluteFill>;
 };
 
-/* ---------------- quiet subtitles ---------------- */
+/* ---------------- kinetic captions (reference style: 1–3 words, uppercase, white, soft shadow) ---------------- */
 const Subtitle: React.FC<{ text: string; bold?: string; speech: number; dur: number }> = ({ text, bold, speech, dur }) => {
   const f = useCurrentFrame();
-  if (f >= dur) return null; // the next scene's transition overlaps the last frames
+  if (f >= dur) return null;
   const words = text.split(" ");
   const chunks: string[] = [];
   for (let i = 0; i < words.length; ) {
-    const n = words.length - i <= 5 ? words.length - i : 4;
+    const left = words.length - i;
+    const n = left <= 3 ? left : words[i].length + (words[i + 1] ?? "").length > 11 ? 1 : 2;
     chunks.push(words.slice(i, i + n).join(" "));
     i += n;
   }
   let acc = 0;
-  const spans = chunks.map((c) => { const s = (acc / text.length) * speech; acc += c.length + 1; return { c, s }; });
-  const idx = spans.reduce((k, sp, i) => (f >= sp.s ? i : k), -1);
+  const spans = chunks.map((c) => { const s0 = (acc / text.length) * speech; acc += c.length + 1; return { c, s0 }; });
+  const idx = spans.reduce((k, sp, i) => (f >= sp.s0 ? i : k), -1);
   if (idx < 0) return null;
-  const norm = (s: string) => s.replace(/[^a-z0-9]/gi, "").toLowerCase();
+  const norm = (w: string) => w.replace(/[^a-z0-9]/gi, "").toLowerCase();
   const b = (bold ?? "").split(" ").map(norm);
+  const pop = interpolate(f - spans[idx].s0, [0, 2, 4], [0.85, 1.06, 1], clamp);
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: 1420, display: "flex", justifyContent: "center", zIndex: 20 }}>
-      <div style={{ background: "#FFFFFF", borderRadius: 14, padding: "10px 22px", boxShadow: "0 6px 16px rgba(0,0,0,0.25)", maxWidth: 900 }}>
-        <span style={{ fontFamily: theme.fonts.body, fontSize: 44, fontWeight: 800, color: "#1E2A2C" }}>
-          {spans[idx].c.split(" ").map((w, i) => (
-            <span key={i} style={{ fontWeight: b.includes(norm(w)) ? 900 : 600, color: b.includes(norm(w)) ? "#0E6E73" : "#1E2A2C" }}>{w} </span>
-          ))}
-        </span>
+    <div style={{ position: "absolute", left: 40, right: 40, top: 1250, display: "flex", justifyContent: "center", zIndex: 20 }}>
+      <div style={{ transform: `scale(${pop})`, fontFamily: theme.fonts.body, fontWeight: 900, fontSize: 64, letterSpacing: "0.01em", textAlign: "center",
+        color: "#FFFFFF", textShadow: "0 4px 0 rgba(0,0,0,0.55), 0 0 22px rgba(0,0,0,0.55)", textTransform: "uppercase" }}>
+        {spans[idx].c.split(" ").map((w, i) => (
+          <span key={i} style={{ color: b.includes(norm(w)) ? "#FFD21F" : "#FFFFFF" }}>{w}{" "}</span>
+        ))}
       </div>
     </div>
   );
@@ -386,6 +460,9 @@ export const CollageReel: React.FC = () => {
                 ...(sc.fx ?? []).flatMap((fx) => ("at" in fx && fx.at !== undefined && (fx.type === "sparks" || fx.type === "cross" || fx.type === "circle") ? [Math.round(fx.at * c.speech)] : [])),
               ]}>
               <Background name={sc.bg} />
+              {sc.tint && <AbsoluteFill style={{ background: sc.tint, mixBlendMode: "multiply", opacity: 0.85 }} />}
+              {(sc.fx ?? []).map((fx, k) => fx.type === "strip" ? <Strip key={`s${k}`} y={fx.y} h={fx.h} color={fx.color} img={fx.img} rot={fx.rot} /> : null)}
+              {sc.word && <BigWord text={sc.word.text} y={sc.word.y ?? 560} color={sc.word.color ?? "#F6EFE6"} at={Math.round((sc.word.at ?? 0) * c.speech)} />}
               {(sc.fx ?? []).map((fx, k) => {
                 const at = "at" in fx && fx.at !== undefined ? Math.round(fx.at * c.speech) : 0;
                 if (fx.type === "sunburst") return <Sunburst key={k} x={fx.x} y={fx.y} r={fx.r} color={fx.color ?? "#F5C518"} at={at} />;
@@ -397,9 +474,11 @@ export const CollageReel: React.FC = () => {
               {sc.props.map((p, k) => <PropLayer key={k} p={p} speech={c.speech} dur={dur} index={k} />)}
               {(sc.fx ?? []).map((fx, k) => {
                 const at = "at" in fx && fx.at !== undefined ? Math.round(fx.at * c.speech) : 0;
-                if (fx.type === "circle") return <MarkerCircle key={k} x={fx.x} y={fx.y} r={fx.r} at={at} color={fx.color ?? "#E5352B"} />;
+                if (fx.type === "circle") return <MarkerCircle key={k} x={fx.x} y={fx.y} r={fx.r} at={at} color={fx.color ?? "#FFD21F"} />;
                 if (fx.type === "sparks") return <Sparks key={k} x={fx.x} y={fx.y} at={at} />;
                 if (fx.type === "cross") return <Cross key={k} x={fx.x} y={fx.y} r={fx.r} at={at} />;
+                if (fx.type === "birds") return <Birds key={k} y={fx.y} count={fx.count ?? 5} at={at} />;
+                if (fx.type === "counter") return <Counter key={k} x={fx.x} y={fx.y} from={fx.from} to={fx.to} at={at} until={Math.round(fx.until * c.speech)} label={fx.label} decimals={fx.decimals ?? 1} />;
                 if (fx.type === "question") return <Question key={k} x={fx.x} y={fx.y} at={at} />;
                 if (fx.type === "write") return <Write key={k} text={fx.text} x={fx.x} y={fx.y} size={fx.size} at={at} color={fx.color ?? "#E5352B"} rot={fx.rot ?? -6} />;
                 return null;

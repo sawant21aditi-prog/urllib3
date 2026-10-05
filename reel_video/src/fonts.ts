@@ -4,6 +4,7 @@ const fonts: [string, string, string][] = [
   ["Anton", "fonts/Anton.woff2", "400"],
   ["Montserrat", "fonts/Montserrat-800.woff2", "800"],
   ["Montserrat", "fonts/Montserrat-900.woff2", "900"],
+  ["Playfair", "fonts/Playfair-900.woff2", "900"],
 ];
 
 if (typeof document !== "undefined") {

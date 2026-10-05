@@ -67,7 +67,12 @@
       "at": 0.62
      }
     ],
-    "punch": true
+    "punch": true,
+    "word": {
+     "text": "STOP",
+     "y": 470,
+     "at": -0.2
+    }
    },
    "direction": "Urgent and punchy, like you're stopping a friend mid-press. Hit 'Stop' hard. Then a knowing, slightly amused drop on 'It probably doesn't do anything.'"
   },
@@ -117,7 +122,11 @@
       "y": 520,
       "at": 0.5
      }
-    ]
+    ],
+    "word": {
+     "text": "WHO?",
+     "y": 470
+    }
    },
    "direction": "Lower your voice, slower, mysterious and intriguing, like sharing a secret. Lean on 'one person' and 'back to life'."
   },
@@ -176,7 +185,12 @@
       "at": 0.4,
       "until": 1.0
      }
-    ]
+    ],
+    "word": {
+     "text": "WAIT",
+     "y": 430
+    },
+    "tint": "#4f8fe6"
    },
    "direction": "Relatable and wry, a little exasperated, like you're describing everyone's daily frustration."
   },
@@ -226,6 +240,18 @@
     ],
     "fx": [
      {
+      "type": "strip",
+      "y": 660,
+      "h": 440,
+      "color": "#8cc4f0",
+      "rot": -4
+     },
+     {
+      "type": "birds",
+      "y": 420,
+      "count": 6
+     },
+     {
       "type": "write",
       "text": "1990",
       "x": 430,
@@ -241,7 +267,11 @@
       "r": 150,
       "at": 0.8
      }
-    ]
+    ],
+    "word": {
+     "text": "1990",
+     "y": 360
+    }
    },
    "direction": "Shift into storyteller mode: curious, inviting. Slight pause before '1990'."
   },
@@ -300,8 +330,18 @@
       "y": 420,
       "r": 110,
       "at": 0.8
+     },
+     {
+      "type": "birds",
+      "y": 260,
+      "count": 4,
+      "at": 0.2
      }
-    ]
+    ],
+    "word": {
+     "text": "ADA",
+     "y": 330
+    }
    },
    "direction": "Confident and clear, a touch of gravitas on 'Americans with Disabilities Act'."
   },
@@ -351,8 +391,23 @@
       ],
       "at": 0.1,
       "until": 0.6
+     },
+     {
+      "type": "counter",
+      "x": 540,
+      "y": 1110,
+      "from": 0,
+      "to": 3,
+      "at": 0.15,
+      "until": 0.9,
+      "label": "SEC DOORS OPEN"
      }
-    ]
+    ],
+    "word": {
+     "text": "OPEN",
+     "y": 380
+    },
+    "tint": "#4f8fe6"
    },
    "direction": "Explaining clearly with emphasis on 'must stay open long enough'."
   },
@@ -393,7 +448,12 @@
        1
       ]
      }
-    ]
+    ],
+    "word": {
+     "text": "EVERYONE",
+     "y": 380
+    },
+    "tint": "#4f8fe6"
    },
    "direction": "Warm and positive, matter-of-fact."
   },
@@ -444,7 +504,11 @@
       "y": 1340,
       "at": 0.85
      }
-    ]
+    ],
+    "word": {
+     "text": "OFF",
+     "y": 360
+    }
    },
    "direction": "Building to a reveal, emphasis and a beat of surprise on 'switched off'."
   },
@@ -509,7 +573,11 @@
       "r": 380,
       "color": "#FF7A45"
      }
-    ]
+    ],
+    "word": {
+     "text": "NOTHING",
+     "y": 420
+    }
    },
    "direction": "Deadpan comedy. 'It might light up.' then a flat, dry 'Nothing happens.'",
    "max_pause": 0.6
@@ -562,7 +630,11 @@
       "r": 300,
       "at": 0.6
      }
-    ]
+    ],
+    "word": {
+     "text": "PLACEBO",
+     "y": 380
+    }
    },
    "direction": "Amused, almost laughing at the irony, stress 'placebo'."
   },
@@ -621,7 +693,11 @@
       "r": 70,
       "at": 0.45
      }
-    ]
+    ],
+    "word": {
+     "text": "EXCEPT",
+     "y": 420
+    }
    },
    "direction": "Hushed, suspenseful, slowing down. Tease it."
   },
@@ -689,7 +765,11 @@
       "y": 740,
       "at": 0.65
      }
-    ]
+    ],
+    "word": {
+     "text": "FIRE",
+     "y": 330
+    }
    },
    "direction": "Satisfying payoff, energetic: 'Firefighters!' with pride, then explain the key with excitement."
   },
@@ -746,7 +826,12 @@
       "r": 420,
       "at": -0.2
      }
-    ]
+    ],
+    "word": {
+     "text": "STOP",
+     "y": 470,
+     "at": -0.2
+    }
    },
    "direction": "Friendly, direct to camera, with a playful smile, building toward the end."
   }
