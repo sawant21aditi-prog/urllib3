@@ -138,7 +138,7 @@ python3 scripts/sync_elements.py
   - `props`: x, y, w in px on 1080×1920, plus `anim`, `at`, `flip`, `z`
   - `fx`: sunburst, circle, sparks, question, doors, spotlight, write
 - **Style rules from the user's reference Reel ("Vox"-style AI animation):**
-  - Every scene has a `word`: one giant high-contrast serif word (Playfair 900, cream) that sums up the beat. Place it at about y 330–470, so the main prop overlaps the bottom of the letters (the depth sandwich).
+  - Every scene has a `word`: one giant high-contrast serif word (Playfair 900; cream on dark or saturated backgrounds, `"color": "#1E1D1B"` charcoal on light ones such as paper, graph or tiles) that sums up the beat. Place it at about y 330–470, so the main prop overlaps the bottom of the letters (the depth sandwich).
   - Use bold colour fields. `tint` adds a multiply colour over B&W textures, for example blue `#4f8fe6` on marble. Mix black grunge, saturated blue, a sun-yellow sunburst, and teal or mint.
   - Add ambient life in at least 3 scenes: `birds`, a torn-paper `strip` (sky, newsprint, colour) as a middle layer, smoke, turning parts.
   - Use a yellow marker `circle` for focus.

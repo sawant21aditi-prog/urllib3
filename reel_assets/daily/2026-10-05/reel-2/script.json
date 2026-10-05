@@ -9,8 +9,54 @@
    "highlight": "CAP",
    "direction": "Urgent, playful command, like grabbing a friend's attention. Hit 'Look' and 'top'.",
    "scene": {
-    "bg": "bg_notebook",
-    "props": [],
+    "bg": "bg_desk",
+    "punch": true,
+    "word": {
+     "text": "LOOK",
+     "y": 400,
+     "at": -0.2
+    },
+    "props": [
+     {
+      "el": "cap_top",
+      "x": 540,
+      "y": 820,
+      "w": 560,
+      "z": 2,
+      "noPop": true
+     },
+     {
+      "el": "pointing_finger",
+      "x": 880,
+      "y": 1010,
+      "w": 520,
+      "anim": "press",
+      "at": 0.05,
+      "target": [
+       600,
+       860
+      ],
+      "z": 3,
+      "noEnter": true,
+      "flip": true
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 540,
+      "y": 820,
+      "r": 400,
+      "at": -0.2
+     },
+     {
+      "type": "circle",
+      "x": 540,
+      "y": 820,
+      "r": 95,
+      "at": 0.55
+     }
+    ],
     "bold": "pen cap"
    }
   },
@@ -22,7 +68,41 @@
    "direction": "Lower, conspiratorial, a knowing twist. Lean on 'isn't'.",
    "scene": {
     "bg": "bg_notebook",
-    "props": [],
+    "transition": "torn",
+    "word": {
+     "text": "INK?",
+     "y": 400,
+     "color": "#1E1D1B"
+    },
+    "props": [
+     {
+      "el": "cap_top",
+      "x": 300,
+      "y": 1080,
+      "w": 260,
+      "anim": "slideL",
+      "at": 0.0,
+      "z": 2
+     },
+     {
+      "el": "ink_blot",
+      "x": 600,
+      "y": 800,
+      "w": 560,
+      "anim": "stamp",
+      "at": 0.35,
+      "z": 1
+     }
+    ],
+    "fx": [
+     {
+      "type": "cross",
+      "x": 600,
+      "y": 800,
+      "r": 190,
+      "at": 0.7
+     }
+    ],
     "bold": "isn't"
    }
   },
@@ -33,8 +113,42 @@
    "highlight": "INHALE",
    "direction": "Serious but calm, a reveal. Slight pause before 'inhale'.",
    "scene": {
-    "bg": "bg_notebook",
-    "props": [],
+    "bg": "bg_chalk",
+    "transition": "slideUp",
+    "word": {
+     "text": "INHALE",
+     "y": 300
+    },
+    "props": [
+     {
+      "el": "head_airway",
+      "x": 520,
+      "y": 870,
+      "w": 640,
+      "anim": "rise",
+      "at": 0.0,
+      "z": 1
+     },
+     {
+      "el": "chewed_cap",
+      "x": 800,
+      "y": 620,
+      "w": 150,
+      "anim": "drop",
+      "at": 0.45,
+      "z": 3,
+      "rot": 20
+     }
+    ],
+    "fx": [
+     {
+      "type": "circle",
+      "x": 590,
+      "y": 1110,
+      "r": 95,
+      "at": 0.75
+     }
+    ],
     "bold": "inhale"
    }
   },
@@ -45,8 +159,40 @@
    "highlight": "WINDPIPE",
    "direction": "Matter-of-fact, relatable, a little concerned.",
    "scene": {
-    "bg": "bg_notebook",
-    "props": [],
+    "bg": "bg_hospital",
+    "transition": "torn",
+    "tint": "#4f8fe6",
+    "word": {
+     "text": "WINDPIPE",
+     "y": 330
+    },
+    "props": [
+     {
+      "el": "lungs",
+      "x": 540,
+      "y": 900,
+      "w": 600,
+      "z": 1
+     },
+     {
+      "el": "chewed_cap",
+      "x": 540,
+      "y": 560,
+      "w": 110,
+      "anim": "drop",
+      "at": 0.55,
+      "z": 3
+     }
+    ],
+    "fx": [
+     {
+      "type": "circle",
+      "x": 540,
+      "y": 580,
+      "r": 90,
+      "at": 0.8
+     }
+    ],
     "bold": "windpipe"
    }
   },
@@ -57,8 +203,44 @@
    "highlight": "44",
    "direction": "Measured, factual, give the number weight.",
    "scene": {
-    "bg": "bg_notebook",
-    "props": [],
+    "bg": "bg_hospital",
+    "transition": "zoom",
+    "word": {
+     "text": "44",
+     "y": 380,
+     "color": "#1E1D1B"
+    },
+    "props": [
+     {
+      "el": "surgical_lamp",
+      "x": 560,
+      "y": 700,
+      "w": 540,
+      "z": 1
+     },
+     {
+      "el": "stethoscope",
+      "x": 240,
+      "y": 1080,
+      "w": 330,
+      "anim": "slideL",
+      "at": 0.35,
+      "z": 2
+     }
+    ],
+    "fx": [
+     {
+      "type": "counter",
+      "x": 600,
+      "y": 1010,
+      "from": 0,
+      "to": 44,
+      "at": 0.05,
+      "until": 0.35,
+      "label": "CHILDREN STUDIED",
+      "decimals": 0
+     }
+    ],
     "bold": "forty-four"
    },
    "max_pause": 0.45
@@ -70,8 +252,50 @@
    "highlight": "1990",
    "direction": "Storyteller mode, curious, a turn in the story.",
    "scene": {
-    "bg": "bg_notebook",
-    "props": [],
+    "bg": "bg_graph",
+    "transition": "torn",
+    "word": {
+     "text": "BRITAIN",
+     "y": 330,
+     "color": "#1E1D1B"
+    },
+    "props": [
+     {
+      "el": "big_ben",
+      "x": 290,
+      "y": 930,
+      "w": 280,
+      "anim": "rise",
+      "at": 0.0,
+      "bw": true,
+      "z": 1
+     },
+     {
+      "el": "rule_book",
+      "x": 700,
+      "y": 920,
+      "w": 440,
+      "anim": "drop",
+      "at": 0.5,
+      "z": 2
+     }
+    ],
+    "fx": [
+     {
+      "type": "birds",
+      "y": 420,
+      "count": 5
+     },
+     {
+      "type": "write",
+      "text": "1990",
+      "x": 700,
+      "y": 860,
+      "size": 120,
+      "at": 0.25,
+      "rot": -6
+     }
+    ],
     "bold": "1990"
    }
   },
@@ -82,8 +306,45 @@
    "highlight": "WORLDWIDE",
    "direction": "Upbeat, a satisfying development.",
    "scene": {
-    "bg": "bg_notebook",
-    "props": [],
+    "bg": "bg_desk",
+    "transition": "slideUp",
+    "word": {
+     "text": "WORLDWIDE",
+     "y": 330
+    },
+    "props": [
+     {
+      "el": "globe",
+      "x": 540,
+      "y": 900,
+      "w": 560,
+      "z": 1
+     },
+     {
+      "el": "cap_top",
+      "x": 830,
+      "y": 600,
+      "w": 200,
+      "anim": "slideR",
+      "at": 0.25,
+      "z": 2
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 540,
+      "y": 880,
+      "r": 420,
+      "color": "#FF7A45"
+     },
+     {
+      "type": "birds",
+      "y": 480,
+      "count": 4,
+      "at": 0.3
+     }
+    ],
     "bold": "worldwide"
    }
   },
@@ -94,8 +355,42 @@
    "highlight": "8",
    "direction": "Impressed, emphasise 'eight litres'.",
    "scene": {
-    "bg": "bg_notebook",
-    "props": [],
+    "bg": "bg_graph",
+    "transition": "torn",
+    "word": {
+     "text": "AIR",
+     "y": 340,
+     "color": "#1E1D1B"
+    },
+    "props": [
+     {
+      "el": "beaker",
+      "x": 540,
+      "y": 860,
+      "w": 520,
+      "z": 1
+     }
+    ],
+    "fx": [
+     {
+      "type": "counter",
+      "x": 540,
+      "y": 1090,
+      "from": 0,
+      "to": 8,
+      "at": 0.2,
+      "until": 0.8,
+      "label": "LITRES OF AIR / MIN",
+      "decimals": 1
+     },
+     {
+      "type": "circle",
+      "x": 540,
+      "y": 860,
+      "r": 300,
+      "at": 0.85
+     }
+    ],
     "bold": "eight litres"
    }
   },
@@ -106,8 +401,45 @@
    "highlight": "HELP",
    "direction": "Warm, reassuring, slower.",
    "scene": {
-    "bg": "bg_notebook",
-    "props": [],
+    "bg": "bg_chalk",
+    "transition": "slideUp",
+    "word": {
+     "text": "BREATHE",
+     "y": 330
+    },
+    "props": [
+     {
+      "el": "lungs",
+      "x": 540,
+      "y": 920,
+      "w": 560,
+      "z": 1
+     },
+     {
+      "el": "cap_top",
+      "x": 540,
+      "y": 520,
+      "w": 180,
+      "anim": "drop",
+      "at": 0.1,
+      "z": 2
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 540,
+      "y": 920,
+      "r": 420,
+      "color": "#8FD3FE"
+     },
+     {
+      "type": "sparks",
+      "x": 540,
+      "y": 600,
+      "at": 0.5
+     }
+    ],
     "bold": "help"
    }
   },
@@ -119,7 +451,39 @@
    "direction": "Playful question, rising intonation, set up a twist.",
    "scene": {
     "bg": "bg_notebook",
-    "props": [],
+    "transition": "torn",
+    "word": {
+     "text": "WHICH?",
+     "y": 420,
+     "color": "#1E1D1B"
+    },
+    "props": [
+     {
+      "el": "pen_side",
+      "x": 540,
+      "y": 820,
+      "w": 940,
+      "anim": "slideR",
+      "at": 0.0,
+      "z": 2,
+      "rot": -4
+     },
+     {
+      "el": "ink_blot",
+      "x": 250,
+      "y": 1070,
+      "w": 240,
+      "z": 1
+     }
+    ],
+    "fx": [
+     {
+      "type": "question",
+      "x": 830,
+      "y": 580,
+      "at": 0.35
+     }
+    ],
     "bold": "hole"
    }
   },
@@ -131,7 +495,38 @@
    "direction": "Delighted reveal, a little 'gotcha'.",
    "scene": {
     "bg": "bg_notebook",
-    "props": [],
+    "transition": "cut",
+    "word": {
+     "text": "SIDE",
+     "y": 420,
+     "color": "#1E1D1B"
+    },
+    "props": [
+     {
+      "el": "pen_side",
+      "x": 540,
+      "y": 820,
+      "w": 960,
+      "z": 2,
+      "rot": -4,
+      "noPop": true
+     }
+    ],
+    "fx": [
+     {
+      "type": "circle",
+      "x": 660,
+      "y": 812,
+      "r": 60,
+      "at": 0.45
+     },
+     {
+      "type": "sparks",
+      "x": 660,
+      "y": 812,
+      "at": 0.5
+     }
+    ],
     "bold": "side"
    }
   },
@@ -142,8 +537,39 @@
    "highlight": "CALL",
    "direction": "Clear, firm and caring, a public-service tone.",
    "scene": {
-    "bg": "bg_notebook",
-    "props": [],
+    "bg": "bg_dark",
+    "transition": "zoom",
+    "word": {
+     "text": "CALL",
+     "y": 400
+    },
+    "props": [
+     {
+      "el": "phone",
+      "x": 540,
+      "y": 880,
+      "w": 460,
+      "anim": "stamp",
+      "at": 0.25,
+      "z": 2
+     }
+    ],
+    "fx": [
+     {
+      "type": "spotlight",
+      "x": 540,
+      "y": 860,
+      "r": 440
+     },
+     {
+      "type": "sunburst",
+      "x": 540,
+      "y": 880,
+      "r": 380,
+      "color": "#E5352B",
+      "at": 0.25
+     }
+    ],
     "bold": "emergency"
    }
   },
@@ -154,8 +580,49 @@
    "highlight": "SEND",
    "direction": "Friendly, direct to camera, playful and a little teasing, like you're nudging the viewer to share. Smile in the voice.",
    "scene": {
-    "bg": "bg_notebook",
-    "props": [],
+    "bg": "bg_desk",
+    "transition": "slideUp",
+    "word": {
+     "text": "SEND",
+     "y": 400
+    },
+    "props": [
+     {
+      "el": "pens_pile",
+      "x": 360,
+      "y": 930,
+      "w": 420,
+      "z": 1
+     },
+     {
+      "el": "pointing_finger",
+      "x": 820,
+      "y": 1060,
+      "w": 520,
+      "anim": "press",
+      "at": 0.1,
+      "target": [
+       460,
+       940
+      ],
+      "z": 3,
+      "flip": true
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 360,
+      "y": 930,
+      "r": 380
+     },
+     {
+      "type": "plane",
+      "x": 620,
+      "y": 700,
+      "at": 0.2
+     }
+    ],
     "bold": "Send"
    },
    "cta": "send"

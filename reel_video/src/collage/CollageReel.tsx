@@ -39,6 +39,7 @@ type Fx =
   | { type: "flicker" }
   | { type: "cross"; x: number; y: number; r: number; at: number }
   | { type: "birds"; y: number; count?: number; at?: number }
+  | { type: "plane"; x: number; y: number; at: number } // code-drawn paper-plane "send" icon flying off (CTA beats)
   | { type: "strip"; y: number; h: number; color?: string; img?: string; rot?: number }
   | { type: "counter"; x: number; y: number; from: number; to: number; at: number; until: number; label: string; decimals?: number }
   | { type: "write"; text: string; x: number; y: number; size: number; at: number; color?: string; rot?: number };
@@ -352,6 +353,26 @@ const Counter: React.FC<{ x: number; y: number; from: number; to: number; at: nu
   );
 };
 
+/** Paper-plane "send" icon (generic, not a platform logo) that pops in, then flies off with a dashed trail. */
+const Plane: React.FC<{ x: number; y: number; at: number }> = ({ x, y, at }) => {
+  const f = step(useCurrentFrame());
+  const t = f - at;
+  if (t < 0) return null;
+  const pop = interpolate(t, [0, 3, 5], [0.3, 1.15, 1], clamp);
+  const fly = interpolate(t, [10, 22], [0, 1], { ...clamp, easing: ease.in });
+  const px = x + fly * 520, py = y - fly * 620;
+  return (
+    <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: 9 }}>
+      {fly > 0 && <path d={`M ${x} ${y} Q ${x + 160} ${y + 40} ${px} ${py}`} stroke="#FFFFFF" strokeWidth={9} strokeDasharray="22 18" fill="none" strokeLinecap="round" />}
+      <g transform={`translate(${px} ${py}) rotate(-28) scale(${pop * 2.2})`}>
+        <circle r={58} fill="#FFD21F" stroke="#1E1D1B" strokeWidth={5} />
+        <path d="M -30 2 L 32 -26 L 14 30 L 4 10 Z" fill="#FFFFFF" stroke="#1E1D1B" strokeWidth={5} strokeLinejoin="round" />
+        <path d="M 4 10 L 32 -26" stroke="#1E1D1B" strokeWidth={5} />
+      </g>
+    </svg>
+  );
+};
+
 /* ---------------- background + transitions ---------------- */
 const Background: React.FC<{ name: string }> = ({ name }) => {
   const f = step(useCurrentFrame());
@@ -477,6 +498,7 @@ export const CollageReel: React.FC = () => {
                 if (fx.type === "circle") return <MarkerCircle key={k} x={fx.x} y={fx.y} r={fx.r} at={at} color={fx.color ?? "#FFD21F"} />;
                 if (fx.type === "sparks") return <Sparks key={k} x={fx.x} y={fx.y} at={at} />;
                 if (fx.type === "cross") return <Cross key={k} x={fx.x} y={fx.y} r={fx.r} at={at} />;
+                if (fx.type === "plane") return <Plane key={k} x={fx.x} y={fx.y} at={at} />;
                 if (fx.type === "birds") return <Birds key={k} y={fx.y} count={fx.count ?? 5} at={at} />;
                 if (fx.type === "counter") return <Counter key={k} x={fx.x} y={fx.y} from={fx.from} to={fx.to} at={at} until={Math.round(fx.until * c.speech)} label={fx.label} decimals={fx.decimals ?? 1} />;
                 if (fx.type === "question") return <Question key={k} x={fx.x} y={fx.y} at={at} />;
