@@ -1,0 +1,839 @@
+{
+ "title": "The Placebo Button",
+ "topic": "Why the elevator close-door button often does nothing",
+ "style_seed": "Vox editorial mixed-media collage, illustrated paper cutouts with white sticker borders on aged cream paper, halftone dots, washi tape",
+ "accent_color": "#F5C518",
+ "beats": [
+  {
+   "id": 1,
+   "narration": "Stop pressing this button. It probably doesn't do anything.",
+   "caption": "STOP PRESSING IT",
+   "highlight": "STOP",
+   "visual": "a single large brass elevator close-door button with two inward-pointing triangles, cut out as a paper sticker, centered on cream paper, a yellow circle behind it",
+   "motion": "punch",
+   "retention": "Beat 1 is a strong curiosity-gap line (a familiar object accused of lying) and it lands in 1.29s, so the words pass the 3-second test; the risk is visual: a static button on cream paper looks like a still image in the first frames. Strengthen it by having a cartoon finger already jabbing the button on frame 0 (no fade-in, no blank frame), with a click SFX and 'LYING' stamped in yellow on the punch, plus a quick red glitch/flicker on the button's triangles to signal 'fake'. Keep the caption on screen from frame 0 so muted viewers get the hook too.",
+   "speed": 1.15,
+   "design_s": 1.6,
+   "cam": "punch",
+   "sfx": "click",
+   "shot": "01.png",
+   "annot": {
+    "x": 0.5,
+    "y": 0.5,
+    "r": 0.3,
+    "at": 0.15
+   },
+   "scene": {
+    "bg": "bg_mint_tiles",
+    "bold": "Stop",
+    "props": [
+     {
+      "el": "button",
+      "x": 540,
+      "y": 800,
+      "w": 500,
+      "z": 2,
+      "noPop": true
+     },
+     {
+      "el": "hand_point",
+      "x": 850,
+      "y": 880,
+      "w": 620,
+      "anim": "press",
+      "at": 0,
+      "target": [
+       540,
+       800
+      ],
+      "z": 3,
+      "noEnter": true,
+      "flip": true
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 540,
+      "y": 800,
+      "r": 420,
+      "at": -0.2
+     },
+     {
+      "type": "cross",
+      "x": 540,
+      "y": 800,
+      "r": 170,
+      "at": 0.62
+     }
+    ],
+    "punch": true,
+    "word": {
+     "text": "STOP",
+     "y": 470,
+     "at": -0.2
+    }
+   },
+   "direction": "Urgent and punchy, like you're stopping a friend mid-press. Hit 'Stop' hard. Then a knowing, slightly amused drop on 'It probably doesn't do anything.'"
+  },
+  {
+   "id": 13,
+   "speed": 1.15,
+   "narration": "But one person carries a key that brings it back to life.",
+   "caption": "ONE PERSON CAN USE IT",
+   "highlight": "ONE",
+   "visual": "open-loop tease: dark spotlight, a mystery silhouette with a big yellow question mark, a key glint",
+   "motion": "tease",
+   "retention": "3-second rule: completes the hook with an open loop that only pays off at the firefighter reveal near the end.",
+   "design_s": 1.77,
+   "cam": "pushIn",
+   "sfx": "bass",
+   "shot": "13.png",
+   "annot": {
+    "x": 0.83,
+    "y": 0.47,
+    "r": 0.12,
+    "at": 0.45
+   },
+   "scene": {
+    "bg": "bg_dark",
+    "transition": "torn",
+    "bold": "one person key",
+    "props": [
+     {
+      "el": "firefighter",
+      "x": 540,
+      "y": 930,
+      "w": 500,
+      "anim": "silhouette",
+      "at": 0.05
+     }
+    ],
+    "fx": [
+     {
+      "type": "spotlight",
+      "x": 540,
+      "y": 820,
+      "r": 440
+     },
+     {
+      "type": "question",
+      "x": 830,
+      "y": 520,
+      "at": 0.5
+     }
+    ],
+    "word": {
+     "text": "WHO?",
+     "y": 470
+    }
+   },
+   "direction": "Lower your voice, slower, mysterious and intriguing, like sharing a secret. Lean on 'one person' and 'back to life'."
+  },
+  {
+   "id": 2,
+   "narration": "You jab it. The doors take their time anyway.",
+   "caption": "DOORS IGNORE YOU",
+   "highlight": "IGNORE",
+   "visual": "paper cutout of an impatient person in a mustard-yellow hoodie checking a wristwatch, standing in front of closed elevator doors cut from charcoal paper",
+   "motion": "pushin",
+   "design_s": 2.74,
+   "cam": "panLeft",
+   "sfx": "tick",
+   "shot": "02.png",
+   "annot": {
+    "x": 0.44,
+    "y": 0.7,
+    "r": 0.1,
+    "at": 0.45,
+    "arrow": true
+   },
+   "scene": {
+    "bg": "bg_lobby",
+    "transition": "torn",
+    "bold": "jab",
+    "props": [
+     {
+      "el": "worker",
+      "x": 290,
+      "y": 1010,
+      "w": 500,
+      "anim": "slideL",
+      "at": 0.05,
+      "z": 3
+     },
+     {
+      "el": "stopwatch",
+      "x": 830,
+      "y": 470,
+      "w": 250,
+      "anim": "drop",
+      "at": 0.45,
+      "z": 4
+     }
+    ],
+    "fx": [
+     {
+      "type": "doors",
+      "x": 660,
+      "y": 860,
+      "w": 520,
+      "open": [
+       0,
+       0.08
+      ],
+      "at": 0.4,
+      "until": 1.0
+     }
+    ],
+    "word": {
+     "text": "WAIT",
+     "y": 430
+    },
+    "tint": "#4f8fe6"
+   },
+   "direction": "Relatable and wry, a little exasperated, like you're describing everyone's daily frustration."
+  },
+  {
+   "id": 3,
+   "narration": "To understand why, you have to go back to 1990.",
+   "caption": "BACK TO 1990",
+   "highlight": "1990",
+   "visual": "a vintage 1990 desk calendar page cut out as paper, pinned with washi tape, next to an archival-style photo cutout of the U.S. Capitol dome",
+   "motion": "pullout",
+   "retention": "At 4.34s the history pivot is the biggest drop-off risk. Do a fast rewind whip: calendar pages flip backwards in ~0.4s (2026 -> 1990) with a tape-rewind SFX, then the 1990 page slams down and the washi tape snaps on.",
+   "design_s": 3.45,
+   "cam": "pullOut",
+   "sfx": "glitch",
+   "shot": "03.png",
+   "big": {
+    "text": "1990",
+    "at": 0.75,
+    "x": 540,
+    "y": 1180,
+    "rot": -5
+   },
+   "scene": {
+    "bg": "bg_newsprint",
+    "transition": "slideUp",
+    "bold": "1990",
+    "props": [
+     {
+      "el": "capitol",
+      "x": 720,
+      "y": 620,
+      "w": 520,
+      "anim": "rise",
+      "at": 0.1,
+      "bw": true
+     },
+     {
+      "el": "calendar",
+      "x": 420,
+      "y": 960,
+      "w": 580,
+      "anim": "drop",
+      "at": 0.3,
+      "rot": -5,
+      "z": 3
+     }
+    ],
+    "fx": [
+     {
+      "type": "strip",
+      "y": 660,
+      "h": 440,
+      "color": "#8cc4f0",
+      "rot": -4
+     },
+     {
+      "type": "birds",
+      "y": 420,
+      "count": 6
+     },
+     {
+      "type": "write",
+      "text": "1990",
+      "x": 430,
+      "y": 760,
+      "size": 120,
+      "at": 0.62,
+      "rot": -7
+     },
+     {
+      "type": "circle",
+      "x": 430,
+      "y": 760,
+      "r": 150,
+      "at": 0.8
+     }
+    ],
+    "word": {
+     "text": "1990",
+     "y": 360
+    }
+   },
+   "direction": "Shift into storyteller mode: curious, inviting. Slight pause before '1990'."
+  },
+  {
+   "id": 4,
+   "narration": "That year, the U.S. passes the Americans with Disabilities Act.",
+   "caption": "THE ADA",
+   "highlight": "ADA",
+   "visual": "an old legal document cutout with a large official wax seal and a fountain pen, halftone shadow, a yellow triangle accent",
+   "motion": "pushin",
+   "design_s": 3.55,
+   "cam": "pushIn",
+   "sfx": "bass",
+   "shot": "04.png",
+   "annot": {
+    "x": 0.65,
+    "y": 0.36,
+    "r": 0.12,
+    "at": 0.55
+   },
+   "scene": {
+    "bg": "bg_teal",
+    "transition": "torn",
+    "bold": "Americans with Disabilities Act",
+    "props": [
+     {
+      "el": "document",
+      "x": 520,
+      "y": 790,
+      "w": 600,
+      "anim": "rise",
+      "at": 0
+     },
+     {
+      "el": "pen_hand",
+      "x": 760,
+      "y": 1080,
+      "w": 500,
+      "anim": "slideR",
+      "at": 0.35,
+      "z": 3
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 520,
+      "y": 790,
+      "r": 470,
+      "color": "#F5C518",
+      "at": 0
+     },
+     {
+      "type": "circle",
+      "x": 690,
+      "y": 420,
+      "r": 110,
+      "at": 0.8
+     },
+     {
+      "type": "birds",
+      "y": 260,
+      "count": 4,
+      "at": 0.2
+     }
+    ],
+    "word": {
+     "text": "ADA",
+     "y": 330
+    }
+   },
+   "direction": "Confident and clear, a touch of gravitas on 'Americans with Disabilities Act'."
+  },
+  {
+   "id": 5,
+   "narration": "One rule: elevator doors must stay open long enough",
+   "caption": "OPEN 3+ SECONDS",
+   "highlight": "SECONDS",
+   "visual": "elevator doors cut from charcoal paper held wide open, a measured timing arc drawn in yellow between them like a diagram",
+   "motion": "pushin",
+   "retention": "Animate the yellow timing arc as a countdown that fills while a small '3 SEC' counter ticks 1-2-3 between the open doors, giving the eye something to track through the explanation.",
+   "design_s": 3.32,
+   "cam": "pullOut",
+   "sfx": "ding",
+   "shot": "05.png",
+   "big": {
+    "text": "3 SEC",
+    "at": 0.5,
+    "x": 540,
+    "y": 1150,
+    "rot": 4
+   },
+   "scene": {
+    "bg": "bg_lobby",
+    "transition": "zoom",
+    "bold": "stay open",
+    "props": [
+     {
+      "el": "stopwatch",
+      "x": 860,
+      "y": 1220,
+      "w": 260,
+      "anim": "stamp",
+      "at": 0.6,
+      "z": 4
+     }
+    ],
+    "fx": [
+     {
+      "type": "doors",
+      "x": 540,
+      "y": 820,
+      "w": 600,
+      "open": [
+       0,
+       1
+      ],
+      "at": 0.1,
+      "until": 0.6
+     },
+     {
+      "type": "counter",
+      "x": 540,
+      "y": 1110,
+      "from": 0,
+      "to": 3,
+      "at": 0.15,
+      "until": 0.9,
+      "label": "SEC DOORS OPEN"
+     }
+    ],
+    "word": {
+     "text": "OPEN",
+     "y": 205
+    },
+    "tint": "#4f8fe6"
+   },
+   "direction": "Explaining clearly with emphasis on 'must stay open long enough'."
+  },
+  {
+   "id": 6,
+   "narration": "for someone using a wheelchair to get inside.",
+   "caption": "EVERYONE GETS IN",
+   "highlight": "EVERYONE",
+   "visual": "a smiling woman using a wheelchair as a paper cutout, rolling into an open elevator, confident and empowered, yellow circle accent behind her",
+   "motion": "slide",
+   "design_s": 2.57,
+   "cam": "panRight",
+   "sfx": "pop",
+   "shot": "06.png",
+   "scene": {
+    "bg": "bg_lobby",
+    "transition": "cut",
+    "bold": "wheelchair",
+    "props": [
+     {
+      "el": "wheelchair",
+      "x": 540,
+      "y": 1000,
+      "w": 560,
+      "anim": "rollIn",
+      "at": 0.05,
+      "z": 3
+     }
+    ],
+    "fx": [
+     {
+      "type": "doors",
+      "x": 540,
+      "y": 820,
+      "w": 600,
+      "open": [
+       1,
+       1
+      ]
+     }
+    ],
+    "word": {
+     "text": "EVERYONE",
+     "y": 205
+    },
+    "tint": "#4f8fe6"
+   },
+   "direction": "Warm and positive, matter-of-fact."
+  },
+  {
+   "id": 7,
+   "narration": "So in many American elevators, the close button is switched off.",
+   "caption": "SWITCHED OFF",
+   "highlight": "OFF",
+   "visual": "cutaway diagram of the back of an elevator button panel, paper cutout wires, one wire visibly unplugged and dangling, labeled like a technical blueprint",
+   "motion": "pushin",
+   "retention": "At ~19.5s on the word 'off', punch-zoom 115% into the wire as it visibly yanks out of its socket with a spark cutout and a 2-frame white flash; caption 'OFF' shakes once.",
+   "design_s": 3.82,
+   "cam": "pushIn",
+   "sfx": "glitch",
+   "shot": "07.png",
+   "annot": {
+    "x": 0.56,
+    "y": 0.875,
+    "r": 0.09,
+    "at": 0.8,
+    "arrow": true
+   },
+   "scene": {
+    "bg": "bg_blueprint",
+    "transition": "torn",
+    "bold": "switched off",
+    "props": [
+     {
+      "el": "circuit",
+      "x": 540,
+      "y": 800,
+      "w": 420
+     },
+     {
+      "el": "plug_wire",
+      "x": 560,
+      "y": 1500,
+      "w": 110,
+      "anim": "yank",
+      "at": 0.85,
+      "z": 2
+     }
+    ],
+    "fx": [
+     {
+      "type": "sparks",
+      "x": 560,
+      "y": 1340,
+      "at": 0.85
+     }
+    ],
+    "word": {
+     "text": "OFF",
+     "y": 275
+    }
+   },
+   "direction": "Building to a reveal, emphasis and a beat of surprise on 'switched off'."
+  },
+  {
+   "id": 8,
+   "narration": "It might light up. Nothing happens.",
+   "caption": "NOTHING HAPPENS",
+   "highlight": "NOTHING",
+   "visual": "the same person in the mustard-yellow hoodie jabbing the button with both fingers, comic motion lines cut from paper, frustrated face",
+   "motion": "shake",
+   "design_s": 2.24,
+   "cam": "shake",
+   "sfx": "click",
+   "shot": "08.png",
+   "annot": {
+    "x": 0.33,
+    "y": 0.52,
+    "r": 0.14,
+    "at": 0.2
+   },
+   "scene": {
+    "bg": "bg_mint_tiles",
+    "transition": "slideUp",
+    "bold": "Nothing happens",
+    "props": [
+     {
+      "el": "button",
+      "x": 540,
+      "y": 780,
+      "w": 460,
+      "z": 2
+     },
+     {
+      "el": "hand_point",
+      "x": 840,
+      "y": 860,
+      "w": 600,
+      "anim": "jab",
+      "at": 0,
+      "target": [
+       540,
+       780
+      ],
+      "z": 3,
+      "flip": true
+     },
+     {
+      "el": "snail",
+      "x": 230,
+      "y": 1300,
+      "w": 230,
+      "anim": "crawl",
+      "z": 4,
+      "flip": true
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 540,
+      "y": 780,
+      "r": 380,
+      "color": "#FF7A45"
+     }
+    ],
+    "word": {
+     "text": "NOTHING",
+     "y": 420
+    }
+   },
+   "direction": "Deadpan comedy. 'It might light up.' then a flat, dry 'Nothing happens.'",
+   "max_pause": 0.6
+  },
+  {
+   "id": 9,
+   "narration": "It's what's known as a placebo button.",
+   "caption": "A PLACEBO BUTTON",
+   "highlight": "PLACEBO",
+   "visual": "a giant pill capsule cutout, half yellow half cream, with the close-door triangles symbol printed on it, halftone shadow, pinned with tape",
+   "motion": "pullout",
+   "retention": "The placebo pill drops in from top, spins 180 degrees to reveal the close-door triangles printed on it, lands with a paper-thud bounce. Keep it under 0.5s so the beat stays snappy.",
+   "design_s": 2.2,
+   "cam": "pullOut",
+   "sfx": "pop",
+   "shot": "09.png",
+   "annot": {
+    "x": 0.5,
+    "y": 0.62,
+    "r": 0.13,
+    "at": 0.55
+   },
+   "scene": {
+    "bg": "bg_teal",
+    "transition": "torn",
+    "bold": "placebo",
+    "props": [
+     {
+      "el": "pill",
+      "x": 540,
+      "y": 820,
+      "w": 360,
+      "anim": "drop",
+      "at": 0.05,
+      "rot": 10,
+      "z": 2
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 540,
+      "y": 820,
+      "r": 420
+     },
+     {
+      "type": "circle",
+      "x": 540,
+      "y": 820,
+      "r": 300,
+      "at": 0.6
+     }
+    ],
+    "word": {
+     "text": "PLACEBO",
+     "y": 380
+    }
+   },
+   "direction": "Amused, almost laughing at the irony, stress 'placebo'."
+  },
+  {
+   "id": 10,
+   "narration": "But there's one person it still works for.",
+   "caption": "EXCEPT FOR ONE PERSON",
+   "highlight": "ONE",
+   "visual": "a lone elevator button panel cutout on dark charcoal paper with a single yellow spotlight circle on it, mysterious",
+   "motion": "pushin",
+   "retention": "Cut to dark charcoal; the spotlight flickers on twice like a faulty bulb, and a large yellow 'WHO?' flashes for ~8 frames before the caption appears, opening a loop that carries viewers into beat 11.",
+   "design_s": 2.13,
+   "cam": "pushIn",
+   "sfx": "riser",
+   "shot": "10.png",
+   "annot": {
+    "x": 0.39,
+    "y": 0.59,
+    "r": 0.07,
+    "at": 0.6,
+    "arrow": true
+   },
+   "scene": {
+    "bg": "bg_dark",
+    "transition": "cut",
+    "bold": "one person",
+    "props": [
+     {
+      "el": "keyhole_panel",
+      "x": 540,
+      "y": 830,
+      "w": 420,
+      "z": 2
+     },
+     {
+      "el": "glove_key",
+      "x": 990,
+      "y": 1160,
+      "w": 400,
+      "anim": "slideR",
+      "at": 0.7,
+      "z": 3
+     }
+    ],
+    "fx": [
+     {
+      "type": "spotlight",
+      "x": 540,
+      "y": 820,
+      "r": 400
+     },
+     {
+      "type": "circle",
+      "x": 455,
+      "y": 800,
+      "r": 70,
+      "at": 0.45
+     }
+    ],
+    "word": {
+     "text": "EXCEPT",
+     "y": 420
+    }
+   },
+   "direction": "Hushed, suspenseful, slowing down. Tease it."
+  },
+  {
+   "id": 11,
+   "narration": "Firefighters. Turn their special key, and it works again.",
+   "caption": "FIREFIGHTER KEY",
+   "highlight": "KEY",
+   "visual": "archival-style cutout of a firefighter in helmet and tan turnout coat, beside a large brass key cutout and a red fire-service keyswitch",
+   "motion": "slide",
+   "retention": "Show the brass key sliding into the red keyswitch and turning 90 degrees with a mechanical clunk SFX; the close button on the panel lights up yellow at the exact moment of 'works again'.",
+   "design_s": 3.28,
+   "cam": "punch",
+   "sfx": "click",
+   "shot": "11.png",
+   "annot": {
+    "x": 0.36,
+    "y": 0.48,
+    "r": 0.11,
+    "at": 0.5
+   },
+   "scene": {
+    "bg": "bg_teal",
+    "transition": "torn",
+    "bold": "Firefighters key",
+    "props": [
+     {
+      "el": "firefighter",
+      "x": 220,
+      "y": 960,
+      "w": 330,
+      "anim": "slideL",
+      "at": 0,
+      "bw": true,
+      "z": 2
+     },
+     {
+      "el": "keyswitch",
+      "x": 680,
+      "y": 760,
+      "w": 430,
+      "z": 2
+     },
+     {
+      "el": "glove_key",
+      "x": 760,
+      "y": 1010,
+      "w": 380,
+      "anim": "slideR",
+      "at": 0.25,
+      "z": 3
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 680,
+      "y": 760,
+      "r": 360,
+      "at": 0.6
+     },
+     {
+      "type": "sparks",
+      "x": 680,
+      "y": 740,
+      "at": 0.65
+     }
+    ],
+    "word": {
+     "text": "FIRE",
+     "y": 330
+    }
+   },
+   "direction": "Satisfying payoff, energetic: 'Firefighters!' with pride, then explain the key with excitement."
+  },
+  {
+   "id": 12,
+   "narration": "So next time you're smashing that button, remember:",
+   "caption": "REMEMBER THIS:",
+   "highlight": "REMEMBER",
+   "visual": "the brass close-door button sticker again on cream paper with the yellow circle, a cartoon hand reaching toward it from the bottom edge",
+   "motion": "pushin",
+   "design_s": 2.37,
+   "cam": "pushIn",
+   "sfx": "riser",
+   "shot": "01.png",
+   "annot": {
+    "x": 0.5,
+    "y": 0.5,
+    "r": 0.3,
+    "at": 0.6
+   },
+   "scene": {
+    "bg": "bg_mint_tiles",
+    "transition": "slideUp",
+    "bold": "button",
+    "props": [
+     {
+      "el": "button",
+      "x": 540,
+      "y": 800,
+      "w": 500,
+      "z": 2,
+      "noPop": true
+     },
+     {
+      "el": "hand_point",
+      "x": 850,
+      "y": 880,
+      "w": 620,
+      "anim": "press",
+      "at": 0.97,
+      "target": [
+       540,
+       800
+      ],
+      "z": 3,
+      "flip": true
+     }
+    ],
+    "fx": [
+     {
+      "type": "sunburst",
+      "x": 540,
+      "y": 800,
+      "r": 420,
+      "at": -0.2
+     }
+    ],
+    "word": {
+     "text": "STOP",
+     "y": 470,
+     "at": -0.2
+    }
+   },
+   "direction": "Friendly, direct to camera, with a playful smile, building toward the end."
+  }
+ ]
+}
