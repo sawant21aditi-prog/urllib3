@@ -405,7 +405,7 @@
     ],
     "word": {
      "text": "OPEN",
-     "y": 380
+     "y": 205
     },
     "tint": "#4f8fe6"
    },
@@ -451,7 +451,7 @@
     ],
     "word": {
      "text": "EVERYONE",
-     "y": 380
+     "y": 205
     },
     "tint": "#4f8fe6"
    },
@@ -484,8 +484,8 @@
      {
       "el": "circuit",
       "x": 540,
-      "y": 760,
-      "w": 500
+      "y": 800,
+      "w": 420
      },
      {
       "el": "plug_wire",
@@ -507,7 +507,7 @@
     ],
     "word": {
      "text": "OFF",
-     "y": 360
+     "y": 275
     }
    },
    "direction": "Building to a reveal, emphasis and a beat of surprise on 'switched off'."
