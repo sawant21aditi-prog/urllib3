@@ -1,7 +1,7 @@
 reel,date_posted,topic,cta_type,cta_line,views,reach,shares,saves,likes,comments,avg_watch_s,shares_per_1k_reach,saves_per_1k_reach,notes
 1,,Elevator close button,control,"(ends on a fact: ""...remember:"")",,,,,,,,,,baseline
-2,,Why pen caps have a hole,send,"Send this to someone who chews every pen they touch.",,,,,,,,,,
-3,,TBD,save,"Save this for <specific future moment>.",,,,,,,,,,
-4,,TBD,send,"Send this to someone who <specific behaviour>.",,,,,,,,,,
-5,,TBD,save,"Save this for <specific future moment>.",,,,,,,,,,
-6,,TBD,send,"Send this to someone who <specific behaviour>.",,,,,,,,,,
+2,,Why pen caps have a hole,send,Send this to someone who chews every pen they touch.,,,,,,,,,,
+3,,TBD,save,Save this for <specific future moment>.,,,,,,,,,,
+4,,TBD,send,Send this to someone who <specific behaviour>.,,,,,,,,,,
+5,,TBD,save,Save this for <specific future moment>.,,,,,,,,,,
+6,,TBD,send,Send this to someone who <specific behaviour>.,,,,,,,,,,

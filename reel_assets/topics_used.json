@@ -1,3 +1,15 @@
 [
-  {"date": "2026-10-04", "title": "The Placebo Button", "topic": "Elevator close-door buttons often do nothing (ADA 1990, firefighter key)", "series": "Placebo Files #01"}
+ {
+  "date": "2026-10-04",
+  "title": "The Placebo Button",
+  "topic": "Elevator close-door buttons often do nothing (ADA 1990, firefighter key)",
+  "series": "Placebo Files #01"
+ },
+ {
+  "date": "2026-10-05",
+  "title": "Why Pen Caps Have a Hole",
+  "topic": "Pen-cap hole is a safety vent (ISO 11540); barrel side-hole balances pressure",
+  "series": null,
+  "cta": "send"
+ }
 ]
