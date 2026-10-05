@@ -69,6 +69,12 @@ cd reel_video && GEMINI_API_KEY=$GEMINI_API_KEY python3 scripts/gen_vo_gemini.py
 - Never use `gemini-3.8-*-tts`: those models read the instructions aloud and invent lines.
 - Fallback if `GEMINI_API_KEY` is missing or the quota is used up: `python3 scripts/gen_vo.py` (Kokoro, offline, flatter voice). Tell the user which one you used.
 
+**Pace rules** (the user found 190+ wpm too fast and 1-second gaps too slow):
+- The overall target is **155–165 wpm**. The script prints the wpm, so check it.
+- Use the voice's natural speed. Hook lines run at 1.0×, and body lines default to `--tempo 0.93`.
+- Never speed the voice up.
+- Line gaps are a 0.32s breath. Pauses inside a line are capped at 0.45s (`max_pause` per beat, up to 0.6s for a deliberate deadpan beat).
+
 **Hook rules** (the user asked for strong hooks):
 - Open with a direct command or a shocking claim about an everyday object, e.g. "Stop pressing this button."
 - Hedge it so it stays true ("probably", "often").
