@@ -29,11 +29,11 @@ export const Reel: React.FC = () => {
           <Sequence key={beat.id} from={c.from} durationInFrames={dur} name={`S${beat.id}`}>
             <PaperBg color={theme.sceneColors[i % theme.sceneColors.length].bg} />
             {/* scenes run on their design clock, stretched to the real voiceover timing */}
-            <SceneTime stretch={dur / Math.round(beat.design_s * fps)}>
+            <SceneTime stretch={dur / Math.round((beat.design_s ?? dur / fps) * fps)}>
               <Scene
                 beat={beat}
-                durationInFrames={Math.round(beat.design_s * fps)}
-                speechFrames={Math.round((c.speech * beat.design_s * fps) / dur)}
+                durationInFrames={Math.round((beat.design_s ?? dur / fps) * fps)}
+                speechFrames={Math.round((c.speech * (beat.design_s ?? dur / fps) * fps) / dur)}
               />
             </SceneTime>
             <Headline text={beat.caption} highlight={beat.highlight} durationInFrames={dur} lead={i === 0 ? 8 : 0} accent={theme.sceneColors[i % theme.sceneColors.length].accent} />
