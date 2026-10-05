@@ -445,7 +445,8 @@ const Subtitle: React.FC<{ text: string; bold?: string; speech: number; dur: num
   return (
     <div style={{ position: "absolute", left: 40, right: 40, top: 1250, display: "flex", justifyContent: "center", zIndex: 20 }}>
       <div style={{ transform: `scale(${pop})`, fontFamily: theme.fonts.body, fontWeight: 900, fontSize: 64, letterSpacing: "0.01em", textAlign: "center",
-        color: "#FFFFFF", textShadow: "0 4px 0 rgba(0,0,0,0.55), 0 0 22px rgba(0,0,0,0.55)", textTransform: "uppercase" }}>
+        color: "#FFFFFF", textShadow: "0 5px 0 rgba(0,0,0,0.45), 0 0 22px rgba(0,0,0,0.45)", textTransform: "uppercase",
+        WebkitTextStroke: "12px #1E1D1B", paintOrder: "stroke fill" /* solid outline: readable on light paper and dark scenes alike */ }}>
         {spans[idx].c.split(" ").map((w, i) => (
           <span key={i} style={{ color: b.includes(norm(w)) ? "#FFD21F" : "#FFFFFF" }}>{w}{" "}</span>
         ))}
