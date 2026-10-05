@@ -116,6 +116,36 @@ def verify(aligned, beats):
         raise RuntimeError(f"voiceover does not match the script on beats {bad}; regenerate (try another --model or --voice)")
 
 
+def patch_take(model, voice, beats, old_raw, old_beats, ids, full, tmp):
+    """--patch old_raw.wav --old-script old.json --ids 1,2: ONE request voices only the changed beats; every other
+    beat keeps its span from the approved take. Writes a full-script raw take to `full`."""
+    old = fix_run_ons(old_raw, align_beats(old_raw, old_beats), old_beats)
+    new_beats = [b for b in beats if b["id"] in ids]
+    prompt = (f"{STYLE} Read the transcript EXACTLY word for word. Do not add, remove or change any words. "
+              "Pause for about one second between lines. Line notes: "
+              + " ".join(f"Line {n + 1}: {b.get('direction', '')}" for n, b in enumerate(new_beats))
+              + "\n\nTRANSCRIPT:\n" + "\n\n".join(b["narration"] for b in new_beats))
+    body = {"contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"responseModalities": ["AUDIO"], "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voice}}}}}
+    r = call("POST", f"models/{model}:generateContent", body)
+    take = os.path.join(tmp, "patch.wav")
+    pcm = base64.b64decode(r["candidates"][0]["content"]["parts"][0]["inlineData"]["data"])
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "s16le", "-ar", "24000", "-ac", "1", "-i", "-", take], input=pcm, check=True)
+    subprocess.run(["cp", take, os.path.join(ROOT, "public", "audio", f"vo_patch_{model}_{voice}.wav")], check=True)
+    fresh = iter(fix_run_ons(take, align_beats(take, new_beats), new_beats))
+    gap = os.path.join(tmp, "gap.wav")
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono", "-t", "1.0", gap], check=True)
+    parts = []
+    for n, b in enumerate(beats):
+        src, (a, e, _, _) = (take, next(fresh)) if b["id"] in ids else (old_raw, old[n])
+        seg = os.path.join(tmp, f"patch_{n:02d}.wav")
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{a:.3f}", "-to", f"{e:.3f}", "-i", src, "-ar", "24000", "-ac", "1", seg], check=True)
+        parts += [seg, gap]
+    lst = os.path.join(tmp, "patch_list.txt")
+    open(lst, "w").write("".join(f"file '{p}'\n" for p in parts[:-1]))
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, full], check=True)
+
+
 def main():
     pos = [a for i, a in enumerate(sys.argv[1:], 1) if not a.startswith("--") and not sys.argv[i - 1].startswith("--")]
     script_path = pos[0] if pos else os.path.join(ROOT, "src", "data", "script.json")
@@ -133,6 +163,9 @@ def main():
     full = os.path.join(tmp, "full.wav")
     if "--reuse" in sys.argv:  # re-align a saved take without spending a request
         subprocess.run(["cp", arg("--reuse", ""), full], check=True)
+    elif "--patch" in sys.argv:  # re-voice only the changed lines; keep the approved take for the rest
+        patch_take(model, voice, beats, arg("--patch", ""), json.load(open(arg("--old-script", "")))["beats"],
+                   {int(i) for i in arg("--ids", "").split(",")}, full, tmp)
     else:
         r = call("POST", f"models/{model}:generateContent", body)
         pcm = base64.b64decode(r["candidates"][0]["content"]["parts"][0]["inlineData"]["data"])

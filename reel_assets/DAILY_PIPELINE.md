@@ -66,6 +66,8 @@ cd reel_video && GEMINI_API_KEY=$GEMINI_API_KEY python3 scripts/gen_vo_gemini.py
 ```
 - It uses ONE Gemini request per Reel; the free tier allows about 10 requests a day per model.
 - Every line is transcribed with offline Whisper and compared with the script. **If any beat scores below 0.8, the take is rejected**, because some TTS models improvise lines. Regenerate, or re-align a saved take for free with `--reuse public/audio/vo_raw_<model>_<voice>.wav`.
+- Changing only a few lines of an approved take? Re-voice just those beats with ONE short request and keep the rest:
+  `python3 scripts/gen_vo_gemini.py --patch <old vo_raw.wav> --old-script <old script.json> --ids 1,2` (beat count and order must match).
 - Never use `gemini-3.8-*-tts`: those models read the instructions aloud and invent lines.
 - Fallback if `GEMINI_API_KEY` is missing or the quota is used up: `python3 scripts/gen_vo.py` (Kokoro, offline, flatter voice). Tell the user which one you used.
 
@@ -87,7 +89,9 @@ cd reel_video && GEMINI_API_KEY=$GEMINI_API_KEY python3 scripts/gen_vo_gemini.py
 - After the experiment ends (Reel #6), read `reel_assets/experiments/README.md` and keep the winning style.
 
 **Hook rules** (the user asked for strong hooks):
-- Open with a direct command or a shocking claim about an everyday object, e.g. "Stop pressing this button."
+- **Beat 1 = FEAR + CURIOSITY** (owner rule, from Reel #2 v2 onward): stakes (danger, health, money, loss) tied to an everyday object the viewer owns, with the "why" left unanswered. Model line: "The hole in your pen cap can save a life." It must be literally true (hedge with "can", "often", "might"); no medical fearmongering. See `reel_assets/brand/hook_playbook.md` (Virality Agent) for rules, templates and the topic slate.
+- Beat 2 twists or opens the loop ("And no, it's not for the ink.") and is only paid off near the end.
+- Older pattern (still fine as beat 2 or for low-stakes topics): a direct command, e.g. "Stop pressing this button."
 - Hedge it so it stays true ("probably", "often").
 - The second line opens a loop that is only paid off near the end.
 - The opening scene sets `"punch": true`: it starts on an extreme close-up mid-action and punches out.

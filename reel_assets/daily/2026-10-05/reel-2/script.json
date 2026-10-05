@@ -4,15 +4,15 @@
  "beats": [
   {
    "id": 1,
-   "narration": "Look at the top of your pen cap.",
-   "caption": "LOOK AT THE CAP",
-   "highlight": "CAP",
-   "direction": "Urgent, playful command, like grabbing a friend's attention. Hit 'Look' and 'top'.",
+   "narration": "The hole in your pen cap can save a life.",
+   "caption": "IT CAN SAVE A LIFE",
+   "highlight": "LIFE",
+   "direction": "Serious, urgent, low and gripping, like a warning you can't ignore. Lean on 'save a life'.",
    "scene": {
     "bg": "bg_desk",
     "punch": true,
     "word": {
-     "text": "LOOK",
+     "text": "LIFE",
      "y": 400,
      "at": -0.2
     },
@@ -57,15 +57,15 @@
       "at": 0.55
      }
     ],
-    "bold": "pen cap"
+    "bold": "save a life"
    }
   },
   {
    "id": 2,
-   "narration": "That tiny hole isn't mainly for the ink.",
+   "narration": "And no, it's not for the ink.",
    "caption": "NOT FOR THE INK",
    "highlight": "INK",
-   "direction": "Lower, conspiratorial, a knowing twist. Lean on 'isn't'.",
+   "direction": "Quick, knowing twist, a little wry. Lean on 'not'.",
    "scene": {
     "bg": "bg_notebook",
     "transition": "torn",
