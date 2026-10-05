@@ -17,10 +17,10 @@ import json, os, shutil, subprocess, sys, tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODELS = os.path.expanduser("~/.cache/kokoro")
-HOOK_IDS_GAP = 0.06  # hook lines run straight into each other
-BODY_GAP = 0.15  # a short breath between lines; Reels punish dead air
-LAST_GAP = 0.05  # last beat cuts straight into the loop
-MAX_PAUSE = 0.3  # longest pause allowed INSIDE a line (per-beat override: "max_pause")
+HOOK_IDS_GAP = 0.18  # hook lines follow each other quickly but stay distinct
+BODY_GAP = 0.32  # a natural breath between lines (target pace ~155-165 wpm, no dead air)
+LAST_GAP = 0.08  # last beat cuts straight into the loop
+MAX_PAUSE = 0.45  # longest pause allowed INSIDE a line (per-beat override: "max_pause")
 
 
 def arg(name, default):

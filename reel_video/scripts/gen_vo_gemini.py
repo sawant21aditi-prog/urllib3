@@ -146,7 +146,8 @@ def main():
     for n, (b, (a, e)) in enumerate(zip(beats, segs)):
         last, hook = n == len(beats) - 1, n < 2
         seg = os.path.join(tmp, f"{n:02d}_s.wav")
-        tempo = 1.08 if hook else 1.04  # slightly tighter for Reels; atempo keeps pitch
+        # pace control (atempo keeps pitch): 1.0 = the voice's natural pace; <1 slows. Target ~155-165 wpm overall.
+        tempo = float(arg("--hook-tempo", "1.0")) if hook else float(arg("--tempo", "0.93"))
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{a:.3f}", "-to", f"{e:.3f}", "-i", full, "-af",  # seek on input (before atempo)
                         f"afade=t=in:d=0.02,atempo={tempo}", seg], check=True)  # spans are already tight to speech (aligned on pauses)
         tighten_pauses(seg, b.get("max_pause", MAX_PAUSE))
@@ -166,7 +167,8 @@ def main():
     out = {"total": round(t, 2), "beats": timing}
     for p in (os.path.join(ROOT, "public", "timing.json"), os.path.join(ROOT, "src", "data", "timing.json")):
         json.dump(out, open(p, "w"), indent=1)
-    print(f"{voice} via {model}: {round(t, 2)}s")
+    words = sum(len(b["narration"].split()) for b in beats)
+    print(f"{voice} via {model}: {round(t, 2)}s, {round(words / t * 60)} wpm overall")
 
 
 if __name__ == "__main__":
