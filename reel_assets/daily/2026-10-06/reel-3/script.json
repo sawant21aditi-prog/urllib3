@@ -1,0 +1,98 @@
+{
+ "title": "Why Smoke Alarms Chirp at 3 A.M.",
+ "topic": "Low-battery chirp is triggered when cool night air drops battery voltage; replace alarms after 10 years",
+ "beats": [
+  {
+   "id": 1,
+   "narration": "That 3 a.m. chirp means your smoke alarm is dying.",
+   "caption": "YOUR ALARM IS DYING",
+   "highlight": "DYING",
+   "direction": "Serious, urgent, a low warning in the dark. Lean on 'dying'."
+  },
+  {
+   "id": 2,
+   "narration": "And it's not bad luck it happens at night.",
+   "caption": "NOT BAD LUCK",
+   "highlight": "LUCK",
+   "direction": "Hushed, mysterious, a knowing twist."
+  },
+  {
+   "id": 3,
+   "narration": "That chirp is a low-battery warning.",
+   "caption": "LOW BATTERY",
+   "highlight": "BATTERY",
+   "direction": "Clear, matter-of-fact reveal."
+  },
+  {
+   "id": 4,
+   "narration": "And batteries hate the cold.",
+   "caption": "BATTERIES HATE COLD",
+   "highlight": "COLD",
+   "direction": "Wry, a little playful."
+  },
+  {
+   "id": 5,
+   "narration": "Homes are usually coolest between two and six a.m.",
+   "caption": "COOLEST AT 2\u20136 AM",
+   "highlight": "2\u20136 AM",
+   "direction": "Curious, building."
+  },
+  {
+   "id": 6,
+   "narration": "The temperature drops, and the battery's voltage dips.",
+   "caption": "VOLTAGE DIPS",
+   "highlight": "DIPS",
+   "direction": "Slow, descending, like something sinking."
+  },
+  {
+   "id": 7,
+   "narration": "So the alarm thinks it's out of power. Chirp.",
+   "caption": "CHIRP.",
+   "highlight": "CHIRP",
+   "direction": "Deadpan, land the 'Chirp' as a punchline."
+  },
+  {
+   "id": 8,
+   "narration": "That's why it picks the worst possible hour.",
+   "caption": "THE WORST HOUR",
+   "highlight": "WORST",
+   "direction": "Exasperated, relatable."
+  },
+  {
+   "id": 9,
+   "narration": "Swap the battery, and the chirping should stop.",
+   "caption": "SWAP THE BATTERY",
+   "highlight": "SWAP",
+   "direction": "Upbeat, helpful."
+  },
+  {
+   "id": 10,
+   "narration": "Still chirping with a fresh one?",
+   "caption": "STILL CHIRPING?",
+   "highlight": "STILL",
+   "direction": "Rising, suspicious question."
+  },
+  {
+   "id": 11,
+   "narration": "Check the date on the back. After about ten years, replace the whole alarm.",
+   "caption": "10 YEARS = REPLACE",
+   "highlight": "10 YEARS",
+   "direction": "Firm, important, clear."
+  },
+  {
+   "id": 12,
+   "narration": "Three in five home fire deaths happen with no working alarm.",
+   "caption": "3 IN 5",
+   "highlight": "3 IN 5",
+   "direction": "Serious and steady, not dramatic."
+  },
+  {
+   "id": 13,
+   "narration": "Save this for the next time it chirps at three a.m.",
+   "caption": "SAVE THIS FOR 3 AM",
+   "highlight": "SAVE",
+   "direction": "Friendly, warm, a little knowing smile.",
+   "cta": "save"
+  }
+ ]
+}

@@ -1,0 +1,130 @@
+{
+ "style": "single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio",
+ "elements": [
+  {
+   "name": "smoke_alarm",
+   "file": "smoke_alarm.png",
+   "tone": "color",
+   "prompt": "a round white ceiling smoke alarm seen from directly below, front view, with a small glowing red indicator light and a test button, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "alarm_back",
+   "file": "alarm_back.png",
+   "tone": "color",
+   "prompt": "the back of a round white smoke alarm, showing the mounting plate and a small blank white sticker label, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "battery_9v",
+   "file": "battery_9v.png",
+   "tone": "color",
+   "prompt": "a single rectangular 9-volt battery standing upright, terminals on top, plain unbranded wrapper, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "battery_dead",
+   "file": "battery_dead.png",
+   "tone": "color",
+   "prompt": "a single old corroded 9-volt battery lying on its side, slightly rusty terminals, plain unbranded wrapper, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "alarm_clock",
+   "file": "alarm_clock.png",
+   "tone": "color",
+   "prompt": "a vintage red twin-bell alarm clock, front view, the hour hand pointing exactly at 3 and the minute hand pointing exactly at 12, showing three o'clock, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "sleeper",
+   "file": "sleeper.png",
+   "tone": "bw",
+   "prompt": "black and white halftone vintage photograph, a person asleep in bed under a blanket, seen from the side, eyes closed, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "pillow_ears",
+   "file": "pillow_ears.png",
+   "tone": "bw",
+   "prompt": "black and white halftone vintage photograph, a frustrated person sitting up in bed pressing a pillow over their ears, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "thermometer",
+   "file": "thermometer.png",
+   "tone": "color",
+   "prompt": "a vintage glass wall thermometer with a red liquid column very low near the bottom, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "moon",
+   "file": "moon.png",
+   "tone": "bw",
+   "prompt": "black and white halftone vintage photograph, a full moon, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "voltmeter",
+   "file": "voltmeter.png",
+   "tone": "color",
+   "prompt": "a vintage analog voltmeter with a needle dial, front view, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "ladder",
+   "file": "ladder.png",
+   "tone": "color",
+   "prompt": "a small aluminium step ladder, standing open, side view, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "hand_reach",
+   "file": "hand_reach.png",
+   "tone": "color",
+   "prompt": "a human hand and forearm reaching straight up with fingers open, shirt cuff visible, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "house",
+   "file": "house.png",
+   "tone": "bw",
+   "prompt": "black and white halftone vintage photograph, a small suburban house at night with one lit window, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "ice_cube",
+   "file": "ice_cube.png",
+   "tone": "color",
+   "prompt": "a single clear ice cube, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "hand_phone",
+   "file": "hand_phone.png",
+   "tone": "color",
+   "prompt": "a human hand holding a modern smartphone upright with a plain blank black screen, shirt cuff visible, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_ceiling_night",
+   "file": "bg_ceiling_night.png",
+   "tone": "bg",
+   "prompt": "a dark navy blue bedroom ceiling at night lit by faint moonlight, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_wallpaper",
+   "file": "bg_wallpaper.png",
+   "tone": "bg",
+   "prompt": "a vintage 1970s floral wallpaper in mustard yellow and teal, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_frost",
+   "file": "bg_frost.png",
+   "tone": "bg",
+   "prompt": "an icy pale blue frosted window glass with frost patterns, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_stars",
+   "file": "bg_stars.png",
+   "tone": "bg",
+   "prompt": "a deep navy night sky with faint stars, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_red",
+   "file": "bg_red.png",
+   "tone": "bg",
+   "prompt": "a deep red painted plaster wall, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  }
+ ],
+ "reused": {
+  "hand_point": "daily/2026-10-04/reel-1/elements",
+  "bg_dark": "daily/2026-10-05/reel-2/elements",
+  "calendar": "daily/2026-10-04/reel-1/elements"
+ }
+}

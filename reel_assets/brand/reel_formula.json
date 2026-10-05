@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-10-04",
+  "updated": "2026-10-05",
   "page": {
     "display_name": "The Hidden Why",
     "handle_candidate": "@thehiddenwhy",
@@ -556,5 +556,86 @@
       "severity": "major"
     }
   ],
-  "qa_gate_rule": "Post only if 0 blockers fail and <= 2 majors fail. Otherwise fix and re-render, or skip the day."
+  "qa_gate_rule": "Post only if 0 blockers fail and <= 2 majors fail. Otherwise fix and re-render, or skip the day.",
+  "hook": {
+    "rule": "FEAR + CURIOSITY (owner direction 2026-10-05): every Reel opens with a concrete, hedged, literally-true stake tied to an everyday object (beat 1), then a reversal open loop that hides the why/how (beat 2). Fear comes from the stake, never from scary vocabulary.",
+    "beat1": {
+      "max_words": 10,
+      "target_words": 8,
+      "speech_done_by_s": 1.6,
+      "must_include": [
+        "you/your or 'this/that' + the object noun within the first 4 words",
+        "a concrete stake (life, body part, fire, air, money, safety device failing)",
+        "a modal hedge when the stake is a possibility (can, might, may, often)"
+      ],
+      "must_be_true_standalone": true,
+      "object_on_frame0": true
+    },
+    "beat2": {
+      "role": "reversal open loop: rule out the obvious answer or tease a second twist; answer lands in the payoff window (78-92%)",
+      "examples": [
+        "And no, it's not mainly for the ink.",
+        "And it's not bad luck that it's always at night.",
+        "And one kind of shoe gets caught the most."
+      ]
+    },
+    "rules": [
+      "Stakes come from the object, not scary words; banned: terrifying, deadly secret, horrifying, scary, shocking, you won't believe (fear-word headlines lowered CTR in Robertson et al. 2023; Meta flags such clickbait phrasing).",
+      "'You/your' + object noun in the first 4 words; object visible and caption on screen from frame 0.",
+      "Beat 1 must pass a fact-check on its own; hedge spoken AND in caption; no stat below High confidence in beat 1.",
+      "Hide the why, not the what: name object + stake, withhold only the mechanism (curiosity-gap concreteness curve, Sci Rep 2025).",
+      "<=8 words target, 10 hard cap, spoken by ~1.5-1.6s.",
+      "Proportionate danger from a regulator/standard/manufacturer/peer-reviewed source; label rare risks rare; health-adjacent fear is defused by beat 3-4 or the payoff; no medical advice; emergency numbers when a life is at stake.",
+      "No injury, crash-wreckage or child-in-distress visuals; no tragedy <30 days old as hook; no brand blamed.",
+      "CTA turns the stake into a useful save/send for a specific moment or person (awareness, not share-bait); never ask for likes/comments/tags."
+    ],
+    "banned_phrases": [
+      "you won't believe",
+      "this will shock you",
+      "terrifying",
+      "deadly secret",
+      "doctors hate",
+      "before it's too late"
+    ],
+    "templates": [
+      {
+        "id": "FC1",
+        "pattern": "The {detail} on your {object} can {save/protect stake}.",
+        "example": "The hole in your pen cap can save a life."
+      },
+      {
+        "id": "FC2",
+        "pattern": "Those {detail} are guarding your {body part/valued thing}.",
+        "beat2": "And they're not for {common belief}.",
+        "example": "Those escalator brushes are guarding your toes."
+      },
+      {
+        "id": "FC3",
+        "pattern": "That {signal} means your {safety object} is {failing/dying}.",
+        "beat2": "And it's not bad luck that it's {timing quirk}.",
+        "example": "That 3 a.m. chirp means your smoke alarm is dying."
+      },
+      {
+        "id": "FC4",
+        "pattern": "There's a {alarming-looking feature} in your {object}. On purpose.",
+        "example": "Your plane window has a hole. On purpose."
+      },
+      {
+        "id": "FC5",
+        "pattern": "One {small everyday act} can {serious consequence}.",
+        "beat2": "That's why {object} still has {strange feature}.",
+        "example": "One hidden cigarette can set a plane on fire."
+      }
+    ],
+    "legacy_templates_note": "hook_templates H1-H10 remain valid only when a true fear stake is added.",
+    "clickbait_check": [
+      "Beat 1 true on its own with hedge spoken and on screen?",
+      "Reel pays off the exact promise of beat 1?",
+      "Stake backed by a High-confidence source in research.md?",
+      "Viewer at the end feels informed, not tricked?",
+      "No injury imagery, medical advice or trademark blamed?"
+    ],
+    "topic_gate": "Reject or bench a topic if it cannot carry an honest fear stake (e.g. fuel-gauge arrow, 2026-10-05).",
+    "playbook": "reel_assets/brand/hook_playbook.md"
+  }
 }
