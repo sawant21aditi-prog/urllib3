@@ -1,0 +1,137 @@
+{
+ "style": "single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio",
+ "elements": [
+  {
+   "name": "cap_top",
+   "file": "cap_top.png",
+   "tone": "color",
+   "prompt": "extreme close-up of the top of a blue ballpoint pen cap seen from directly above, showing the small round hole in the very tip of the cap clearly, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "pen_side",
+   "file": "pen_side.png",
+   "tone": "color",
+   "prompt": "a classic clear plastic hexagonal ballpoint pen with a blue cap, lying horizontal, side view, the tiny round hole on the side of the clear barrel clearly visible, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "chewed_cap",
+   "file": "chewed_cap.png",
+   "tone": "color",
+   "prompt": "a single chewed and bitten blue pen cap with teeth marks, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "head_airway",
+   "file": "head_airway.png",
+   "tone": "bw",
+   "prompt": "a vintage anatomical engraving of a human head and neck in side profile showing the mouth, throat and windpipe, black and white halftone vintage photograph, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "lungs",
+   "file": "lungs.png",
+   "tone": "bw",
+   "prompt": "a vintage anatomical engraving of the human windpipe and lungs, front view, black and white halftone vintage photograph, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "stethoscope",
+   "file": "stethoscope.png",
+   "tone": "color",
+   "prompt": "a doctor's stethoscope coiled, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "surgical_lamp",
+   "file": "surgical_lamp.png",
+   "tone": "color",
+   "prompt": "a round hospital operating-room surgical light, seen from below, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "big_ben",
+   "file": "big_ben.png",
+   "tone": "bw",
+   "prompt": "the Big Ben clock tower in London, black and white halftone vintage photograph, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "rule_book",
+   "file": "rule_book.png",
+   "tone": "color",
+   "prompt": "a closed vintage official safety standards booklet with a plain cover and an embossed seal, no text, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "globe",
+   "file": "globe.png",
+   "tone": "color",
+   "prompt": "a vintage world globe on a stand, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "beaker",
+   "file": "beaker.png",
+   "tone": "color",
+   "prompt": "a clear glass laboratory measuring beaker, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "phone",
+   "file": "phone.png",
+   "tone": "color",
+   "prompt": "a vintage red rotary telephone with the handset lifted, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "ink_blot",
+   "file": "ink_blot.png",
+   "tone": "color",
+   "prompt": "a single blue ink splash blot, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "pens_pile",
+   "file": "pens_pile.png",
+   "tone": "color",
+   "prompt": "a small pile of colourful ballpoint pens, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "hand_pen",
+   "file": "hand_pen.png",
+   "tone": "color",
+   "prompt": "a human hand holding a ballpoint pen as if about to write, seen from the side, shirt cuff visible, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "pointing_finger",
+   "file": "pointing_finger.png",
+   "tone": "color",
+   "prompt": "a human hand with the index finger pointing, seen from the side, shirt cuff visible, single object only, isolated on a plain pure white background, the entire object visible with generous margin, no shadow on the background, no text, no border, even studio lighting, photorealistic, high detail, vintage magazine collage cut-out look, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_notebook",
+   "file": "bg_notebook.png",
+   "tone": "bg",
+   "prompt": "a lined school notebook paper page with a red margin line, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_chalk",
+   "file": "bg_chalk.png",
+   "tone": "bg",
+   "prompt": "a dark green chalkboard surface with faint chalk dust and smudges, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_graph",
+   "file": "bg_graph.png",
+   "tone": "bg",
+   "prompt": "pale blue graph paper with a fine grid, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_hospital",
+   "file": "bg_hospital.png",
+   "tone": "bg",
+   "prompt": "a black and white photograph of a pale hospital wall with square tiles, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_dark",
+   "file": "bg_dark.png",
+   "tone": "bg",
+   "prompt": "a dark charcoal concrete wall with one soft spotlight pool in the middle, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  },
+  {
+   "name": "bg_desk",
+   "file": "bg_desk.png",
+   "tone": "bg",
+   "prompt": "a top-down photograph of an old wooden school desk surface with scratches, full-frame background texture filling the entire image edge to edge, no objects, no people, no text, subtle film grain, vintage print look, photorealistic, 9:16 vertical aspect ratio"
+  }
+ ]
+}
