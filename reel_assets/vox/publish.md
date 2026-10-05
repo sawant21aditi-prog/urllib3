@@ -1,7 +1,7 @@
 # The Placebo Button: Publishing Pack (PLACEBO FILES #01)
 
 ## Cover
-A dedicated still from beat 1 (sky-blue scene, yellow brass button). Cover text: **THIS ELEVATOR BUTTON IS OFTEN FAKE**, with FAKE highlighted in hot pink `#FF5C8A` (yellow would compete with the button). Keep the text within y 400–1500 at 1080×1920 so the 3:4 profile-grid crop doesn't cut it.
+A dedicated still from beat 1 (sky-blue scene, yellow brass button). Cover text: **STOP PRESSING THIS BUTTON**, with FAKE highlighted in hot pink `#FF5C8A` (yellow would compete with the button). Keep the text within y 400–1500 at 1080×1920 so the 3:4 profile-grid crop doesn't cut it.
 
 ## Instagram caption
 Why the elevator "close door" button often does nothing 🛗
