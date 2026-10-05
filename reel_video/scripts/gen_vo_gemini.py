@@ -7,7 +7,7 @@ Writes public/audio/vo.wav + public/timing.json + src/data/timing.json (same for
 import base64, json, os, subprocess, sys, tempfile, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gen_images import call  # shared Gemini REST helper (reads GEMINI_API_KEY)
-from gen_vo import ROOT, dur, HOOK_IDS_GAP, BODY_GAP, LAST_GAP
+from gen_vo import ROOT, dur, HOOK_IDS_GAP, BODY_GAP, LAST_GAP, MAX_PAUSE, tighten_pauses
 
 STYLE = ("You are the narrator of a viral, fast-paced educational explainer Reel. "
          "Sound like a real, charismatic human storyteller: varied pitch, natural rhythm, clear emphasis, energy that rises and falls. "
@@ -149,6 +149,7 @@ def main():
         tempo = 1.08 if hook else 1.04  # slightly tighter for Reels; atempo keeps pitch
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{a:.3f}", "-to", f"{e:.3f}", "-i", full, "-af",  # seek on input (before atempo)
                         f"afade=t=in:d=0.02,atempo={tempo}", seg], check=True)  # spans are already tight to speech (aligned on pauses)
+        tighten_pauses(seg, b.get("max_pause", MAX_PAUSE))
         d = dur(seg)
         gap = LAST_GAP if last else (HOOK_IDS_GAP if hook else BODY_GAP)
         scene = round(max(1.2 if hook else 1.6, d + gap), 2)

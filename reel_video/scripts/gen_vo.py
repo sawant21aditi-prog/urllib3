@@ -17,9 +17,10 @@ import json, os, shutil, subprocess, sys, tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODELS = os.path.expanduser("~/.cache/kokoro")
-HOOK_IDS_GAP = 0.15  # tight gap after hook beats
-BODY_GAP = 0.45  # breathing room after body beats
-LAST_GAP = 0.1  # last beat cuts straight into the loop
+HOOK_IDS_GAP = 0.06  # hook lines run straight into each other
+BODY_GAP = 0.15  # a short breath between lines; Reels punish dead air
+LAST_GAP = 0.05  # last beat cuts straight into the loop
+MAX_PAUSE = 0.3  # longest pause allowed INSIDE a line (per-beat override: "max_pause")
 
 
 def arg(name, default):
@@ -28,6 +29,30 @@ def arg(name, default):
 
 def dur(f):
     return float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f]))
+
+
+def tighten_pauses(path, max_pause=MAX_PAUSE, thresh_db=-40.0):
+    """Shorten every silence inside a line to at most max_pause seconds (cuts the excess from the middle)."""
+    import numpy as np
+    import soundfile as sf
+    audio, sr = sf.read(path)
+    mono = audio if audio.ndim == 1 else audio.mean(axis=1)
+    win = int(sr * 0.02)
+    rms = np.array([np.sqrt(np.mean(mono[i:i + win] ** 2)) + 1e-9 for i in range(0, len(mono), win)])
+    quiet = 20 * np.log10(rms) < thresh_db
+    keep, i, n = [], 0, len(quiet)
+    while i < n:
+        j = i
+        while j < n and quiet[j] == quiet[i]:
+            j += 1
+        a, b = i * win, min(j * win, len(mono))
+        if quiet[i] and 0 < i and j < n and (b - a) / sr > max_pause:  # interior silence only
+            half = int(max_pause * sr / 2)
+            keep += [audio[a:a + half], audio[b - half:b]]
+        else:
+            keep.append(audio[a:b])
+        i = j
+    sf.write(path, np.concatenate(keep), sr)
 
 
 def spoken(text):
@@ -54,6 +79,7 @@ def main():
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-af",
                         "silenceremove=start_periods=1:start_threshold=-45dB,areverse,"
                         "silenceremove=start_periods=1:start_threshold=-45dB,areverse", trim], check=True)
+        tighten_pauses(trim, b.get("max_pause", MAX_PAUSE))
         d = dur(trim)
         gap = LAST_GAP if last else (HOOK_IDS_GAP if hook else BODY_GAP)
         scene = round(max(1.2 if hook else 1.6, d + gap), 2)
