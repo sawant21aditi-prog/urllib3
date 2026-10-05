@@ -75,6 +75,17 @@ cd reel_video && GEMINI_API_KEY=$GEMINI_API_KEY python3 scripts/gen_vo_gemini.py
 - Never speed the voice up.
 - Line gaps are a 0.32s breath. Pauses inside a line are capped at 0.45s (`max_pause` per beat, up to 0.6s for a deliberate deadpan beat).
 
+**Ending rule: end with a share or save trigger, never on a fact** (user decision, running experiment):
+- The LAST beat is an explicit call to action, spoken and on screen.
+- For the next Reels, follow the `cta_type` column in `reel_assets/experiments/cta_test.csv`, in order (send / save alternating). Fill in the row's `topic` and `cta_line` when you script it.
+  - **Send:** "Send this to someone who <specific behaviour tied to the topic>."
+  - **Save:** "Save this for <specific future moment>." For example: "Save this for your next elevator argument."
+- Make it specific to the topic and to a real person or moment. Never a generic "share this".
+- Set `"cta": "send" | "save"` on that beat.
+- The visual for the last beat should show the action: a pointing hand or phone with a code-drawn paper-plane send icon or bookmark icon (no Instagram logo), plus the caption in yellow.
+- The loop still works: the CTA line hands straight back to the hook.
+- After the experiment ends (Reel #6), read `reel_assets/experiments/README.md` and keep the winning style.
+
 **Hook rules** (the user asked for strong hooks):
 - Open with a direct command or a shocking claim about an everyday object, e.g. "Stop pressing this button."
 - Hedge it so it stays true ("probably", "often").

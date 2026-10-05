@@ -149,15 +149,16 @@
   },
   {
    "id": 13,
-   "narration": "So next time you chew a pen, remember:",
-   "caption": "REMEMBER",
-   "highlight": "REMEMBER",
-   "direction": "Friendly and direct, building toward the end, lead straight into the first line.",
+   "narration": "Send this to someone who chews every pen they touch.",
+   "caption": "SEND THIS TO A PEN CHEWER",
+   "highlight": "SEND",
+   "direction": "Friendly, direct to camera, playful and a little teasing, like you're nudging the viewer to share. Smile in the voice.",
    "scene": {
     "bg": "bg_notebook",
     "props": [],
-    "bold": "chew"
-   }
+    "bold": "Send"
+   },
+   "cta": "send"
   }
  ]
 }

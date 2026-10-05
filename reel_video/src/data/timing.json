@@ -1,83 +1,83 @@
 {
- "total": 43.3,
+ "total": 43.99,
  "beats": [
   {
    "id": 1,
    "start": 0.0,
-   "speech": 1.9,
-   "duration": 2.08
+   "speech": 1.73,
+   "duration": 1.91
   },
   {
    "id": 2,
-   "start": 2.08,
-   "speech": 2.62,
-   "duration": 2.8
+   "start": 1.91,
+   "speech": 2.95,
+   "duration": 3.13
   },
   {
    "id": 3,
-   "start": 4.88,
-   "speech": 2.7,
-   "duration": 3.02
+   "start": 5.04,
+   "speech": 2.64,
+   "duration": 2.96
   },
   {
    "id": 4,
-   "start": 7.9,
-   "speech": 4.14,
-   "duration": 4.46
+   "start": 8.0,
+   "speech": 3.68,
+   "duration": 4.0
   },
   {
    "id": 5,
-   "start": 12.36,
-   "speech": 5.41,
-   "duration": 5.73
+   "start": 12.0,
+   "speech": 5.06,
+   "duration": 5.38
   },
   {
    "id": 6,
-   "start": 18.09,
-   "speech": 3.71,
-   "duration": 4.03
+   "start": 17.38,
+   "speech": 3.74,
+   "duration": 4.06
   },
   {
    "id": 7,
-   "start": 22.12,
-   "speech": 3.36,
-   "duration": 3.68
+   "start": 21.44,
+   "speech": 3.49,
+   "duration": 3.81
   },
   {
    "id": 8,
-   "start": 25.8,
-   "speech": 3.72,
-   "duration": 4.04
+   "start": 25.25,
+   "speech": 3.73,
+   "duration": 4.05
   },
   {
    "id": 9,
-   "start": 29.84,
-   "speech": 2.51,
-   "duration": 2.83
+   "start": 29.3,
+   "speech": 2.94,
+   "duration": 3.26
   },
   {
    "id": 10,
-   "start": 32.67,
-   "speech": 2.3,
-   "duration": 2.62
+   "start": 32.56,
+   "speech": 2.37,
+   "duration": 2.69
   },
   {
    "id": 11,
-   "start": 35.29,
-   "speech": 1.98,
-   "duration": 2.3
+   "start": 35.25,
+   "speech": 2.13,
+   "duration": 2.45
   },
   {
    "id": 12,
-   "start": 37.59,
-   "speech": 3.21,
-   "duration": 3.53
+   "start": 37.7,
+   "speech": 3.23,
+   "duration": 3.55
   },
   {
    "id": 13,
-   "start": 41.12,
-   "speech": 2.1,
-   "duration": 2.18
+   "start": 41.25,
+   "speech": 2.66,
+   "duration": 2.74
   }
  ]
 }
