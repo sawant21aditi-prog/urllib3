@@ -1,0 +1,122 @@
+diff --git a/remotion-composer/src/CinematicRenderer.tsx b/remotion-composer/src/CinematicRenderer.tsx
+index 926c59c..9318c5c 100644
+--- a/remotion-composer/src/CinematicRenderer.tsx
++++ b/remotion-composer/src/CinematicRenderer.tsx
+@@ -1,5 +1,5 @@
+ import React from "react";
+-import { loadFont } from "@remotion/google-fonts/SpaceGrotesk";
++import { loadFont } from "./gf/SpaceGrotesk";
+ import {
+   AbsoluteFill,
+   Audio,
+diff --git a/remotion-composer/src/CollageBurst.tsx b/remotion-composer/src/CollageBurst.tsx
+index 77cf0c7..e34c0b4 100644
+--- a/remotion-composer/src/CollageBurst.tsx
++++ b/remotion-composer/src/CollageBurst.tsx
+@@ -10,7 +10,7 @@ import {
+   useVideoConfig,
+ } from "remotion";
+ import React from "react";
+-import { loadFont as loadPlayfair } from "@remotion/google-fonts/PlayfairDisplay";
++import { loadFont as loadPlayfair } from "./gf/PlayfairDisplay";
+ import { resolveAsset } from "./lib/resolveAsset";
+ 
+ const { fontFamily: playfairFamily } = loadPlayfair("normal", {
+diff --git a/remotion-composer/src/Explainer.tsx b/remotion-composer/src/Explainer.tsx
+index 99dd637..9884312 100644
+--- a/remotion-composer/src/Explainer.tsx
++++ b/remotion-composer/src/Explainer.tsx
+@@ -9,7 +9,7 @@ import {
+   useCurrentFrame,
+   useVideoConfig,
+ } from "remotion";
+-import { loadFont } from "@remotion/google-fonts/SpaceGrotesk";
++import { loadFont } from "./gf/SpaceGrotesk";
+ import { TextCard } from "./components/TextCard";
+ import { StatCard } from "./components/StatCard";
+ import { CalloutBox } from "./components/CalloutBox";
+diff --git a/remotion-composer/src/LyricOverlay.tsx b/remotion-composer/src/LyricOverlay.tsx
+index 287110f..38ff6a1 100644
+--- a/remotion-composer/src/LyricOverlay.tsx
++++ b/remotion-composer/src/LyricOverlay.tsx
+@@ -7,7 +7,7 @@ import {
+   useVideoConfig,
+ } from "remotion";
+ import React from "react";
+-import { loadFont as loadPlayfair } from "@remotion/google-fonts/PlayfairDisplay";
++import { loadFont as loadPlayfair } from "./gf/PlayfairDisplay";
+ import { resolveAsset } from "./lib/resolveAsset";
+ 
+ const { fontFamily: playfairItalic } = loadPlayfair("italic", {
+diff --git a/remotion-composer/src/Root.tsx b/remotion-composer/src/Root.tsx
+index d837f14..8c7a124 100644
+--- a/remotion-composer/src/Root.tsx
++++ b/remotion-composer/src/Root.tsx
+@@ -1,3 +1,4 @@
++import "./gf/preload";
+ import { Composition, CalculateMetadataFunction } from "remotion";
+ import { Explainer, ExplainerProps } from "./Explainer";
+ import {
+diff --git a/remotion-composer/src/TitledVideo.tsx b/remotion-composer/src/TitledVideo.tsx
+index 0f710ca..bb093c9 100644
+--- a/remotion-composer/src/TitledVideo.tsx
++++ b/remotion-composer/src/TitledVideo.tsx
+@@ -9,7 +9,7 @@ import {
+   useVideoConfig,
+ } from "remotion";
+ import { getVideoMetadata } from "@remotion/media-utils";
+-import { loadFont } from "@remotion/google-fonts/PlayfairDisplay";
++import { loadFont } from "./gf/PlayfairDisplay";
+ import { resolveAsset } from "./lib/resolveAsset";
+ 
+ // Editorial serif for the tagline — Playfair Display at its boldest weight.
+diff --git a/remotion-composer/src/gf/PlayfairDisplay.ts b/remotion-composer/src/gf/PlayfairDisplay.ts
+new file mode 100644
+index 0000000..a6f9ff3
+--- /dev/null
++++ b/remotion-composer/src/gf/PlayfairDisplay.ts
+@@ -0,0 +1,2 @@
++import { makeLoader } from "./local";
++export const loadFont = (..._args: unknown[]) => makeLoader("Playfair Display")();
+diff --git a/remotion-composer/src/gf/SpaceGrotesk.ts b/remotion-composer/src/gf/SpaceGrotesk.ts
+new file mode 100644
+index 0000000..b46097e
+--- /dev/null
++++ b/remotion-composer/src/gf/SpaceGrotesk.ts
+@@ -0,0 +1,2 @@
++import { makeLoader } from "./local";
++export const loadFont = (..._args: unknown[]) => makeLoader("Space Grotesk")();
+diff --git a/remotion-composer/src/gf/local.ts b/remotion-composer/src/gf/local.ts
+new file mode 100644
+index 0000000..415d16a
+--- /dev/null
++++ b/remotion-composer/src/gf/local.ts
+@@ -0,0 +1,4 @@
++// Offline fonts: the render browser can't reach fonts.gstatic.com through this network, so the fonts are
++// bundled in public/gfonts. They are preloaded once at bundle start (preload.ts, imported by index.tsx);
++// loadFont() keeps the @remotion/google-fonts API shape and only returns the family name.
++export const makeLoader = (family: string) => () => ({ fontFamily: family });
+diff --git a/remotion-composer/src/gf/preload.ts b/remotion-composer/src/gf/preload.ts
+new file mode 100644
+index 0000000..5c209cc
+--- /dev/null
++++ b/remotion-composer/src/gf/preload.ts
+@@ -0,0 +1,18 @@
++// Bundled fonts as plain CSS @font-face (no delayRender: a module-level render handle hangs in multi-frame renders here).
++import { staticFile } from "remotion";
++
++const FILES: [string, string, string][] = [
++  ["Space Grotesk", "normal", "SpaceGrotesk-normal.woff2"],
++  ["Playfair Display", "normal", "PlayfairDisplay-normal.woff2"],
++  ["Playfair Display", "italic", "PlayfairDisplay-italic.woff2"],
++];
++
++if (typeof document !== "undefined" && !document.getElementById("om-gfonts")) {
++  const style = document.createElement("style");
++  style.id = "om-gfonts";
++  style.textContent = FILES.map(
++    ([family, st, file]) =>
++      `@font-face{font-family:'${family}';font-style:${st};font-weight:100 900;font-display:block;src:url(${staticFile(`gfonts/${file}`)}) format('woff2');}`,
++  ).join("\n");
++  document.head.appendChild(style);
++}

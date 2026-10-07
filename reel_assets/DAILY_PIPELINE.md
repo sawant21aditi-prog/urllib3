@@ -18,6 +18,9 @@ OpenMontage (agentic video toolkit; user request 2026-10-07), installed next to 
 ```bash
 cd /home/user && git clone --depth 1 https://github.com/calesthio/OpenMontage.git && (cd OpenMontage && make setup)
 # provider check: cd /home/user/OpenMontage && make preflight
+# offline fonts (its render browser can't reach fonts.gstatic.com here):
+cd /home/user/OpenMontage && git apply /home/user/urllib3/reel_video/scripts/openmontage_offline_fonts.patch
+# renders need: --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell
 ```
 How we use it: our own CollageReel engine (reel_video/) stays the renderer for the approved look. OpenMontage adds
 automated providers once keys are in its `.env` (never commit keys):
