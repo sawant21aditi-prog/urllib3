@@ -7,7 +7,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, Img, Sequence, interpolate, random, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import script from "../data/script.json";
-import timing from "../data/timing.json";
+import timingDefault from "../data/timing.json";
 import available from "../data/elements_available.json";
 import { theme } from "../theme";
 import { clamp } from "../components/lib";
@@ -52,6 +52,7 @@ type CBeat = { id: number; narration: string; scene?: Scene };
 
 /* ---------------- props ---------------- */
 const PropLayer: React.FC<{ p: Prop; speech: number; dur: number; index: number }> = ({ p, speech, dur, index }) => {
+  const { width: W, height: H } = useVideoConfig();
   const f = step(useCurrentFrame());
   const seed = index * 1.7 + p.x / 100;
   const at = Math.round((p.at ?? 0) * speech);
@@ -120,7 +121,7 @@ const PropLayer: React.FC<{ p: Prop; speech: number; dur: number; index: number 
   return (
     <>
     {sliding && (
-      <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: (p.z ?? 1) - 0.5 }}>
+      <svg width={W} height={H} style={{ position: "absolute", left: 0, top: 0, zIndex: (p.z ?? 1) - 0.5 }}>
         {[-0.25, 0, 0.22].map((k, i) => (
           <line key={i} x1={x + (fromLeft ? -1 : 1) * (p.w * 0.45)} y1={y + k * p.w} x2={x + (fromLeft ? -1 : 1) * (p.w * 0.45 + 260 + i * 60)} y2={y + k * p.w}
             stroke="rgba(255,255,255,0.85)" strokeWidth={10} strokeLinecap="round" />
@@ -128,14 +129,14 @@ const PropLayer: React.FC<{ p: Prop; speech: number; dur: number; index: number 
       </svg>
     )}
     {dustT >= 0 && dustT < 10 && (
-      <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: (p.z ?? 1) + 0.5 }}>
+      <svg width={W} height={H} style={{ position: "absolute", left: 0, top: 0, zIndex: (p.z ?? 1) + 0.5 }}>
         {[-1, -0.5, 0.5, 1].map((k, i) => (
           <circle key={i} cx={p.x + k * (p.w * 0.35 + dustT * 14)} cy={p.y + p.w * 0.55 - dustT * 3} r={22 + dustT * 4} fill="rgba(240,232,215,0.75)" opacity={1 - dustT / 10} />
         ))}
       </svg>
     )}
     {impact > 0 && (
-      <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: 6 }}>
+      <svg width={W} height={H} style={{ position: "absolute", left: 0, top: 0, zIndex: 6 }}>
         {Array.from({ length: 8 }).map((_, i) => {
           const a = (i / 8) * Math.PI * 2;
           return <line key={i} x1={ix + Math.cos(a) * 70} y1={iy + Math.sin(a) * 70} x2={ix + Math.cos(a) * 130} y2={iy + Math.sin(a) * 130} stroke="#FFD84A" strokeWidth={12} strokeLinecap="round" />;
@@ -187,6 +188,7 @@ const Sunburst: React.FC<{ x: number; y: number; r: number; color: string; at: n
 };
 
 const MarkerCircle: React.FC<{ x: number; y: number; r: number; at: number; color: string }> = ({ x, y, r, at, color }) => {
+  const { width: W, height: H } = useVideoConfig();
   const f = step(useCurrentFrame());
   const p = interpolate(f, [at, at + 8], [0, 1], clamp);
   if (p <= 0) return null;
@@ -198,7 +200,7 @@ const MarkerCircle: React.FC<{ x: number; y: number; r: number; at: number; colo
   }
   const len = 2 * Math.PI * r * 1.2;
   return (
-    <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: 5, overflow: "visible" }}>
+    <svg width={W} height={H} style={{ position: "absolute", left: 0, top: 0, zIndex: 5, overflow: "visible" }}>
       <path d={`M${pts.join(" L")}`} fill="none" stroke={color} strokeWidth={12} strokeLinecap="round" strokeDasharray={len} strokeDashoffset={len * (1 - p)} />
     </svg>
   );
@@ -206,13 +208,14 @@ const MarkerCircle: React.FC<{ x: number; y: number; r: number; at: number; colo
 
 /** Red marker X scrawled over something ("doesn't do anything"). */
 const Cross: React.FC<{ x: number; y: number; r: number; at: number }> = ({ x, y, r, at }) => {
+  const { width: W, height: H } = useVideoConfig();
   const f = step(useCurrentFrame());
   const p1 = interpolate(f, [at, at + 4], [0, 1], clamp);
   const p2 = interpolate(f, [at + 4, at + 8], [0, 1], clamp);
   if (p1 <= 0) return null;
   const L = r * 2.9;
   return (
-    <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: 7 }}>
+    <svg width={W} height={H} style={{ position: "absolute", left: 0, top: 0, zIndex: 7 }}>
       <path d={`M${x - r} ${y - r * 1.05} L${x + r * 1.05} ${y + r}`} stroke="#E5352B" strokeWidth={26} strokeLinecap="round" fill="none" strokeDasharray={L} strokeDashoffset={L * (1 - p1)} />
       <path d={`M${x + r} ${y - r} L${x - r * 1.02} ${y + r * 1.05}`} stroke="#E5352B" strokeWidth={26} strokeLinecap="round" fill="none" strokeDasharray={L} strokeDashoffset={L * (1 - p2)} />
     </svg>
@@ -220,12 +223,13 @@ const Cross: React.FC<{ x: number; y: number; r: number; at: number }> = ({ x, y
 };
 
 const Sparks: React.FC<{ x: number; y: number; at: number }> = ({ x, y, at }) => {
+  const { width: W, height: H } = useVideoConfig();
   const f = step(useCurrentFrame());
   const t = f - at;
   if (t < 0 || t > 14) return null;
   const p = t / 14;
   return (
-    <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: 6 }}>
+    <svg width={W} height={H} style={{ position: "absolute", left: 0, top: 0, zIndex: 6 }}>
       {Array.from({ length: 10 }).map((_, i) => {
         const a = (i / 10) * Math.PI * 2 + random(`sp${i}`);
         const r0 = 30 + p * 120, r1 = r0 + 60 * (1 - p);
@@ -292,8 +296,9 @@ const BigWord: React.FC<{ text: string; y: number; color: string; at: number }> 
   const f = step(useCurrentFrame());
   const t = f - at;
   if (t < 0) return null;
-  // Playfair 900 capitals are ~0.8em wide: fit the word inside ~960px (camera push adds ~8%)
-  const size = Math.min(400, 960 / Math.max(2.4, text.length * 0.8));
+  // Playfair 900 capitals are ~0.8em wide: fit the word inside ~89% of the frame width (camera push adds ~8%)
+  const { width: W } = useVideoConfig();
+  const size = Math.min(W > 1500 ? 380 : 400, (W * 0.89) / Math.max(2.4, text.length * 0.8));
   const reveal = interpolate(t, [0, 5], [0, 1], clamp);
   const drift = interpolate(f, [0, 300], [0, -18]);
   return (
@@ -308,13 +313,14 @@ const BigWord: React.FC<{ text: string; y: number; color: string; at: number }> 
 
 /** Little flapping birds drifting across (ambient life, like the reference). */
 const Birds: React.FC<{ y: number; count: number; at: number }> = ({ y, count, at }) => {
+  const { width: W, height: H } = useVideoConfig();
   const f = step(useCurrentFrame());
   if (f < at) return null;
   return (
-    <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: 4 }}>
+    <svg width={W} height={H} style={{ position: "absolute", left: 0, top: 0, zIndex: 4 }}>
       {Array.from({ length: count }).map((_, i) => {
         const sp = 7 + random(`bs${i}`) * 5;
-        const x = -80 + ((f - at) * sp + random(`bx${i}`) * 900) % 1240;
+        const x = -80 + ((f - at) * sp + random(`bx${i}`) * 900) % (W + 160);
         const yy = y + random(`by${i}`) * 260 + Math.sin((f + i * 7) / 6) * 10;
         const flap = Math.floor((f + i * 3) / 2.5) % 2 ? 10 : -6;
         const s = 0.7 + random(`bz${i}`) * 0.7;
@@ -355,6 +361,7 @@ const Counter: React.FC<{ x: number; y: number; from: number; to: number; at: nu
 
 /** Paper-plane "send" icon (generic, not a platform logo) that pops in, then flies off with a dashed trail. */
 const Plane: React.FC<{ x: number; y: number; at: number }> = ({ x, y, at }) => {
+  const { width: W, height: H } = useVideoConfig();
   const f = step(useCurrentFrame());
   const t = f - at;
   if (t < 0) return null;
@@ -362,7 +369,7 @@ const Plane: React.FC<{ x: number; y: number; at: number }> = ({ x, y, at }) => 
   const fly = interpolate(t, [10, 22], [0, 1], { ...clamp, easing: ease.in });
   const px = x + fly * 520, py = y - fly * 620;
   return (
-    <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0, zIndex: 9 }}>
+    <svg width={W} height={H} style={{ position: "absolute", left: 0, top: 0, zIndex: 9 }}>
       {fly > 0 && <path d={`M ${x} ${y} Q ${x + 160} ${y + 40} ${px} ${py}`} stroke="#FFFFFF" strokeWidth={9} strokeDasharray="22 18" fill="none" strokeLinecap="round" />}
       <g transform={`translate(${px} ${py}) rotate(-28) scale(${pop * 2.2})`}>
         <circle r={58} fill="#FFD21F" stroke="#1E1D1B" strokeWidth={5} />
@@ -397,11 +404,12 @@ const tornEdge = (p: number) => {
 };
 
 const TransitionIn: React.FC<{ kind: Scene["transition"]; children: React.ReactNode }> = ({ kind, children }) => {
+  const { height: H } = useVideoConfig();
   const f = step(useCurrentFrame());
   const p = interpolate(f, [0, 8], [0, 1], { ...clamp, easing: ease.out });
   if (!kind || kind === "cut" || p >= 1) return <AbsoluteFill>{children}</AbsoluteFill>;
   if (kind === "torn") return <AbsoluteFill style={{ clipPath: tornEdge(p), filter: "drop-shadow(0 -10px 0 #f4eee0)" }}>{children}</AbsoluteFill>;
-  if (kind === "slideUp") return <AbsoluteFill style={{ transform: `translateY(${(1 - p) * 1920}px)` }}>{children}</AbsoluteFill>;
+  if (kind === "slideUp") return <AbsoluteFill style={{ transform: `translateY(${(1 - p) * H}px)` }}>{children}</AbsoluteFill>;
   return <AbsoluteFill style={{ transform: `scale(${0.75 + 0.25 * p})`, opacity: p, filter: `blur(${(1 - p) * 12}px)` }}>{children}</AbsoluteFill>;
 };
 
@@ -426,6 +434,8 @@ const SceneCamera: React.FC<{ dur: number; hits: number[]; punch?: boolean; chil
 /* ---------------- kinetic captions (reference style: 1–3 words, uppercase, white, soft shadow) ---------------- */
 const Subtitle: React.FC<{ text: string; bold?: string; speech: number; dur: number }> = ({ text, bold, speech, dur }) => {
   const f = useCurrentFrame();
+  const { width: W, height: H } = useVideoConfig();
+  const wide = W > H;
   if (f >= dur) return null;
   const words = text.split(" ");
   const chunks: string[] = [];
@@ -443,10 +453,10 @@ const Subtitle: React.FC<{ text: string; bold?: string; speech: number; dur: num
   const b = (bold ?? "").split(" ").map(norm);
   const pop = interpolate(f - spans[idx].s0, [0, 2, 4], [0.85, 1.06, 1], clamp);
   return (
-    <div style={{ position: "absolute", left: 40, right: 40, top: 1250, display: "flex", justifyContent: "center", zIndex: 20 }}>
-      <div style={{ transform: `scale(${pop})`, fontFamily: theme.fonts.body, fontWeight: 900, fontSize: 64, letterSpacing: "0.01em", textAlign: "center",
+    <div style={{ position: "absolute", left: 40, right: 40, top: wide ? H - 190 : 1250, display: "flex", justifyContent: "center", zIndex: 20 }}>
+      <div style={{ transform: `scale(${pop})`, fontFamily: theme.fonts.body, fontWeight: 900, fontSize: wide ? 58 : 64, letterSpacing: "0.01em", textAlign: "center",
         color: "#FFFFFF", textShadow: "0 5px 0 rgba(0,0,0,0.45), 0 0 22px rgba(0,0,0,0.45)", textTransform: "uppercase",
-        WebkitTextStroke: "12px #1E1D1B", paintOrder: "stroke fill" /* solid outline: readable on light paper and dark scenes alike */ }}>
+        WebkitTextStroke: wide ? "10px #1E1D1B" : "12px #1E1D1B", paintOrder: "stroke fill" /* solid outline: readable on light paper and dark scenes alike */ }}>
         {spans[idx].c.split(" ").map((w, i) => (
           <span key={i} style={{ color: b.includes(norm(w)) ? "#FFD21F" : "#FFFFFF" }}>{w}{" "}</span>
         ))}
@@ -456,9 +466,12 @@ const Subtitle: React.FC<{ text: string; bold?: string; speech: number; dur: num
 };
 
 /* ---------------- composition ---------------- */
-export const CollageReel: React.FC = () => {
+type Timing = { total: number; beats: { start: number; speech: number; duration: number }[] };
+/** Default data = the current Reel. The long-form composition (CollageDoc) passes its own script, timing and voice track. */
+export const CollageReel: React.FC<{ beatsData?: { beats: unknown[] }; timingData?: Timing; vo?: string }> = ({ beatsData, timingData, vo }) => {
   const { fps, durationInFrames } = useVideoConfig();
-  const beats = script.beats as unknown as CBeat[];
+  const beats = (beatsData ?? script).beats as unknown as CBeat[];
+  const timing = timingData ?? (timingDefault as Timing);
   const cuts = timing.beats.map((t) => ({ from: Math.round(t.start * fps), dur: Math.round(t.duration * fps), speech: Math.round(t.speech * fps) }));
   return (
     <AbsoluteFill style={{ background: "#000" }}>
@@ -517,8 +530,8 @@ export const CollageReel: React.FC = () => {
           <Audio src={staticFile("sfx/whoosh.wav")} volume={0.25} />
         </Sequence>
       ))}
-      <Audio src={staticFile("audio/vo.wav")} volume={1} />
-      <Audio src={staticFile("sfx/music.wav")} volume={0.1} />
+      <Audio src={staticFile(vo ?? "audio/vo.wav")} volume={1} />
+      <Audio src={staticFile("sfx/music.wav")} volume={0.1} loop />
       {/* cohesive grade + grain */}
       <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(14,110,115,0.10), rgba(255,200,120,0.06))", mixBlendMode: "soft-light", pointerEvents: "none" }} />
     </AbsoluteFill>

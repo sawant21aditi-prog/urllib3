@@ -190,3 +190,13 @@ It also writes `reel-<n>/publish.md`:
 - Never invent facts. If a claim can't be sourced, drop the topic.
 - Never promise virality in captions or reports. We control hooks, retention, shareability and consistency.
 - 9:16 at 1080×1920 always; no watermarks or logos.
+
+## Long-form (YouTube, 16:9) — same method
+Pilot in `reel_assets/longform/pilot/` (research.md, outline.md, script.md by the Virality Agent).
+- Composition `CollageDoc` (1920×1080) runs the same CollageReel engine with its own data:
+  `reel_video/src/data/doc/script.json`, `reel_video/src/data/doc/timing.json`, voice `public/audio/doc_vo.wav`.
+  Positions are px on 1920×1080; the giant word sits around y 300–380, captions sit in the lower third automatically.
+- Voice, one Gemini request per chapter-sized block of beats (free tier ≈10 requests/day):
+  `python3 scripts/gen_vo_gemini.py src/data/doc/script.json --prefix doc --chunk 25`
+- Images: same ZAPI Flow hand-off, with backgrounds prompted as 16:9 ("16:9 horizontal aspect ratio").
+- Render: `npx remotion render src/index.ts CollageDoc out/doc.mp4 --codec h264 --crf 18 --concurrency 4 --browser-executable=...`

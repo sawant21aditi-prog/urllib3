@@ -151,32 +151,38 @@ def main():
     script_path = pos[0] if pos else os.path.join(ROOT, "src", "data", "script.json")
     voice, model = arg("--voice", "Puck"), arg("--model", "gemini-3.1-flash-tts-preview")
     beats = json.load(open(script_path))["beats"]
-    # ONE request for the whole script (free tier ≈10 requests/day). Keep the prompt short: long per-line notes
-    # make some TTS models improvise. Every line is verified afterwards with offline Whisper.
-    transcript = "\n\n".join(b["narration"] for b in beats)
-    prompt = (f"{STYLE} Hook lines punchy and urgent, the middle curious and wry, the payoff energetic, the last line friendly. "
-              "Read the transcript EXACTLY word for word. Do not add, remove or change any words. "
-              "Pause for about one second between lines.\n\nTRANSCRIPT:\n" + transcript)
-    body = {"contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"responseModalities": ["AUDIO"], "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voice}}}}}
+    # ONE request per Reel (free tier ~10 requests/day). Long-form: --chunk N voices N beats per request
+    # (chapter-sized blocks) and joins them. Every line is verified afterwards with offline Whisper.
+    prefix = arg("--prefix", "")  # e.g. "doc" -> public/audio/doc_vo.wav + src/data/doc/timing.json
+    chunk = int(arg("--chunk", "0")) or len(beats)
+    groups = [beats[i:i + chunk] for i in range(0, len(beats), chunk)]
     tmp = tempfile.mkdtemp()
-    full = os.path.join(tmp, "full.wav")
-    if "--reuse" in sys.argv:  # re-align a saved take without spending a request
-        subprocess.run(["cp", arg("--reuse", ""), full], check=True)
-    elif "--patch" in sys.argv:  # re-voice only the changed lines; keep the approved take for the rest
-        patch_take(model, voice, beats, arg("--patch", ""), json.load(open(arg("--old-script", "")))["beats"],
-                   {int(i) for i in arg("--ids", "").split(",")}, full, tmp)
-    else:
-        r = call("POST", f"models/{model}:generateContent", body)
-        pcm = base64.b64decode(r["candidates"][0]["content"]["parts"][0]["inlineData"]["data"])
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "s16le", "-ar", "24000", "-ac", "1", "-i", "-", full], input=pcm, check=True)
-    keep = os.path.join(ROOT, "public", "audio", f"vo_raw_{model}_{voice}.wav")
-    subprocess.run(["cp", full, keep], check=True)
-    aligned = fix_run_ons(full, align_beats(full, beats), beats)
-    verify(aligned, beats)
-    segs = [(a, e) for a, e, _, _ in aligned]
+    spans = []  # (take, start, end) per beat
+    for g, part in enumerate(groups):
+        full = os.path.join(tmp, f"full{g}.wav")
+        tag = (prefix + "_" if prefix else "") + f"{model}_{voice}" + (f"_{g}" if len(groups) > 1 else "")
+        keep = os.path.join(ROOT, "public", "audio", f"vo_raw_{tag}.wav")
+        if "--reuse" in sys.argv:  # re-align saved takes without spending requests
+            subprocess.run(["cp", arg("--reuse", "") if len(groups) == 1 else keep, full], check=True)
+        elif "--patch" in sys.argv:  # re-voice only the changed lines; keep the approved take for the rest
+            patch_take(model, voice, part, arg("--patch", ""), json.load(open(arg("--old-script", "")))["beats"],
+                       {int(i) for i in arg("--ids", "").split(",")}, full, tmp)
+        else:
+            prompt = (f"{STYLE} Hook lines punchy and urgent, the middle curious and wry, the payoff energetic, the last line friendly. "
+                      "Read the transcript EXACTLY word for word. Do not add, remove or change any words. "
+                      "Pause for about one second between lines.\n\nTRANSCRIPT:\n" + "\n\n".join(b["narration"] for b in part))
+            body = {"contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {"responseModalities": ["AUDIO"], "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voice}}}}}
+            r = call("POST", f"models/{model}:generateContent", body)
+            pcm = base64.b64decode(r["candidates"][0]["content"]["parts"][0]["inlineData"]["data"])
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "s16le", "-ar", "24000", "-ac", "1", "-i", "-", full], input=pcm, check=True)
+        if "--reuse" not in sys.argv:
+            subprocess.run(["cp", full, keep], check=True)
+        aligned = fix_run_ons(full, align_beats(full, part), part)
+        verify(aligned, part)
+        spans += [(full, a, e) for a, e, _, _ in aligned]
     parts, timing, t = [], [], 0.0
-    for n, (b, (a, e)) in enumerate(zip(beats, segs)):
+    for n, (b, (full, a, e)) in enumerate(zip(beats, spans)):
         last, hook = n == len(beats) - 1, n < 2
         seg = os.path.join(tmp, f"{n:02d}_s.wav")
         # pace control (atempo keeps pitch): 1.0 = the voice's natural pace; <1 slows. Target ~155-165 wpm overall.
@@ -196,9 +202,10 @@ def main():
     lst = os.path.join(tmp, "list.txt")
     open(lst, "w").write("".join(f"file '{p}'\n" for p in parts))
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-af",
-                    "loudnorm=I=-14:TP=-1.5:LRA=9", "-ar", "48000", os.path.join(ROOT, "public", "audio", "vo.wav")], check=True)
+                    "loudnorm=I=-14:TP=-1.5:LRA=9", "-ar", "48000", os.path.join(ROOT, "public", "audio", (prefix + "_" if prefix else "") + "vo.wav")], check=True)
     out = {"total": round(t, 2), "beats": timing}
-    for p in (os.path.join(ROOT, "public", "timing.json"), os.path.join(ROOT, "src", "data", "timing.json")):
+    outs = [os.path.join(ROOT, "src", "data", prefix, "timing.json")] if prefix else [os.path.join(ROOT, "public", "timing.json"), os.path.join(ROOT, "src", "data", "timing.json")]
+    for p in outs:
         json.dump(out, open(p, "w"), indent=1)
     words = sum(len(b["narration"].split()) for b in beats)
     print(f"{voice} via {model}: {round(t, 2)}s, {round(words / t * 60)} wpm overall")
