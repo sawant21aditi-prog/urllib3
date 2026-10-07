@@ -14,6 +14,18 @@ pip install kokoro-onnx soundfile
 mkdir -p ~/.cache/kokoro && (cd ~/.cache/kokoro && for f in kokoro-v1.0.onnx voices-v1.0.bin; do \
   curl -sSLO https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/$f; done)
 ```
+OpenMontage (agentic video toolkit; user request 2026-10-07), installed next to the repo:
+```bash
+cd /home/user && git clone --depth 1 https://github.com/calesthio/OpenMontage.git && (cd OpenMontage && make setup)
+# provider check: cd /home/user/OpenMontage && make preflight
+```
+How we use it: our own CollageReel engine (reel_video/) stays the renderer for the approved look. OpenMontage adds
+automated providers once keys are in its `.env` (never commit keys):
+- `GOOGLE_API_KEY` (same Gemini key): `gemini_tts` voice; `google_imagen` / `veo_video` need a paid-tier key.
+- `FAL_KEY` (paid, cents per image): `gemini_fal_image` etc. generate the element images automatically, replacing the manual ZAPI Flow step.
+- Free with no key: `pixabay_music` search, `audio_mixer`, `visual_qa`, `frame_sampler`, `subtitle_gen`, `video_compose`, Piper offline TTS.
+Without a key, keep the manual Flow hand-off in step 5.
+
 Chromium for rendering: `--browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell`.
 
 ## 1. Virality Agent: daily research (thorough)
