@@ -1,0 +1,33 @@
+{
+ "title": "engine test",
+ "server": "The Group Chat",
+ "channel": "general",
+ "characters": [
+  {"id": "max", "name": "Max", "animal": "cat", "color": "#F2A65A"},
+  {"id": "zoe", "name": "Zoe", "animal": "bunny", "color": "#F28FB1"},
+  {"id": "ben", "name": "Ben", "animal": "dog", "color": "#7FB3F5"},
+  {"id": "ivy", "name": "Ivy", "animal": "frog", "color": "#7ED957"},
+  {"id": "otto", "name": "Otto", "animal": "owl", "color": "#C9A0FF"}
+ ],
+ "events": [
+  {"type": "card", "text": "Group project. Due tomorrow."},
+  {"type": "typing", "from": "max", "dur": 1.2},
+  {"type": "msg", "from": "max", "text": "guys"},
+  {"type": "msg", "from": "max", "text": "who finished their part of the slides"},
+  {"type": "pause", "dur": 1.2},
+  {"type": "sfx", "name": "crickets"},
+  {"type": "pause", "dur": 1.5},
+  {"type": "msg", "from": "zoe", "text": "what slides 😃"},
+  {"type": "msg", "from": "max", "text": "THE ONES DUE TOMORROW ZOE", "sfx": "boom", "hold": 0.6},
+  {"type": "react", "target": "last", "emoji": "skull"},
+  {"type": "react", "target": "last", "emoji": "skull"},
+  {"type": "join", "from": "otto"},
+  {"type": "msg", "from": "otto", "text": "i finished mine last week", "reply": 1},
+  {"type": "msg", "from": "ben", "text": "teachers pet"},
+  {"type": "edit", "target": "last", "text": "legend honestly"},
+  {"type": "msg", "from": "ivy", "text": "can i just do the title slide"},
+  {"type": "delete", "target": "last"},
+  {"type": "rename", "from": "max", "name": "Max (doing everything)"},
+  {"type": "msg", "from": "max", "text": "cool cool cool"}
+ ]
+}

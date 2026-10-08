@@ -5,6 +5,9 @@ import { RealReel } from "./real/RealReel";
 import { VoxReel } from "./vox/VoxReel";
 import { CollageReel } from "./collage/CollageReel";
 import { Avatar } from "./brand/Avatar";
+import { ChatSkit } from "./chat/ChatSkit";
+import { ChatScript, compile } from "./chat/compile";
+import comedyScript from "./data/comedy/script.json";
 import timing from "./data/timing.json";
 import docScript from "./data/doc/script.json";
 import docTiming from "./data/doc/timing.json";
@@ -19,6 +22,10 @@ export const RemotionRoot: React.FC = () => (
     {/* long-form YouTube pilot: same collage engine, 16:9 */}
     <Composition id="CollageDoc" component={CollageReel} durationInFrames={Math.max(30, Math.round(docTiming.total * FPS))} fps={FPS} width={1920} height={1080}
       defaultProps={{ beatsData: docScript, timingData: docTiming, vo: "audio/doc_vo.wav" }} />
+    {/* comedy channel: long-form chat skits (16:9), length computed from the script */}
+    <Composition id="ChatSkit" component={ChatSkit} fps={FPS} width={1920} height={1080} durationInFrames={300}
+      defaultProps={{ script: comedyScript as unknown as ChatScript }}
+      calculateMetadata={({ props }) => ({ durationInFrames: compile(props.script).total })} />
     <Composition id="Avatar" component={Avatar} durationInFrames={1} fps={30} width={1080} height={1080} />
   </>
 );
