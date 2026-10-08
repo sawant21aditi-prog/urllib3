@@ -67,6 +67,7 @@ def main():
     pos = [a for i, a in enumerate(sys.argv[1:], 1) if not a.startswith("--") and not sys.argv[i - 1].startswith("--")]
     script_path = pos[0] if pos else os.path.join(ROOT, "src", "data", "script.json")
     voice, speed = arg("--voice", "am_michael"), float(arg("--speed", "1.0"))
+    prefix = arg("--prefix", "")  # e.g. "toon" -> public/audio/toon_vo.wav + src/data/toon/timing.json
     beats = json.load(open(script_path))["beats"]
     k = Kokoro(os.path.join(MODELS, "kokoro-v1.0.onnx"), os.path.join(MODELS, "voices-v1.0.bin"))
     tmp = tempfile.mkdtemp()
@@ -92,9 +93,10 @@ def main():
     open(lst, "w").write("".join(f"file '{p}'\n" for p in parts))
     os.makedirs(os.path.join(ROOT, "public", "audio"), exist_ok=True)
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-af",
-                    "loudnorm=I=-14:TP=-1.5:LRA=7", "-ar", "48000", os.path.join(ROOT, "public", "audio", "vo.wav")], check=True)
+                    "loudnorm=I=-14:TP=-1.5:LRA=7", "-ar", "48000", os.path.join(ROOT, "public", "audio", (prefix + "_" if prefix else "") + "vo.wav")], check=True)
     out = {"total": round(t, 2), "beats": timing}
-    for p in (os.path.join(ROOT, "public", "timing.json"), os.path.join(ROOT, "src", "data", "timing.json")):
+    outs = [os.path.join(ROOT, "src", "data", prefix, "timing.json")] if prefix else [os.path.join(ROOT, "public", "timing.json"), os.path.join(ROOT, "src", "data", "timing.json")]
+    for p in outs:
         json.dump(out, open(p, "w"), indent=1)
     shutil.rmtree(tmp)
     print(f"{voice}: {round(t, 2)}s", [b["duration"] for b in timing])

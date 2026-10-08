@@ -1,0 +1,910 @@
+{
+ "title": "I Tried to Return a Shirt and Entered a Boss Fight",
+ "cast": {
+  "gus": {
+   "color": "#FFC94A",
+   "hat": "none"
+  },
+  "cashier": {
+   "color": "#8EE3A1",
+   "hat": "glasses"
+  },
+  "kevin": {
+   "color": "#B497FF",
+   "hat": "tie"
+  }
+ },
+ "beats": [
+  {
+   "id": 1,
+   "narration": "It was a normal Tuesday. I had a shirt, a receipt, and no idea I was about to fight for my life.",
+   "scene": {
+    "bg": "street",
+    "cam": "push",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 640,
+      "y": 930,
+      "size": 396,
+      "expr": "happy",
+      "pose": "hold",
+      "talk": true,
+      "enter": "slide"
+     }
+    ],
+    "fx": [
+     {
+      "type": "label",
+      "who": "gus",
+      "text": "me",
+      "at": 0.1
+     }
+    ],
+    "bold": "fight life"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 2,
+   "narration": "The receipt was thirty-one days old.",
+   "scene": {
+    "bg": "red",
+    "cam": "punch",
+    "zoomOn": "gus",
+    "zoomAt": 0.5,
+    "chars": [
+     {
+      "who": "gus",
+      "x": 960,
+      "y": 930,
+      "size": 396,
+      "expr": "neutral",
+      "exprAt": [
+       [
+        0.5,
+        "shock"
+       ]
+      ]
+     }
+    ],
+    "fx": [
+     {
+      "type": "flash",
+      "at": 0.5
+     },
+     {
+      "type": "sfx",
+      "text": "31 DAYS",
+      "x": 960,
+      "y": 260,
+      "at": 0.5,
+      "color": "#FFFFFF"
+     }
+    ],
+    "bold": "thirty-one"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 3,
+   "narration": "The return policy is thirty days.",
+   "scene": {
+    "bg": "store",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 640,
+      "y": 930,
+      "size": 396,
+      "expr": "nervous",
+      "talk": true
+     }
+    ],
+    "fx": [
+     {
+      "type": "sweat",
+      "who": "gus",
+      "at": 0.2
+     },
+     {
+      "type": "sfx",
+      "text": "30",
+      "x": 1400,
+      "y": 330,
+      "at": 0.55,
+      "color": "#E5352B",
+      "size": 220,
+      "rot": 6
+     }
+    ],
+    "bold": "thirty"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 4,
+   "narration": "So I did what any reasonable adult would do.",
+   "scene": {
+    "bg": "gold",
+    "cam": "punch",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 960,
+      "y": 930,
+      "size": 396,
+      "expr": "sparkle",
+      "pose": "armsUp"
+     }
+    ],
+    "fx": [
+     {
+      "type": "sparkles",
+      "who": "gus",
+      "at": 0.1
+     },
+     {
+      "type": "speedlines",
+      "at": 0
+     }
+    ],
+    "bold": "reasonable"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 5,
+   "narration": "I folded the receipt so the date was hidden.",
+   "scene": {
+    "bg": "void",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 960,
+      "y": 930,
+      "size": 396,
+      "expr": "evil",
+      "pose": "hold",
+      "talk": true
+     }
+    ],
+    "fx": [
+     {
+      "type": "spotlight",
+      "who": "gus"
+     },
+     {
+      "type": "sfx",
+      "text": "*fold*",
+      "x": 1350,
+      "y": 380,
+      "at": 0.6,
+      "color": "#FFFFFF",
+      "size": 120
+     }
+    ],
+    "bold": "folded hidden"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 6,
+   "narration": "The cashier looked at me like she had seen this exact crime before.",
+   "scene": {
+    "bg": "store",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 640,
+      "y": 930,
+      "size": 396,
+      "expr": "nervous"
+     },
+     {
+      "who": "cashier",
+      "x": 1420,
+      "y": 930,
+      "size": 360,
+      "expr": "deadpan",
+      "enter": "pop"
+     }
+    ],
+    "fx": [
+     {
+      "type": "sweat",
+      "who": "gus",
+      "at": 0.4
+     },
+     {
+      "type": "label",
+      "who": "cashier",
+      "text": "Brenda, 22 years in returns",
+      "at": 0.3
+     }
+    ],
+    "bold": "crime"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 7,
+   "narration": "Then she said the six worst words in the English language.",
+   "scene": {
+    "bg": "store",
+    "zoomOn": "cashier",
+    "zoomAt": 0.55,
+    "chars": [
+     {
+      "who": "gus",
+      "x": 640,
+      "y": 930,
+      "size": 396,
+      "expr": "nervous"
+     },
+     {
+      "who": "cashier",
+      "x": 1420,
+      "y": 930,
+      "size": 360,
+      "expr": "deadpan"
+     }
+    ],
+    "fx": [
+     {
+      "type": "bubble",
+      "who": "cashier",
+      "text": "Can I see the FULL receipt?",
+      "at": 0.6
+     }
+    ],
+    "bold": "six worst"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 8,
+   "narration": "My soul left my body.",
+   "scene": {
+    "bg": "void",
+    "cam": "punch",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 960,
+      "y": 930,
+      "size": 396,
+      "expr": "dead"
+     }
+    ],
+    "fx": [
+     {
+      "type": "soul",
+      "who": "gus",
+      "at": 0.1
+     }
+    ],
+    "bold": "soul"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 9,
+   "narration": "I unfolded it. Slowly. Like a bomb.",
+   "scene": {
+    "bg": "red",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 960,
+      "y": 930,
+      "size": 396,
+      "expr": "panic",
+      "pose": "hold",
+      "talk": true
+     }
+    ],
+    "fx": [
+     {
+      "type": "speedlines",
+      "at": 0
+     },
+     {
+      "type": "sweat",
+      "who": "gus"
+     },
+     {
+      "type": "sfx",
+      "text": "TICK",
+      "x": 1420,
+      "y": 300,
+      "at": 0.5,
+      "color": "#FFFFFF",
+      "size": 140,
+      "rot": 10
+     }
+    ],
+    "bold": "bomb"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 10,
+   "narration": "She looked at the date. Then at me. Then back at the date.",
+   "scene": {
+    "bg": "store",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 640,
+      "y": 930,
+      "size": 396,
+      "expr": "nervous"
+     },
+     {
+      "who": "cashier",
+      "x": 1420,
+      "y": 930,
+      "size": 360,
+      "expr": "deadpan",
+      "exprAt": [
+       [
+        0.35,
+        "smug"
+       ],
+       [
+        0.7,
+        "evil"
+       ]
+      ]
+     }
+    ],
+    "fx": [
+     {
+      "type": "shake",
+      "at": 0.35,
+      "power": 0.4
+     },
+     {
+      "type": "shake",
+      "at": 0.7,
+      "power": 0.4
+     }
+    ],
+    "bold": "date"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 11,
+   "narration": "And then she did it.",
+   "scene": {
+    "bg": "void",
+    "cam": "still",
+    "chars": [
+     {
+      "who": "cashier",
+      "x": 960,
+      "y": 930,
+      "size": 360,
+      "expr": "evil"
+     }
+    ],
+    "fx": [
+     {
+      "type": "spotlight",
+      "who": "cashier"
+     }
+    ],
+    "bold": "did"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 12,
+   "narration": "She called the manager.",
+   "scene": {
+    "bg": "red",
+    "cam": "punch",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 960,
+      "y": 930,
+      "size": 396,
+      "expr": "shock",
+      "pose": "armsUp"
+     }
+    ],
+    "fx": [
+     {
+      "type": "flash",
+      "at": 0.4
+     },
+     {
+      "type": "shake",
+      "at": 0.4,
+      "power": 1.4
+     },
+     {
+      "type": "sfx",
+      "text": "MANAGER?!",
+      "x": 960,
+      "y": 250,
+      "at": 0.4
+     }
+    ],
+    "bold": "manager"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 13,
+   "narration": "You know when a final boss walks in and the music changes?",
+   "scene": {
+    "bg": "void",
+    "chars": [
+     {
+      "who": "kevin",
+      "x": 1100,
+      "y": 950,
+      "size": 432,
+      "expr": "evil",
+      "enter": "slide"
+     }
+    ],
+    "fx": [
+     {
+      "type": "aura",
+      "who": "kevin",
+      "color": "#FF3B3B",
+      "at": 0.2
+     },
+     {
+      "type": "speedlines",
+      "at": 0.2,
+      "color": "rgba(255,80,80,0.8)"
+     }
+    ],
+    "bold": "final boss"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated.",
+   "sound": [
+    {
+     "name": "drumroll",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "narration": "That. That happened.",
+   "scene": {
+    "bg": "store",
+    "cam": "still",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 640,
+      "y": 930,
+      "size": 396,
+      "expr": "deadpan"
+     },
+     {
+      "who": "kevin",
+      "x": 1420,
+      "y": 950,
+      "size": 432,
+      "expr": "evil"
+     }
+    ],
+    "fx": [
+     {
+      "type": "aura",
+      "who": "kevin",
+      "color": "#FF3B3B"
+     }
+    ],
+    "bold": "happened"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 15,
+   "narration": "His name tag said Kevin. His eyes said he had never lost a return in his life.",
+   "scene": {
+    "bg": "store",
+    "zoomOn": "kevin",
+    "zoomAt": 0.45,
+    "chars": [
+     {
+      "who": "gus",
+      "x": 640,
+      "y": 930,
+      "size": 396,
+      "expr": "nervous"
+     },
+     {
+      "who": "kevin",
+      "x": 1420,
+      "y": 950,
+      "size": 432,
+      "expr": "evil"
+     }
+    ],
+    "fx": [
+     {
+      "type": "label",
+      "who": "kevin",
+      "text": "KEVIN",
+      "at": 0.05
+     },
+     {
+      "type": "vein",
+      "who": "kevin",
+      "at": 0.5
+     }
+    ],
+    "bold": "Kevin never"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 16,
+   "narration": "I said, it's only one day late.",
+   "scene": {
+    "bg": "store",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 640,
+      "y": 930,
+      "size": 396,
+      "expr": "nervous",
+      "pose": "shrug",
+      "talk": true
+     },
+     {
+      "who": "kevin",
+      "x": 1420,
+      "y": 950,
+      "size": 432,
+      "expr": "deadpan"
+     }
+    ],
+    "fx": [
+     {
+      "type": "bubble",
+      "who": "gus",
+      "text": "it's ONE day...",
+      "at": 0.2
+     }
+    ],
+    "bold": "one day"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 17,
+   "narration": "Kevin said, policy is policy.",
+   "scene": {
+    "bg": "red",
+    "cam": "punch",
+    "chars": [
+     {
+      "who": "kevin",
+      "x": 960,
+      "y": 950,
+      "size": 432,
+      "expr": "rage",
+      "pose": "point"
+     }
+    ],
+    "fx": [
+     {
+      "type": "bubble",
+      "who": "kevin",
+      "text": "POLICY. IS. POLICY.",
+      "at": 0.3,
+      "shout": true
+     },
+     {
+      "type": "flash",
+      "at": 0.3
+     },
+     {
+      "type": "vein",
+      "who": "kevin",
+      "at": 0.3
+     }
+    ],
+    "bold": "policy"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 18,
+   "narration": "I had one move left.",
+   "scene": {
+    "bg": "gold",
+    "cam": "punch",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 960,
+      "y": 930,
+      "size": 396,
+      "expr": "rage",
+      "pose": "armsUp"
+     }
+    ],
+    "fx": [
+     {
+      "type": "aura",
+      "who": "gus",
+      "color": "#FFD84A"
+     },
+     {
+      "type": "speedlines",
+      "at": 0
+     },
+     {
+      "type": "sfx",
+      "text": "FINAL MOVE",
+      "x": 960,
+      "y": 240,
+      "at": 0.4
+     }
+    ],
+    "bold": "one move"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 19,
+   "narration": "I said, okay. Can I just exchange it then?",
+   "scene": {
+    "bg": "store",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 640,
+      "y": 930,
+      "size": 396,
+      "expr": "sparkle",
+      "talk": true
+     },
+     {
+      "who": "kevin",
+      "x": 1420,
+      "y": 950,
+      "size": 432,
+      "expr": "deadpan"
+     }
+    ],
+    "fx": [
+     {
+      "type": "sparkles",
+      "who": "gus"
+     },
+     {
+      "type": "bubble",
+      "who": "gus",
+      "text": "exchange? :)",
+      "at": 0.55
+     }
+    ],
+    "bold": "exchange"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 20,
+   "narration": "Kevin looked at the shirt. Then at the tag.",
+   "scene": {
+    "bg": "store",
+    "zoomOn": "kevin",
+    "zoomAt": 0.5,
+    "chars": [
+     {
+      "who": "gus",
+      "x": 640,
+      "y": 930,
+      "size": 396,
+      "expr": "sparkle"
+     },
+     {
+      "who": "kevin",
+      "x": 1420,
+      "y": 950,
+      "size": 432,
+      "expr": "deadpan"
+     }
+    ],
+    "fx": [],
+    "bold": "tag"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 21,
+   "narration": "And said, sir, this shirt isn't from our store.",
+   "scene": {
+    "bg": "red",
+    "cam": "punch",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 960,
+      "y": 930,
+      "size": 396,
+      "expr": "shock"
+     }
+    ],
+    "fx": [
+     {
+      "type": "flash",
+      "at": 0.45
+     },
+     {
+      "type": "shake",
+      "at": 0.45,
+      "power": 1.6
+     },
+     {
+      "type": "sfx",
+      "text": "WHAT",
+      "x": 960,
+      "y": 250,
+      "at": 0.45,
+      "size": 220
+     }
+    ],
+    "bold": "isn't"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 22,
+   "narration": "It wasn't.",
+   "scene": {
+    "bg": "store",
+    "cam": "still",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 640,
+      "y": 930,
+      "size": 396,
+      "expr": "deadpan"
+     },
+     {
+      "who": "kevin",
+      "x": 1420,
+      "y": 950,
+      "size": 432,
+      "expr": "smug"
+     }
+    ],
+    "fx": [
+     {
+      "type": "freeze",
+      "at": 0.2,
+      "text": "Narrator: it wasn't."
+     }
+    ],
+    "bold": "wasn't"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 23,
+   "narration": "I had been fighting over a shirt from the store next door.",
+   "scene": {
+    "bg": "street",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 960,
+      "y": 930,
+      "size": 396,
+      "expr": "cry",
+      "pose": "hold"
+     }
+    ],
+    "fx": [
+     {
+      "type": "rain",
+      "at": 0
+     }
+    ],
+    "bold": "next door"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated.",
+   "sound": [
+    {
+     "name": "bruh",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "narration": "Anyway. The shirt fits now. I wear it to the gym. And sometimes, Kevin is there.",
+   "scene": {
+    "bg": "office",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 640,
+      "y": 930,
+      "size": 396,
+      "expr": "smug",
+      "talk": true
+     },
+     {
+      "who": "kevin",
+      "x": 1450,
+      "y": 950,
+      "size": 432,
+      "expr": "smug",
+      "enter": "slide"
+     }
+    ],
+    "fx": [
+     {
+      "type": "shake",
+      "at": 0.75,
+      "power": 0.6
+     },
+     {
+      "type": "sfx",
+      "text": "!!",
+      "x": 640,
+      "y": 300,
+      "at": 0.78,
+      "color": "#E5352B"
+     }
+    ],
+    "bold": "Kevin"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  },
+  {
+   "id": 25,
+   "narration": "Subscribe, or the next receipt is yours.",
+   "scene": {
+    "bg": "gold",
+    "cam": "punch",
+    "chars": [
+     {
+      "who": "gus",
+      "x": 760,
+      "y": 930,
+      "size": 396,
+      "expr": "evil",
+      "pose": "point"
+     }
+    ],
+    "fx": [
+     {
+      "type": "sparkles",
+      "who": "gus"
+     },
+     {
+      "type": "sfx",
+      "text": "SUBSCRIBE",
+      "x": 1380,
+      "y": 300,
+      "at": 0.2,
+      "color": "#FFFFFF",
+      "size": 150,
+      "rot": 6
+     }
+    ],
+    "bold": "Subscribe"
+   },
+   "direction": "Deadpan, dry, conversational storyteller; comic timing; a little exasperated."
+  }
+ ]
+}

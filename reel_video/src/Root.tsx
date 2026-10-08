@@ -8,6 +8,9 @@ import { Avatar } from "./brand/Avatar";
 import { ChatSkit } from "./chat/ChatSkit";
 import { ChatScript, compile } from "./chat/compile";
 import comedyScript from "./data/comedy/script.json";
+import { Toon, ToonData } from "./toon/Toon";
+import toonScript from "./data/toon/script.json";
+import toonTiming from "./data/toon/timing.json";
 import timing from "./data/timing.json";
 import docScript from "./data/doc/script.json";
 import docTiming from "./data/doc/timing.json";
@@ -26,6 +29,9 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="ChatSkit" component={ChatSkit} fps={FPS} width={1920} height={1080} durationInFrames={300}
       defaultProps={{ script: comedyScript as unknown as ChatScript }}
       calculateMetadata={({ props }) => ({ durationInFrames: compile(props.script).total })} />
+    {/* storytime cartoon (16:9): deadpan narrator + code-drawn characters + crazy effects */}
+    <Composition id="Toon" component={Toon} fps={FPS} width={1920} height={1080} durationInFrames={Math.max(30, Math.round(toonTiming.total * FPS))}
+      defaultProps={{ data: toonScript as unknown as ToonData, timing: toonTiming, vo: "audio/toon_vo.wav" }} />
     <Composition id="Avatar" component={Avatar} durationInFrames={1} fps={30} width={1080} height={1080} />
   </>
 );
